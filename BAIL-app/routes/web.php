@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\UsersController;
+use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Users\UsersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,5 +23,12 @@ use Illuminate\Support\Facades\Route;
 
 // User Interface
 
-Route::get('/', [UsersController::class, 'index']);
+Route::get('/', [UsersController::class, 'home']);
 
+
+
+// Admin panel
+
+
+
+Route::get('/admin', [AdminController::class, 'home']);
