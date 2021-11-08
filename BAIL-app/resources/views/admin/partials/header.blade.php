@@ -1,24 +1,15 @@
-<section class="navbar">
-        <div class="container">
-            <div class="text-left "><h1>BAIL-Admin Panel</h1></div>
-
-            <div class="list text-right">
-                <ul>
-                    <li>
-                        <a href="#">Home</a>
-                    </li>
-                    <li>
-                        <a href="manage_admin">Admin</a>
-                    </li>
-                    <li>
-                        <a href="#">Catagories</a>
-                    </li>
-                    <li>
-                        <a href="#">Logout</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="clearfix"></div>
+<!-- Menu starts here -->
+<div class="menu text-right">
+            
+        <h1 class="text-left">BAIL-Admin panel</h1>
+        <div class="wrapper">
+            <ul>
+                <li><a href="{{route('home')}}">Home</a></li>
+                <li><a href="{{route('manage_admin')}}">Admin</a></li>
+                <li><a href="#">Catagories</a></li>
+                <li><a href="#">Stock</a></li>
+                <li><a href="#">Order</a></li>
+            </ul>
         </div>
-    </section>
+    </div>
+    <!-- Menu ends here -->

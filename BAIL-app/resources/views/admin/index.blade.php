@@ -9,7 +9,7 @@
 </head>
 <body>
     @include('admin.partials.header')
-    @yield('contents')
+    @yield('content')
     @include('admin.partials.footer')
 </body>
 </html>

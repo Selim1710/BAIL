@@ -1,8 +1,7 @@
-                                                   
-    <!-- footer Section Starts Here -->
-    <section class="footer">
-        <div class="container text-center">
-            <p>All rights reserved. Designed By <a href="#">Md.Selim Hossain Suhag</a></p>
-        </div>
-    </section>
-    <!-- footer Section Ends Here -->
+ <!-- footer starts here -->
+ <div class="footer">
+       <div class="wrapper">
+        <p class="text-center">2021 All rights reserve,some restaurant, Develop by <a href="#">Selim Hossain</a></p>
+       </div>
+    </div>
+    <!-- footer ends here -->
