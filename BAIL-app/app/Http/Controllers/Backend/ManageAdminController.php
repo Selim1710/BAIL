@@ -9,10 +9,10 @@ class ManageAdminController extends Controller
 {
     public function admin()
     {
-        return view('admin.layouts.manage_admin');
+        return view('admin.layouts.manage_product');
     }
 
-    public function add(){
-        return view('admin.layouts.add_admin');
+    public function add_product(){
+        return view('admin.layouts.add_product');
     }
 }

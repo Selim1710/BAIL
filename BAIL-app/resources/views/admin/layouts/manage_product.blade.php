@@ -6,12 +6,12 @@
     <!-- Main content section starts here -->
     <div class="main-content">
         <div class="wrapper">
-            <h1>Manage Admin</h1>
+            <h1>Manage Product</h1>
 
             <br /><br />
 
             <!-- button to add admin -->
-            <a href="{{route('add_admin')}}" class="btn-primary">Add admin</a>
+            <a href="{{route('add_product')}}" class="btn-primary">Add Product</a>
 
             <br /><br /><br />
 

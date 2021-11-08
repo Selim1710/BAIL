@@ -5,10 +5,10 @@
         <div class="wrapper">
             <ul>
                 <li><a href="{{route('home')}}">Home</a></li>
-                <li><a href="{{route('manage_admin')}}">Admin</a></li>
-                <li><a href="#">Catagories</a></li>
+                <li><a href="{{route('manage_product')}}">Product</a></li>
+                <li><a href="#">Supplier</a></li>
                 <li><a href="#">Stock</a></li>
-                <li><a href="#">Order</a></li>
+                <li><a href="#">Logout</a></li>
             </ul>
         </div>
     </div>
