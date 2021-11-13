@@ -10,7 +10,7 @@
 
             <br /><br />
 
-            <!-- button to add admin -->
+            <!-- button to add product -->
             <a href="{{route('add_product')}}" class="btn-primary">Add Product</a>
 
             <br /><br /><br />

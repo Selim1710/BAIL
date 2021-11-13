@@ -13,6 +13,6 @@ class ManageAdminController extends Controller
     }
 
     public function add_product(){
-        return view('admin.layouts.add_product');
+        return view('admin.button.add_product');
     }
 }

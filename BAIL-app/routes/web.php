@@ -22,5 +22,5 @@ Route::get('/', [UsersController::class, 'home']);
 
 
 Route::get('/admin', [AdminController::class, 'home'])->name('home');
-Route::get('/manageProduct', [ManageAdminController::class,'admin'])->name('manage_product');
+Route::get('/ManageProduct', [ManageAdminController::class,'admin'])->name('manage_product');
 Route::get('/addProduct',[ManageAdminController::class,'add_product'])->name('add_product');
