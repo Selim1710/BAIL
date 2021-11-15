@@ -17,13 +17,24 @@
 
             <table class="full-width">
                 <tr>
-                    <th>SL</th>
-                    <th>Full neme</th>
-                    <th>User name</th>
-                    <th>Action</th>
+                    <th>Product Model</th>
+                    <th>Name</th>
+                    <th>Fuel Type</th>
+                    <th>Cubic Capacity</th>
+                    <th>Number of seats</th>
+                    <th>Color</th>
                 </tr>
 
                 <tr>
+                    <td>1001</td>
+                    <td>Model S Plaid</td>
+                    <td>Petrol</td>
+                    <td>2000</td>
+                    <td>6</td>
+                    <td>Black</td>
+                </tr>
+
+                <!-- <tr>
                     <td>1.</td>
                     <td>Selim Hossain</td>
                     <td>selimhossain</td>
@@ -32,29 +43,8 @@
                         <a href="#">Delete Admin</a>
 
                     </td>
-                </tr>
+                </tr> -->
 
-                <tr>
-                    <td>2.</td>
-                    <td>Selim Hossain</td>
-                    <td>selimhossain</td>
-                    <td>
-                        <a href="#">Update Admin</a>
-                        <a href="#">Delete Admin</a>
-
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>3.</td>
-                    <td>Selim Hossain</td>
-                    <td>selimhossain</td>
-                    <td>
-                        <a href="#">Update Admin</a>
-                        <a href="#">Delete Admin</a>
-
-                    </td>
-                </tr>
             </table>
 
 
