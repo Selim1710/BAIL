@@ -24,15 +24,19 @@
                     <th>Number of seats</th>
                     <th>Color</th>
                 </tr>
+                @foreach($products as $product)
 
-                <tr>
-                    <td>1001</td>
-                    <td>Model S Plaid</td>
-                    <td>Petrol</td>
-                    <td>2000</td>
-                    <td>6</td>
-                    <td>Black</td>
-                </tr>
+                    <tr>
+                        <td>{{$product->product_model}}</td>
+                        <td>{{$product->name}}</td>
+                        <td>{{$product->fuel_type}}</td>
+                        <td>{{$product->cubic_capacity}}</td>
+                        <td>{{$product->number_of_seats}}</td>
+                        <td>{{$product->color}}</td>
+                        
+                    </tr>
+                @endforeach  
+             
 
                 <!-- <tr>
                     <td>1.</td>
