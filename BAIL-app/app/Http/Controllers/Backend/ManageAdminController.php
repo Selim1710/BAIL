@@ -16,14 +16,18 @@ class ManageAdminController extends Controller
 
     public function add_product(){
         return view('admin.button.add_product');
+        // sent data into the table
+        
     }
-    // public function addProductForm(Request $request){
-    //     AddProduct::create([
-    //         'id'=>$request->input('id'),
-    //         'name'=>$request->input('name'),
-    //         'product_model'=>$request->input('product_model'),
-    //         'product_type'=>$request->input('product_type'),
-    //     ]);
-    //     return redirect()->back();
-    // }
+    public function addProductForm(Request $request){
+        AddProduct::create([
+            'product_model'=>$request->input('product_model'),
+            'name'=>$request->input('name'),
+            'fuel_type'=>$request->input('fuel_type'),
+            'cubic_capacity'=>$request->input('cubic_capacity'),
+            'number_of_seats'=>$request->input('number_of_seats'),
+            'color'=>$request->input('color')
+        ]);
+        return redirect()->back();
+    }
 }

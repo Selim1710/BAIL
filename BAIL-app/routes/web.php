@@ -26,4 +26,4 @@ Route::get('/ManageProduct', [ManageAdminController::class,'admin'])->name('mana
 Route::get('/add_Product',[ManageAdminController::class,'add_product'])->name('add_product');
 
 //route for post 
-// Route::post('/added',[ManageAdminController::class,'addProductForm'])->name('addProductForm');
+Route::post('/added',[ManageAdminController::class,'addProductForm'])->name('addProductForm');
