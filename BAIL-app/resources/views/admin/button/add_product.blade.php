@@ -6,8 +6,8 @@
   <div class="myform">
     <div class="wrapperf">
       <h2> Form</h2>
-      
-      <form action="{{route('addProductForm')}}" method="post" enctype="multipart/form-data">
+
+      <form action="{{route('store')}}" method="post" enctype="multipart/form-data">
         @csrf 
         <h2>Product Model</h2>
         <div class="input-box">

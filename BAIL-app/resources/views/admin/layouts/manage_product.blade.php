@@ -2,8 +2,6 @@
 
 @section('content')
 
-
-    <!-- Main content section starts here -->
     <div class="main-content">
         <div class="wrapper">
             <h1>Manage Product</h1>
@@ -11,8 +9,7 @@
             <br /><br />
 
             <!-- button to add product -->
-            <a href="{{route('add_product')}}" class="btn-primary">Add Product</a>
-
+            <a href="{{route('create')}}" class="btn-primary">Add Product</a>
             <br /><br /><br />
 
             <table class="full-width">
@@ -23,6 +20,7 @@
                     <th>Cubic Capacity</th>
                     <th>Number of seats</th>
                     <th>Color</th>
+                    <th>Action</th>
                 </tr>
                 @foreach($products as $product)
 
@@ -33,28 +31,19 @@
                         <td>{{$product->cubic_capacity}}</td>
                         <td>{{$product->number_of_seats}}</td>
                         <td>{{$product->color}}</td>
+                        <td>
+                            <a href="/product/{{$product->id}}">Delete</a>                                                                                                      
+                        </td>
                         
                     </tr>
-                @endforeach  
-             
-
-                <!-- <tr>
-                    <td>1.</td>
-                    <td>Selim Hossain</td>
-                    <td>selimhossain</td>
-                    <td>
-                        <a href="#">Update Admin</a>
-                        <a href="#">Delete Admin</a>
-
-                    </td>
-                </tr> -->
+                @endforeach 
 
             </table>
 
 
         </div>
     </div>
-    <!--Main content section ends here -->
+   
 
 
 

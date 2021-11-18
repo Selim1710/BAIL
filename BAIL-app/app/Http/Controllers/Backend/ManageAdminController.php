@@ -32,4 +32,5 @@ class ManageAdminController extends Controller
         ]);
         return redirect('/ManageProduct');
     }
+  
 }
