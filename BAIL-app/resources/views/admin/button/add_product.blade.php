@@ -33,6 +33,9 @@
         <div class="input-box">
           <input type="string" name="color" placeholder="Enter Color" required>
         </div>
+        <div class="input-box">
+          <input type="file" name="image" required>
+        </div>
         <div class="input-box button">
           <input type="Submit"value="Submit Now">
         </div>
