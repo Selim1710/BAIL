@@ -16,6 +16,7 @@
                 <tr>
                     <th>Product Model</th>
                     <th>Name</th>
+                    <th>images</th>
                     <th>Fuel Type</th>
                     <th>Cubic Capacity</th>
                     <th>Number of seats</th>
@@ -27,6 +28,7 @@
                     <tr>
                         <td>{{$product->product_model}}</td>
                         <td>{{$product->name}}</td>
+                        <td><img src="{{asset('/images/product/'.$product->image_path)}}" style="width:50px;height:50px" alt=""></td>
                         <td>{{$product->fuel_type}}</td>
                         <td>{{$product->cubic_capacity}}</td>
                         <td>{{$product->number_of_seats}}</td>

@@ -64,7 +64,7 @@ table tr td{
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #4070f4;
+  background: #dfe6e9;
 }
 .wrapperf{
   position: relative;
@@ -72,8 +72,6 @@ table tr td{
   width: 100%;
   background:#dfe6e9;
   padding: 34px;
-  border-radius: 6px;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
 }
 .wrapperf h2{
   position: relative;

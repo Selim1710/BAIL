@@ -5,7 +5,7 @@
  <!-- add product button -->
   <div class="myform">
     <div class="wrapperf">
-      <h2> Form</h2>
+      <h2> Add Product Here</h2>
 
       <form action="{{route('store')}}" method="post" enctype="multipart/form-data">
         @csrf 
@@ -34,7 +34,7 @@
           <input type="string" name="color" placeholder="Enter Color" required>
         </div>
         <div class="input-box">
-          <input type="file" name="image" required>
+          <input type="file" name="image_path" required>
         </div>
         <div class="input-box button">
           <input type="Submit"value="Submit Now">
