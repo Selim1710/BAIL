@@ -16,7 +16,7 @@ class EditProductController extends Controller
     public function index()
     {
         $products = AddProduct::all();
-        return view('admin.table.manage_product', [
+        return view('admin.layouts.tables.manage_product', [
             'products' => $products
         ]);
     }
@@ -28,7 +28,7 @@ class EditProductController extends Controller
      */
     public function create()
     {
-        return view('admin.form.add_product');
+        return view('admin.layouts.forms.add_product');
     }
 
     /**
@@ -58,44 +58,43 @@ class EditProductController extends Controller
         //we have set a rules where image will be chacked that it is valid or not
 
         $request->validate([
-            'product_model'=>'required',
-            'name'=>'required',
-            'cubic_capacity'=>'required',
-            'number_of_seats'=>'required',
-            'number_of_seats'=>'required',
-            'color'=>'required',
-            'image_path' =>'required|mimes:jpg,png,jpeg|max:1024'
+            'product_model' => 'required',
+            'name' => 'required',
+            'cubic_capacity' => 'required',
+            'number_of_seats' => 'required',
+            'number_of_seats' => 'required',
+            'color' => 'required',
+            'image_path' => 'required|mimes:jpg,png,jpeg|max:1024'
         ]);
 
         //now we will create variable
 
 
-        if($request->hasfile('image_path')){
+        if ($request->hasfile('image_path')) {
             $file = $request->file('image_path');
-            $filename=uniqid('photo_',true). '.' .$file->getClientOriginalName();
-            $file->move(public_path('images/product'),$filename);
+            $filename = uniqid('photo_', true) . '.' . $file->getClientOriginalName();
+            $file->move(public_path('images/product'), $filename);
         }
         // $new = time() . '-' . $request->name . '.' . $request->image->extension();
 
-        // $request->image->move(public_path('images'),$new);
+        // $request->image->move(public_path('images/product'),$new);
 
 
-            try{
-                AddProduct::create([
-                    'product_model' => $request->input('product_model'),
-                    'name' => $request->input('name'),
-                    'fuel_type' => $request->input('fuel_type'),
-                    'cubic_capacity' => $request->input('cubic_capacity'),
-                    'number_of_seats' => $request->input('number_of_seats'),
-                    'color' => $request->input('color'),
-                    'image_path' =>$filename
-                ]);
-                return redirect('/product');
-            } catch(\Throwable $throw){
-                return redirect('/product');
-
-            }
-            }
+        try {
+            AddProduct::create([
+                'product_model' => $request->input('product_model'),
+                'name' => $request->input('name'),
+                'fuel_type' => $request->input('fuel_type'),
+                'cubic_capacity' => $request->input('cubic_capacity'),
+                'number_of_seats' => $request->input('number_of_seats'),
+                'color' => $request->input('color'),
+                'image_path' => $filename,
+            ]);
+            return redirect('/product');
+        } catch (\Throwable $throw) {
+            return redirect('/product');
+        }
+    }
 
     /**
      * Display the specified resource.
@@ -116,7 +115,11 @@ class EditProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        //dd($id);
+        $products=AddProduct::findOrFail($id);
+        return view('admin.layouts.forms.edit_product',[
+            'products'=>$products
+        ]);
     }
 
     /**
@@ -126,9 +129,21 @@ class EditProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+         $products=AddProduct::findOrFail($request->id);
+         $products->product_model = $request->product_model;
+         $products->name = $request->name;
+         $products->fuel_type = $request->fuel_type;
+         $products->cubic_capacity = $request->cubic_capacity;
+         $products->number_of_seats = $request->number_of_seats;
+         $products->color = $request->color;
+         $products->image_path = $request->image_path;
+
+         $products->save();
+
+         return redirect('/product');
+
     }
 
     /**
@@ -139,8 +154,8 @@ class EditProductController extends Controller
      */
     public function destroy($id)
     {
-        $data = AddProduct::findOrFail($id);
-        $data->delete();
+        $products = AddProduct::findOrFail($id);
+        $products->delete();
         return redirect('/product');
     }
 }

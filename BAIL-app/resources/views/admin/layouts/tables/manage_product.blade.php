@@ -9,7 +9,7 @@
             <br /><br />
 
             <!-- button to add product -->
-            <a href="{{route('create')}}" class="btn-primary">Add Product</a>
+            <a href="{{route('product.create')}}" class="btn-primary">Add Product &rarr;</a>
             <br /><br /><br />
 
             <table class="full-width">
@@ -33,9 +33,13 @@
                         <td>{{$product->cubic_capacity}}</td>
                         <td>{{$product->number_of_seats}}</td>
                         <td>{{$product->color}}</td>
+
                         <td>
-                            <a href="/product/{{$product->id}}">Delete</a>                                                                                                      
+
+                            <a href="/product/edit/{{$product->id}}">Edit &rarr;</a> 
+                            <a href="/product/delete/{{$product->id}}">Delete</a>                                                                                                      
                         </td>
+                        
                         
                     </tr>
                 @endforeach 

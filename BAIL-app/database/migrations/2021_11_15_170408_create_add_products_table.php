@@ -24,7 +24,7 @@ class CreateAddProductsTable extends Migration
             $table->string('color');
             // $table->string('color')->nullable();
 
-            $table->timestamps();
+            // $table->timestamps();
         });
     }
 

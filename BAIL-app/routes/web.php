@@ -25,7 +25,9 @@ Route::get('/admin', [AdminController::class, 'home'])->name('home');
 
 //route for Product update and delete data
 
-Route::get('/product',[EditProductController::class,'index'])->name('index');
-Route::get('/product/create',[EditProductController::class,'create'])->name('create');
-Route::post('/product/store', [EditProductController::class,'store'])->name('store');
-Route::get('/product/{id}',[EditProductController::class,'destroy'])->name('destroy');
+Route::get('/product',[EditProductController::class,'index'])->name('product.index');
+Route::get('/product/create',[EditProductController::class,'create'])->name('product.create');
+Route::post('/product/store', [EditProductController::class,'store'])->name('product.store');
+Route::get('/product/edit/{id}',[EditProductController::class,'edit'])->name('product.edit');
+Route::post('/product/update',[EditProductController::class,'update'])->name('product.update');
+Route::get('/product/delete/{id}',[EditProductController::class,'destroy'])->name('product.destroy');
