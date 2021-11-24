@@ -21,21 +21,13 @@
         <div class="input-box">
           <input type="string" name="name" value="{{$products['name']}}" placeholder="Enter product name" required>
         </div>
-        <h2>Fuel Type</h2>
+        <h2>Product Type</h2>
         <div class="input-box">
-          <input type="string" name="fuel_type" value="{{$products['fuel_type']}}" placeholder="Enter Fuel Type" required>
+          <input type="string" name="product_type" value="{{$products['product_type']}}" placeholder="Enter product Type" required>
         </div>
-        <h2>Cubic Capacity</h2>
+        <h2>Product Details</h2>
         <div class="input-box">
-          <input type="string" name="cubic_capacity" value="{{$products['cubic_capacity']}}" placeholder="Enter Cubic Capacity" required>
-        </div>
-        <h2>Number of seats</h2>
-        <div class="input-box">
-          <input type="string" name="number_of_seats" value="{{$products['number_of_seats']}}" placeholder="Enter Number of seats" required>
-        </div>
-        <h2>Color</h2>
-        <div class="input-box">
-          <input type="string" name="color" value="{{$products['color']}}" placeholder="Enter Color" required>
+          <textarea type="string" name="product_details" value="" placeholder="Enter Product Details" required>{{$products['product_details']}}</textarea>
         </div>
         <div class="input-box">
           <input type="file" name="image_path" value="{{$products['image_path']}}" required>

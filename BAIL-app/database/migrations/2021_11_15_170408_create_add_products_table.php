@@ -18,10 +18,8 @@ class CreateAddProductsTable extends Migration
             
             $table->string('product_model');
             $table->string('name');
-            $table->string('fuel_type');
-            $table->string('cubic_capacity');
-            $table->string('number_of_seats');
-            $table->string('color');
+            $table->string('product_type');
+            $table->string('product_details');
             // $table->string('color')->nullable();
 
             // $table->timestamps();

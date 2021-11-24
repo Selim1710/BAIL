@@ -60,10 +60,8 @@ class EditProductController extends Controller
         $request->validate([
             'product_model' => 'required',
             'name' => 'required',
-            'cubic_capacity' => 'required',
-            'number_of_seats' => 'required',
-            'number_of_seats' => 'required',
-            'color' => 'required',
+            'product_type' => 'required',
+            'product_details' => 'required',
             'image_path' => 'required|mimes:jpg,png,jpeg|max:1024'
         ]);
 
@@ -84,10 +82,8 @@ class EditProductController extends Controller
             AddProduct::create([
                 'product_model' => $request->input('product_model'),
                 'name' => $request->input('name'),
-                'fuel_type' => $request->input('fuel_type'),
-                'cubic_capacity' => $request->input('cubic_capacity'),
-                'number_of_seats' => $request->input('number_of_seats'),
-                'color' => $request->input('color'),
+                'product_type' => $request->input('product_type'),
+                'product_details' => $request->input('product_details'),
                 'image_path' => $filename,
             ]);
             return redirect('/product');
@@ -134,10 +130,8 @@ class EditProductController extends Controller
          $products=AddProduct::findOrFail($request->id);
          $products->product_model = $request->product_model;
          $products->name = $request->name;
-         $products->fuel_type = $request->fuel_type;
-         $products->cubic_capacity = $request->cubic_capacity;
-         $products->number_of_seats = $request->number_of_seats;
-         $products->color = $request->color;
+         $products->product_type = $request->product_type;
+         $products->product_details = $request->product_details;
          $products->image_path = $request->image_path;
 
          $products->save();

@@ -7,24 +7,24 @@
                 <h1>Dashboard</h1>
 
                 <div class="col-4 text-center">
-                    <h1>5</h1>
+                    <h1>5000</h1>
                     <br>
-                    Catagories
+                    Total Product
                 </div>
 
                 <div class="col-4 text-center">
-                    <h1>5</h1>
-                    <br>
-                    Item
-                </div>
-                <div class="col-4 text-center">
-                    <h1>5</h1>
+                    <h1>50000</h1>
                     <br>
                     Total Order
                 </div>
+                <div class="col-4 text-center">
+                    <h1>50000</h1>
+                    <br>
+                    Total Sell
+                </div>
 
                 <div class="col-4 text-center">
-                    <h1>5</h1>
+                    <h1>50000</h1>
                     <br>
                     Total Revenue
                 </div>

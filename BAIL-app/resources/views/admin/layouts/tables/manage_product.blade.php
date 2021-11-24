@@ -14,25 +14,23 @@
 
             <table class="full-width">
                 <tr>
+                    <th>ID</th>
                     <th>Product Model</th>
                     <th>Name</th>
-                    <th>images</th>
-                    <th>Fuel Type</th>
-                    <th>Cubic Capacity</th>
-                    <th>Number of seats</th>
-                    <th>Color</th>
+                    <th>Image</th>
+                    <th>Product Type</th>
+                    <th>Product Details</th>
                     <th>Action</th>
                 </tr>
-                @foreach($products as $product)
+                @foreach($products as $key=>$product)
 
                     <tr>
+                        <td>{{$product->key+1}}</td>
                         <td>{{$product->product_model}}</td>
                         <td>{{$product->name}}</td>
                         <td><img src="{{asset('/images/product/'.$product->image_path)}}" style="width:50px;height:50px" alt=""></td>
-                        <td>{{$product->fuel_type}}</td>
-                        <td>{{$product->cubic_capacity}}</td>
-                        <td>{{$product->number_of_seats}}</td>
-                        <td>{{$product->color}}</td>
+                        <td>{{$product->product_type}}</td>
+                        <td>{{$product->product_details}}</td>
 
                         <td>
 
