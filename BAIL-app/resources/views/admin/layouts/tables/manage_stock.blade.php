@@ -18,6 +18,7 @@
                     <th>Product Model</th>
                     <th>Name</th>
                     <th>Product Type</th>
+                    <th>Current Stock</th>
                     <th>Action</th>
                 </tr>
                 <tr>
@@ -25,6 +26,7 @@
                     <td>S-1</td>
                     <td>Name</td>
                     <td>cars</td>
+                    <td>10</td>
                     <td>edit</td>
                 </tr>
                 

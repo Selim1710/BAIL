@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class AddProduct extends Model
 {
     use HasFactory;
-    protected $fillable=['product_model','name','product_type','product_details','image_path'];
+    protected $fillable=['product_model','name','product_type','product_details','opening_stock','image_path'];
 
-    public $timestamps=false;
+    // public $timestamps=false;
 }

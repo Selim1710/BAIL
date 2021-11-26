@@ -62,6 +62,7 @@ class EditProductController extends Controller
             'name' => 'required',
             'product_type' => 'required',
             'product_details' => 'required',
+            'opening_stock'=>'required',
             'image_path' => 'required|mimes:jpg,png,jpeg|max:1024'
         ]);
 
@@ -84,6 +85,7 @@ class EditProductController extends Controller
                 'name' => $request->input('name'),
                 'product_type' => $request->input('product_type'),
                 'product_details' => $request->input('product_details'),
+                'opening_stock' => $request->input('opening_stock'),
                 'image_path' => $filename,
             ]);
             return redirect('/product');
@@ -132,6 +134,7 @@ class EditProductController extends Controller
          $products->name = $request->name;
          $products->product_type = $request->product_type;
          $products->product_details = $request->product_details;
+         $products->opening_stock = $request->opening_stock;
          $products->image_path = $request->image_path;
 
          $products->save();

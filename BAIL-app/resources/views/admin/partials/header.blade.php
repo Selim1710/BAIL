@@ -6,6 +6,7 @@
             <ul>
                 <li><a href="{{route('home')}}">Home</a></li>
                 <li><a href="{{route('product.index')}}">Product</a></li>
+                <li><a href="{{route('order.index')}}">Order</a></li>
                 <li><a href="{{route('stock.index')}}">Stock</a></li>
                 
                 <li><a href="#">More</a>
