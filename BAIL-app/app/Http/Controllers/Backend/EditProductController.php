@@ -15,10 +15,11 @@ class EditProductController extends Controller
      */
     public function index()
     {
-        $products = AddProduct::all();
+        $products = AddProduct::with('manageOrder')->get();
         return view('admin.layouts.tables.manage_product', [
             'products' => $products
         ]);
+        // with('')->get()
     }
 
     /**
@@ -62,13 +63,13 @@ class EditProductController extends Controller
             'name' => 'required',
             'product_type' => 'required',
             'product_details' => 'required',
-            'opening_stock'=>'required',
+            // 'opening_stock'=>'required',
             'image_path' => 'required|mimes:jpg,png,jpeg|max:1024'
         ]);
 
         //now we will create variable
 
-
+    //  we concatenate(.) uniqid with the file name
         if ($request->hasfile('image_path')) {
             $file = $request->file('image_path');
             $filename = uniqid('photo_', true) . '.' . $file->getClientOriginalName();
@@ -85,7 +86,7 @@ class EditProductController extends Controller
                 'name' => $request->input('name'),
                 'product_type' => $request->input('product_type'),
                 'product_details' => $request->input('product_details'),
-                'opening_stock' => $request->input('opening_stock'),
+                // 'opening_stock' => $request->input('opening_stock'),
                 'image_path' => $filename,
             ]);
             return redirect('/product');
@@ -102,7 +103,7 @@ class EditProductController extends Controller
      */
     public function show($id)
     {
-        //
+        // dd($id);
     }
 
     /**
@@ -134,7 +135,7 @@ class EditProductController extends Controller
          $products->name = $request->name;
          $products->product_type = $request->product_type;
          $products->product_details = $request->product_details;
-         $products->opening_stock = $request->opening_stock;
+        //  $products->opening_stock = $request->opening_stock;
          $products->image_path = $request->image_path;
 
          $products->save();

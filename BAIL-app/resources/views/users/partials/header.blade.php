@@ -26,7 +26,7 @@
                         <a href="#">Contact</a>
                     </li>
                     <li>
-                        <button class="img-curve">Login</button>
+                        <a href="#">Login</a>
                     </li>
                 </ul>
             </div>

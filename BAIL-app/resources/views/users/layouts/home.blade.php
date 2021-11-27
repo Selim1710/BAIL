@@ -77,8 +77,8 @@
                     </p>
                     <br>
 
-                    <a href="order.html" class="btn btn-primary">Order Now</a>
-                    <a href="order.html" class="btn btn-primary text-right">Customization</a>
+                    <a href="#" class="btn btn-primary">Order Now</a>
+                    <a href="#" class="btn btn-primary text-right">Customization</a>
                 </div>
             </div>
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\EditAccessoriesController;
 use App\Http\Controllers\Backend\EditProductController;
 use App\Http\Controllers\Backend\EditStockController;
 use App\Http\Controllers\Users\UsersController;
@@ -14,6 +15,9 @@ Route::get('/', [UsersController::class, 'home']);
 
 
 
+
+
+
 // Admin panel
 
 // Route::group(['prefix'=>'admin'], function(){
@@ -21,6 +25,12 @@ Route::get('/', [UsersController::class, 'home']);
 //     Route::get('/manage_admin', [ManageAdminController::class,'admin']);
 
 // });
+
+
+
+
+
+//Route for admin home page
 
 
 Route::get('/admin', [AdminController::class, 'home'])->name('home');
@@ -47,3 +57,11 @@ Route::get('/order',[ManageOrderController::class,'index'])->name('order.index')
 //Route for stock
 
 Route::get('/stock',[EditStockController::class,'index'])->name('stock.index');
+
+
+
+
+//route for accessories
+
+Route::get('/accessories',[EditAccessoriesController::class,'index'])->name('accessories.index');
+Route::get('/accessories/create',[EditAccessoriesController::class,'create'])->name('accessories.create');

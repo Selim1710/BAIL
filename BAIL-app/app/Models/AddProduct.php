@@ -8,7 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class AddProduct extends Model
 {
     use HasFactory;
-    protected $fillable=['product_model','name','product_type','product_details','opening_stock','image_path'];
+    protected $table='Add_products';
+    protected $primaryKey='id';
+
+    protected $fillable=['product_model','name','product_type','product_details','image_path'];
+
+    public function manageOrder(){
+        return $this->belongsTo(ManageOrder::class);
+    }
 
     // public $timestamps=false;
 }

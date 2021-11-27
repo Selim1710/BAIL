@@ -25,10 +25,6 @@
         <div class="input-box">
           <textarea type="string"  name="product_details" value="" placeholder="Enter Product Details:" required></textarea>
         </div>
-        <h2>Opening Stock</h2>
-        <div class="input-box">
-          <input type="string"  name="opening_stock" value="" placeholder="Enter Product Details:" required>
-        </div>
         <div class="input-box">
           <input type="file" name="image_path" value="" required>
         </div>

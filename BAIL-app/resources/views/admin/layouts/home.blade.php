@@ -1,7 +1,6 @@
 @extends('admin.index')
 
 @section('content')
- <!-- Main content section starts here -->
     <div class="main-content">
             <div class="wrapper">
                 <h1>Dashboard</h1>

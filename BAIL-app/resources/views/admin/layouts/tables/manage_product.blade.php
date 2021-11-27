@@ -20,7 +20,6 @@
                     <th>Image</th>
                     <th>Product Type</th>
                     <th>Product Details</th>
-                    <th>Spening Stock</th>
                     <th>Action</th>
                 </tr>
                 @foreach($products as $key=>$product)
@@ -32,7 +31,7 @@
                         <td><img src="{{asset('/images/product/'.$product->image_path)}}" style="width:50px;height:50px" alt=""></td>
                         <td>{{$product->product_type}}</td>
                         <td>{{$product->product_details}}</td>
-                        <td>{{$product->opening_stock}}</td>
+                       
 
                         <td>
 

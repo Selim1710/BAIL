@@ -19,7 +19,13 @@ class CreateManageOrdersTable extends Migration
             $table->string('customer_id');
             $table->string('customer_name');
             $table->string('customer_address');
-            $table->string('product_id');
+
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')
+                    ->references('id')
+                    ->on('add_products')
+                    ->onDelete('cascade');
+                    // ->onDelete('set null');
 
             $table->timestamps();
         });

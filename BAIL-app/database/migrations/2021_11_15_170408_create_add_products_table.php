@@ -20,11 +20,21 @@ class CreateAddProductsTable extends Migration
             $table->string('name');
             $table->string('product_type');
             $table->string('product_details');
-            $table->string('opening_stock');
+            // $table->string('opening_stock');
             // $table->string('color')->nullable();
 
             $table->timestamps();
         });
+
+        // Schema::create('manage_orders',function(Blueprint $table){
+        //     $table->unsignedInteger('product_id');
+        //     $table->foreign('product_id')
+        //          ->references('id')
+        //          ->on('add_products')
+        //          ->onDelete('cascade');
+                
+        //             // ->onDelete('set null');
+        // });
     }
 
     /**

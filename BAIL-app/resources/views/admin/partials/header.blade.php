@@ -13,7 +13,7 @@
 
                     <div class="sub_menu_1">
                         <ul>
-                            <li><a href="#">Accessories</a></li>
+                            <li><a href="{{route('accessories.index')}}">Accessories</a></li>
                             <li><a href="#">Supplier</a></li>
                             <li><a href="#">Customer</a></li>
                             <li><a href="#">Life Style</a></li>
