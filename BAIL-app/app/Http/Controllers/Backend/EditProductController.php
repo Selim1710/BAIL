@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\AddProduct;
 
+
 class EditProductController extends Controller
 {
     /**
@@ -15,11 +16,10 @@ class EditProductController extends Controller
      */
     public function index()
     {
-        $products = AddProduct::with('manageOrder')->get();
+        $products = AddProduct::all();
         return view('admin.layouts.tables.manage_product', [
             'products' => $products
         ]);
-        // with('')->get()
     }
 
     /**
@@ -40,23 +40,6 @@ class EditProductController extends Controller
      */
     public function store(Request $request)
     {
-        //method we can use on request
-        //guessExtension()
-        //getMimeType()
-        //there have different store method:store(),asStore(),storePublic()
-        //move()
-        //getClientOriginalName()
-        //getSize()
-        //getError()
-        //isValid()
-
-
-
-        //we will test that all the method there:
-        // $test = $request->file('image')->getError();
-
-        // dd($test);
-        //we have set a rules where image will be chacked that it is valid or not
 
         $request->validate([
             'product_model' => 'required',
@@ -67,18 +50,12 @@ class EditProductController extends Controller
             'image_path' => 'required|mimes:jpg,png,jpeg|max:1024'
         ]);
 
-        //now we will create variable
-
     //  we concatenate(.) uniqid with the file name
         if ($request->hasfile('image_path')) {
             $file = $request->file('image_path');
             $filename = uniqid('photo_', true) . '.' . $file->getClientOriginalName();
             $file->move(public_path('images/product'), $filename);
         }
-        // $new = time() . '-' . $request->name . '.' . $request->image->extension();
-
-        // $request->image->move(public_path('images/product'),$new);
-
 
         try {
             AddProduct::create([
@@ -116,6 +93,7 @@ class EditProductController extends Controller
     {
         //dd($id);
         $products=AddProduct::findOrFail($id);
+        //->first()
         return view('admin.layouts.forms.edit_product',[
             'products'=>$products
         ]);

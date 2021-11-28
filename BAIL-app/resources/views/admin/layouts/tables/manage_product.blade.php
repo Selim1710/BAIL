@@ -34,9 +34,11 @@
                        
 
                         <td>
-
-                            <a href="/product/edit/{{$product->id}}">Edit &rarr;</a> 
-                            <a href="/product/delete/{{$product->id}}">Delete</a>                                                                                                      
+                        <a href="{{route('product.edit',$product->id)}}">edit &rarr;</a>
+                        <a href="{{route('product.destroy',$product->id)}}">Delete</a>
+                            <!-- <a href="/product/edit/{{$product->id}}">Edit &rarr;</a>  -->
+                            <!-- <a href="/product/delete/{{$product->id}}">Delete</a>  -->
+                            
                         </td>
                         
                         

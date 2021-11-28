@@ -13,9 +13,11 @@ class ManageOrder extends Model
 
     protected $fillable=['customer_id','customer_name','customer_address','product_id'];
 
-   
-   
-    public function order(){
-        return $this->hasMany(AddProduct::class);
+    public function addProduct(){
+        return $this->belongsTo(AddProduct::class);
     }
+   
+    // public function manageOrder(){
+    //     return $this->hasMany(AddProduct::class);
+    // }
 }

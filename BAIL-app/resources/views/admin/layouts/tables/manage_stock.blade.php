@@ -14,22 +14,33 @@
 
             <table class="full-width">
                 <tr>
-                    <th>ID</th>
                     <th>Product Model</th>
                     <th>Name</th>
                     <th>Product Type</th>
                     <th>Current Stock</th>
                     <th>Action</th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>S-1</td>
-                    <td>Name</td>
-                    <td>cars</td>
-                    <td>10</td>
-                    <td>edit</td>
-                </tr>
-                
+                @foreach($products as $product)
+                    <tr>
+                        <td>{{$product->product_model}}</td>
+                        <td>{{$product->name}}</td>
+                        <td>{{$product->product_type}}</td>
+                        <td>00</td>
+                        
+                    </tr>
+
+                @endforeach
+
+                <!-- @foreach($stocks as $stock)
+                    <tr>
+                        <td>{{$stock->product_model}}</td>
+                        <td>{{$stock->name}}</td>
+                        <td>{{$stock->product_type}}</td>
+                        <td></td>
+
+
+                    </tr>
+                @endforeach -->
 
             </table>
 

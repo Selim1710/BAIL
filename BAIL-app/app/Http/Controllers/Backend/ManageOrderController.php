@@ -15,7 +15,7 @@ class ManageOrderController extends Controller
      */
     public function index()
     {
-        $orders= ManageOrder::all();
+        $orders= ManageOrder::with('addProduct')->get();
         return view('admin.layouts.tables.manage_order',[
             'orders'=>$orders
         ]);

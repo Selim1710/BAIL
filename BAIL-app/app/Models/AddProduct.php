@@ -13,9 +13,9 @@ class AddProduct extends Model
 
     protected $fillable=['product_model','name','product_type','product_details','image_path'];
 
-    public function manageOrder(){
-        return $this->belongsTo(ManageOrder::class);
-    }
-
     // public $timestamps=false;
+
+    public function product(){
+        return $this->belongsTo(Stock::class);
+    }
 }

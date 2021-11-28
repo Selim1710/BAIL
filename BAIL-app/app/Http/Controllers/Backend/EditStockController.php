@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\AddProduct;
 use Illuminate\Http\Request;
+use App\Models\Stock;
 
 class EditStockController extends Controller
 {
@@ -14,7 +16,14 @@ class EditStockController extends Controller
      */
     public function index()
     {
-        return view('admin.layouts.tables.manage_stock');
+        $stocks=Stock::class::with('Product')->get();
+        $products = AddProduct::all();
+        // dd($products);
+        // return view('admin.layouts.tables.manage_stock',compact('products'));
+        return view('admin.layouts.tables.manage_stock',[
+            'stocks'=> $stocks,
+            'products'=>$products
+        ]);
     }
 
     /**
