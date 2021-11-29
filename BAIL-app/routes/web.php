@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\Route;
 
 // User Interface
 
-Route::get('/', [UsersController::class, 'home']);
+Route::get('/', [UsersController::class, 'home'])->name('home.user');
+Route::get('home/product/user',[UsersController::class,'productUser'])->name('product.user');
+Route::get('/home/accessories',[UsersController::class,'accessoriesUser'])->name('accessories.user');
 
 
 
@@ -18,24 +20,10 @@ Route::get('/', [UsersController::class, 'home']);
 
 
 
-// Admin panel
 
-// Route::group(['prefix'=>'admin'], function(){
-//     Route::get('/', [AdminController::class, 'home']);
-//     Route::get('/manage_admin', [ManageAdminController::class,'admin']);
+Route::group(['prefix'=>'admin'], function(){
 
-// });
-
-
-
-
-
-//Route for admin home page
-
-
-Route::get('/admin', [AdminController::class, 'home'])->name('home');
-
-//Route for Product update and delete data
+Route::get('/', [AdminController::class, 'home'])->name('home');
 
 Route::get('/product',[EditProductController::class,'index'])->name('product.index');
 Route::get('/product/create',[EditProductController::class,'create'])->name('product.create');
@@ -44,24 +32,11 @@ Route::get('/product/edit/{id}',[EditProductController::class,'edit'])->name('pr
 Route::post('/product/update',[EditProductController::class,'update'])->name('product.update');
 Route::get('/product/delete/{id}',[EditProductController::class,'destroy'])->name('product.destroy');
 
-
-
-//Route for order
-
 Route::get('/order',[ManageOrderController::class,'index'])->name('order.index');
-
-
-
-
-
-//Route for stock
 
 Route::get('/stock',[EditStockController::class,'index'])->name('stock.index');
 
-
-
-
-//route for accessories
-
 Route::get('/accessories',[EditAccessoriesController::class,'index'])->name('accessories.index');
 Route::get('/accessories/create',[EditAccessoriesController::class,'create'])->name('accessories.create');
+
+});

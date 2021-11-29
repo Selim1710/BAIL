@@ -11,16 +11,13 @@
             <div class="list text-right">
                 <ul>
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="{{route('home.user')}}">Home</a>
                     </li>
                     <li>
-                        <a href="#">Latest</a>
+                        <a href="{{route('product.user')}}">Product</a>
                     </li>
                     <li>
-                        <a href="cars.html">Models</a>
-                    </li>
-                    <li>
-                        <a href="#">Accessories</a>
+                        <a href="{{route('accessories.user')}}">Accessories</a>
                     </li>
                     <li>
                         <a href="#">Contact</a>
