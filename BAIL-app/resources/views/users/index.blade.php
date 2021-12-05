@@ -8,15 +8,10 @@
 </head>
 
 <body>
-    <!-- Navbar Section Starts Here -->
     @include('users.partials.header')
-    <!-- Navbar Section Ends Here -->
-
     @yield('content')
-
-    <!-- social Section Starts Here -->
     @include('users.partials.footer')
-    <!-- footer Section Ends Here -->
 
+    <script src="{{asset('js/website.js')}}"></script>
 </body>
 </html>
