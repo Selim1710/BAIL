@@ -8,7 +8,7 @@ use App\Http\Controllers\Users\UsersController;
 use App\Http\Controllers\Backend\ManageOrderController;
 use Illuminate\Support\Facades\Route;
 
-// User Interface
+
 
 Route::get('/', [UsersController::class, 'home'])->name('home.user');
 Route::get('home/product/user',[UsersController::class,'productUser'])->name('product.user');

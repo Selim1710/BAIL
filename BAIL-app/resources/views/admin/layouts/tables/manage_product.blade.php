@@ -14,7 +14,7 @@
 
             <table class="full-width">
                 <tr>
-                    <th>ID</th>
+                    <th>SL</th>
                     <th>Product Model</th>
                     <th>Name</th>
                     <th>Image</th>
@@ -25,7 +25,7 @@
                 @foreach($products as $key=>$product)
 
                     <tr>
-                        <td>{{$product->key+1}}</td>
+                        <td>{{$product->$key+1}}</td>
                         <td>{{$product->product_model}}</td>
                         <td>{{$product->name}}</td>
                         <td><img src="{{asset('/images/product/'.$product->image_path)}}" style="width:50px;height:50px" alt=""></td>
@@ -36,9 +36,6 @@
                         <td>
                         <a href="{{route('product.edit',$product->id)}}">edit &rarr;</a>
                         <a href="{{route('product.destroy',$product->id)}}">Delete</a>
-                            <!-- <a href="/product/edit/{{$product->id}}">Edit &rarr;</a>  -->
-                            <!-- <a href="/product/delete/{{$product->id}}">Delete</a>  -->
-                            
                         </td>
                         
                         

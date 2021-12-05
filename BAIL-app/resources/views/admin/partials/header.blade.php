@@ -16,6 +16,8 @@
                             <li><a href="{{route('accessories.index')}}">Accessories</a></li>
                             <li><a href="#">Supplier</a></li>
                             <li><a href="#">Customer</a></li>
+                            <li><a href="#">Employee</a></li>
+                            <li><a href="#">Branch</a></li>   <!-- Customer will buy product from show room -->
                             <li><a href="#">Life Style</a></li>
                             <li><a href="#">Logout</a></li>
                         </ul>

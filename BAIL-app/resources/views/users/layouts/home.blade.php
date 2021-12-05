@@ -33,10 +33,10 @@
     </section>
     <!-- new_release Section Ends Here -->
 
-    <!-- car list Section Starts Here -->
-    <section class="car-list">
+    <!-- Accessories Section Starts Here -->
+    <section class="Accessories">
         <div class="container">
-            <h2 class="text-center">Car List</h2>
+            <h2 class="text-center">Accessories</h2>
 
             <div class="car-list-box">
                 <div class="car-list-img">
@@ -59,7 +59,6 @@
                 </div>
             </div>
 
-
             <div class="clearfix"></div>
 
             
@@ -70,5 +69,84 @@
             <a href="#">See All cars</a>
         </p>
     </section>
-    <!-- Car list Section Ends Here -->
+
+    <!-- Branch -->
+
+    <section class="Branch">
+        <div class="container">
+            <h2 class="text-center">Our Branches</h2>
+
+            <a href="#">
+            <div class="box-3 float-container">
+                <img src="images/show-room-1.jpg" alt="Picture of Branch" class="img-responsive img-curve">
+
+                <h3 class="float-text text-white">Our Branch On Dhaka</h3>
+            </div>
+            </a>
+
+            <!-- next -->
+
+            <a href="#">
+            <div class="box-3 float-container">
+                <img src="images/show-room-2.jpg" alt="Picture of Branch" class="img-responsive img-curve">
+
+                <h3 class="float-text text-white">Our Branch On Rajshahi</h3>
+            </div>
+            </a>
+
+            <a href="#">
+            <div class="box-3 float-container">
+                <img src="images/show-room-3.jpg" alt="Picture of Branch" class="img-responsive img-curve">
+
+                <h3 class="float-text text-white">Our Branch On Khulna</h3>
+            </div>
+            </a>
+
+            <a href="#">
+            <div class="box-3 float-container">
+                <img src="images/show-room-4.jpg" alt="Picture of Branch" class="img-responsive img-curve">
+
+                <h3 class="float-text text-white">Our Branch On Barishal</h3>
+            </div>
+            </a>
+            
+
+            <div class="clearfix"></div>
+        </div>
+    </section>
+
+
+    <!-- employee -->
+
+    <section class="Employee">
+        <div class="container">
+        <h2 class="text-center">Employee</h2>
+            <div class="employee-card">
+                <div class="row">
+                    <div class="column">
+                        <div class="card">
+                            <img src="images/employee-1.jpg" alt="first employee">
+                            <h5>CEO & Founder</h5>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="card">
+                            second card
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="card">
+                            third card
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="card">
+                            forth card
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 @endsection

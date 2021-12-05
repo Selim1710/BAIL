@@ -66,9 +66,9 @@ class EditProductController extends Controller
                 // 'opening_stock' => $request->input('opening_stock'),
                 'image_path' => $filename,
             ]);
-            return redirect('/product');
+            return redirect('/admin/product');
         } catch (\Throwable $throw) {
-            return redirect('/product');
+            return redirect('/admin/product');
         }
     }
 
@@ -118,7 +118,7 @@ class EditProductController extends Controller
 
          $products->save();
 
-         return redirect('/product');
+         return redirect('/admin/product');
 
     }
 
@@ -132,6 +132,6 @@ class EditProductController extends Controller
     {
         $products = AddProduct::findOrFail($id);
         $products->delete();
-        return redirect('/product');
+        return redirect('/admin/product');
     }
 }
