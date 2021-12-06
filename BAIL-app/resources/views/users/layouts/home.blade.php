@@ -1,6 +1,8 @@
 @extends('users.index')
 
 @section('content')
+
+
 <!-- car search Section Starts Here -->
 <section class="car-search text-center">
     <div class="container">
@@ -12,7 +14,6 @@
 
     </div>
 </section>
-
 <!-- slider -->
 <section class="Slider">
     <div class="container">
@@ -54,15 +55,15 @@
 <section class="Car">
     <div class="container">
         <h2 class="text-center">Car</h2>
-
+        @foreach($products as $car)
         <a href="#">
             <div class="box-3 float-container">
-                <img src="images/P-1.jpg" alt="Picture_1" class="img-responsive img-curve">
+                <img src="{{url('/uploads/product/'.$car->image_path)}}" alt="Picture_1" class="img-responsive img-curve">
 
-                <h3 class="float-text text-white">Model X</h3>
+                <h3 class="float-text text-white">{{$car->name}}</h3>
             </div>
         </a>
-
+        @endforeach
 
         <div class="clearfix"></div>
     </div>

@@ -40,7 +40,7 @@ class EditProductController extends Controller
      */
     public function store(Request $request)
     {
-
+            // dd($request->all());
         $request->validate([
             'product_model' => 'required',
             'name' => 'required',
@@ -51,10 +51,13 @@ class EditProductController extends Controller
         ]);
 
     //  we concatenate(.) uniqid with the file name
+        $filename = '';
         if ($request->hasfile('image_path')) {
             $file = $request->file('image_path');
-            $filename = uniqid('photo_', true) . '.' . $file->getClientOriginalName();
-            $file->move(public_path('images/product'), $filename);
+            $filename =date('Ymdmhs'). '.' . $file->getClientOriginalExtension();
+            // dd($filename);
+            // $file->move(public_path('images/product'), $filename);
+            $file->storeAs('/uploads/product',$filename);
         }
 
         try {

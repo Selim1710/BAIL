@@ -25,10 +25,10 @@
                 @foreach($products as $key=>$product)
 
                     <tr>
-                        <td>{{$product->$key+1}}</td>
+                        <td>{{$key+1}}</td>
                         <td>{{$product->product_model}}</td>
                         <td>{{$product->name}}</td>
-                        <td><img src="{{asset('/images/product/'.$product->image_path)}}" style="width:50px;height:50px" alt=""></td>
+                        <td><img src="{{url('/uploads/product/'.$product->image_path)}}" style="width:50px;height:50px" alt=""></td>
                         <td>{{$product->product_type}}</td>
                         <td>{{$product->product_details}}</td>
                        
