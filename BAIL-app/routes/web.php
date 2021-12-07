@@ -4,15 +4,14 @@ use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\EditAccessoriesController;
 use App\Http\Controllers\Backend\EditProductController;
 use App\Http\Controllers\Backend\EditStockController;
-use App\Http\Controllers\Users\UsersController;
 use App\Http\Controllers\Backend\ManageOrderController;
+use App\Http\Controllers\Frontend\UsersController;
 use Illuminate\Support\Facades\Route;
 
 
 
 Route::get('/', [UsersController::class, 'home'])->name('home.user');
-Route::get('home/product/user',[UsersController::class,'productUser'])->name('product.user');
-Route::get('/home/accessories',[UsersController::class,'accessoriesUser'])->name('accessories.user');
+
 
 
 
