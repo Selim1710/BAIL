@@ -15,11 +15,12 @@
             <table class="full-width">
                 <tr>
                     <th>SL</th>
-                    <th>Product Model</th>
+                    <th>Model</th>
                     <th>Name</th>
                     <th>Image</th>
                     <th>Product Type</th>
                     <th>Product Details</th>
+                    <th>Total Produce</th>
                     <th>Action</th>
                 </tr>
                 @foreach($products as $key=>$product)
@@ -31,6 +32,7 @@
                         <td><img src="{{url('/uploads/product/'.$product->image_path)}}" style="width:50px;height:50px" alt=""></td>
                         <td>{{$product->product_type}}</td>
                         <td>{{$product->product_details}}</td>
+                        <td>{{$product->total_produce}}</td>
                        
 
                         <td>

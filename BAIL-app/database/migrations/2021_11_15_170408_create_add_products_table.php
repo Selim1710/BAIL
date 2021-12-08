@@ -20,7 +20,7 @@ class CreateAddProductsTable extends Migration
             $table->string('name');
             $table->string('product_type');
             $table->string('product_details');
-            // $table->string('opening_stock');
+            $table->string('total_produce');
             // $table->string('color')->nullable();
 
             $table->timestamps();

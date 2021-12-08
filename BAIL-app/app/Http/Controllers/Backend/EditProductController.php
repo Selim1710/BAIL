@@ -46,17 +46,15 @@ class EditProductController extends Controller
             'name' => 'required',
             'product_type' => 'required',
             'product_details' => 'required',
-            // 'opening_stock'=>'required',
+            'total_produce'=>'required',
             'image_path' => 'required|mimes:jpg,png,jpeg|max:1024'
         ]);
 
-    //  we concatenate(.) uniqid with the file name
+        //  we concatenate(.) uniqid with the file name
         $filename = '';
         if ($request->hasfile('image_path')) {
             $file = $request->file('image_path');
             $filename =date('Ymdmhs'). '.' . $file->getClientOriginalExtension();
-            // dd($filename);
-            // $file->move(public_path('images/product'), $filename);
             $file->storeAs('/uploads/product',$filename);
         }
 
@@ -66,7 +64,7 @@ class EditProductController extends Controller
                 'name' => $request->input('name'),
                 'product_type' => $request->input('product_type'),
                 'product_details' => $request->input('product_details'),
-                // 'opening_stock' => $request->input('opening_stock'),
+                'total_produce' => $request->input('total_produce'),
                 'image_path' => $filename,
             ]);
             return redirect('/admin/product');
@@ -116,7 +114,7 @@ class EditProductController extends Controller
          $products->name = $request->name;
          $products->product_type = $request->product_type;
          $products->product_details = $request->product_details;
-        //  $products->opening_stock = $request->opening_stock;
+         $products->total_produce = $request->total_produce;
          $products->image_path = $request->image_path;
 
          $products->save();

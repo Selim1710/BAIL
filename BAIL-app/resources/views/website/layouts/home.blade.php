@@ -2,9 +2,14 @@
 
 @section('contents')
 
+<!-- A slider will be here -->
+
+
+
+
 <!-- Accessories -->
-<section class="offer_section layout_padding-bottom">
-  <div class="offer_container">
+<section class="accessories_section layout_padding-bottom">
+  <div class="accessories_container">
     <div class="container ">
       <div class="heading_container heading_center">
         <h2>
@@ -19,7 +24,7 @@
             </div>
             <div class="detail-box">
               <h5>
-                Tasty Thursdays
+                Accessories Name
               </h5>
               <h6>
                 <span>20%</span> Off
@@ -86,13 +91,13 @@
   </div>
 </section>
 
-<!-- food section -->
+<!-- car section -->
 
-<section class="food_section layout_padding-bottom">
+<section class="car_section layout_padding-bottom">
   <div class="container">
     <div class="heading_container heading_center">
       <h2>
-        Our Menu
+        Our Product
       </h2>
     </div>
 
@@ -192,7 +197,7 @@
   </div>
 </section>
 
-<!-- end food section -->
+<!-- end car section -->
 
 <!-- about section -->
 
@@ -229,8 +234,8 @@
 
 <!-- end about section -->
 
-<!-- book section -->
-<section class="book_section layout_padding">
+<!-- customize section -->
+<section class="customize_section layout_padding">
   <div class="container">
     <div class="heading_container">
       <h2>
@@ -248,7 +253,7 @@
               <input type="text" class="form-control" placeholder="Product ID" />
             </div>
             <div>
-              <input type="text" class="form-control" placeholder="Product Details:" />
+              <input type="string" class="form-control" placeholder="Product Details:" />
             </div>
             <div>
               <select class="form-control nice-select wide">
@@ -288,7 +293,7 @@
     </div>
   </div>
 </section>
-<!-- end book section -->
+
 
 <!-- client section -->
 

@@ -9,5 +9,5 @@ class AddAccessory extends Model
 {
     use HasFactory;
 
-    protected $fillable=['accessories_model','name','accessories_type','accessories_details','accessories_image'];
+    protected $fillable=['accessories_model','name','accessories_type','accessories_details','acc_img'];
 }

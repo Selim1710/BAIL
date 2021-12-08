@@ -11,7 +11,7 @@ class AddProduct extends Model
     protected $table='Add_products';
     protected $primaryKey='id';
 
-    protected $fillable=['product_model','name','product_type','product_details','image_path'];
+    protected $fillable=['product_model','name','product_type','product_details','total_produce','image_path'];
 
     // public $timestamps=false;
 

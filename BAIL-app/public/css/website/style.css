@@ -396,12 +396,12 @@ a:focus {
   background-color: #ffbe33;
 }
 
-.offer_section {
+.accessories_section {
   position: relative;
   padding-top: 45px;
 }
 
-.offer_section .box {
+.accessories_section .box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -415,7 +415,7 @@ a:focus {
   color: #ffffff;
 }
 
-.offer_section .box .img-box {
+.accessories_section .box .img-box {
   width: 175px;
   min-width: 175px;
   height: 175px;
@@ -428,29 +428,29 @@ a:focus {
   overflow: hidden;
 }
 
-.offer_section .box .img-box img {
+.accessories_section .box .img-box img {
   width: 100%;
   -webkit-transition: all .2s;
   transition: all .2s;
 }
 
-.offer_section .box .detail-box h5 {
+.accessories_section .box .detail-box h5 {
   font-family: 'Dancing Script', cursive;
   font-size: 24px;
   margin: 0;
 }
 
-.offer_section .box .detail-box h6 {
+.accessories_section .box .detail-box h6 {
   font-family: 'Dancing Script', cursive;
   margin: 10px 0;
 }
 
-.offer_section .box .detail-box h6 span {
+.accessories_section .box .detail-box h6 span {
   font-size: 2.5rem;
   font-weight: bold;
 }
 
-.offer_section .box .detail-box a {
+.accessories_section .box .detail-box a {
   display: inline-block;
   padding: 10px 30px;
   background-color: #ffbe33;
@@ -461,23 +461,23 @@ a:focus {
   border: none;
 }
 
-.offer_section .box .detail-box a:hover {
+.accessories_section .box .detail-box a:hover {
   background-color: #e69c00;
 }
 
-.offer_section .box .detail-box a svg {
+.accessories_section .box .detail-box a svg {
   width: 20px;
   height: auto;
   margin-left: 5px;
   fill: #ffffff;
 }
 
-.offer_section .box:hover .img-box img {
+.accessories_section .box:hover .img-box img {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
 
-.food_section .filters_menu {
+.car_section .filters_menu {
   padding: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -491,18 +491,18 @@ a:focus {
   margin: 45px 0 20px 0;
 }
 
-.food_section .filters_menu li {
+.car_section .filters_menu li {
   padding: 7px 25px;
   cursor: pointer;
   border-radius: 25px;
 }
 
-.food_section .filters_menu li.active {
+.car_section .filters_menu li.active {
   background-color: #222831;
   color: #ffffff;
 }
 
-.food_section .box {
+.car_section .box {
   position: relative;
   margin-top: 25px;
   background-color: #ffffff;
@@ -513,7 +513,7 @@ a:focus {
   background: linear-gradient(to bottom, #f1f2f3 25px, #222831 25px);
 }
 
-.food_section .box .img-box {
+.car_section .box .img-box {
   background: #f1f2f3;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -530,30 +530,30 @@ a:focus {
   padding: 25px;
 }
 
-.food_section .box .img-box img {
+.car_section .box .img-box img {
   max-width: 100%;
   max-height: 145px;
   -webkit-transition: all .2s;
   transition: all .2s;
 }
 
-.food_section .box .detail-box {
+.car_section .box .detail-box {
   padding: 25px;
 }
 
-.food_section .box .detail-box h5 {
+.car_section .box .detail-box h5 {
   font-weight: 600;
 }
 
-.food_section .box .detail-box p {
+.car_section .box .detail-box p {
   font-size: 15px;
 }
 
-.food_section .box .detail-box h6 {
+.car_section .box .detail-box h6 {
   margin-top: 10px;
 }
 
-.food_section .box .options {
+.car_section .box .options {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -562,7 +562,7 @@ a:focus {
           justify-content: space-between;
 }
 
-.food_section .box .options a {
+.car_section .box .options a {
   width: 40px;
   height: 40px;
   border-radius: 100%;
@@ -578,18 +578,18 @@ a:focus {
           align-items: center;
 }
 
-.food_section .box .options a svg {
+.car_section .box .options a svg {
   width: 18px;
   height: auto;
   fill: #ffffff;
 }
 
-.food_section .box:hover .img-box img {
+.car_section .box:hover .img-box img {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
 
-.food_section .btn-box {
+.car_section .btn-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -599,7 +599,7 @@ a:focus {
   margin-top: 45px;
 }
 
-.food_section .btn-box a {
+.car_section .btn-box a {
   display: inline-block;
   padding: 10px 55px;
   background-color: #ffbe33;
@@ -610,7 +610,7 @@ a:focus {
   border: none;
 }
 
-.food_section .btn-box a:hover {
+.car_section .btn-box a:hover {
   background-color: #e69c00;
 }
 
@@ -662,15 +662,15 @@ a:focus {
   background-color: #e69c00;
 }
 
-.book_section {
+.customize_section {
   position: relative;
 }
 
-.book_section .heading_container {
+.customize_section .heading_container {
   margin-bottom: 25px;
 }
 
-.book_section .form_container .form-control {
+.customize_section .form_container .form-control {
   width: 100%;
   border: none;
   height: 50px;
@@ -685,27 +685,27 @@ a:focus {
           box-shadow: none;
 }
 
-.book_section .form_container .form-control::-webkit-input-placeholder {
+.customize_section .form_container .form-control::-webkit-input-placeholder {
   color: #222222;
 }
 
-.book_section .form_container .form-control:-ms-input-placeholder {
+.customize_section .form_container .form-control:-ms-input-placeholder {
   color: #222222;
 }
 
-.book_section .form_container .form-control::-ms-input-placeholder {
+.customize_section .form_container .form-control::-ms-input-placeholder {
   color: #222222;
 }
 
-.book_section .form_container .form-control::placeholder {
+.customize_section .form_container .form-control::placeholder {
   color: #222222;
 }
 
-.book_section .form_container .nice-select .current {
+.customize_section .form_container .nice-select .current {
   font-size: 16px;
 }
 
-.book_section .form_container button {
+.customize_section .form_container button {
   margin-top: 15px;
   border: none;
   text-transform: uppercase;
@@ -719,18 +719,18 @@ a:focus {
   border: none;
 }
 
-.book_section .form_container button:hover {
+.customize_section .form_container button:hover {
   background-color: #e69c00;
 }
 
-.book_section .map_container {
+.customize_section .map_container {
   width: 100%;
   height: 345px;
   border-radius: 10px;
   overflow: hidden;
 }
 
-.book_section .map_container #googleMap {
+.customize_section .map_container #googleMap {
   height: 100%;
   min-height: 100%;
   width: 100%;

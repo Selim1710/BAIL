@@ -2,14 +2,13 @@
 
 @section('content')
 
- <!-- add accessories button -->
   <div class="myform">
     <div class="wrapperf">
-      <h2> Add Accessories Here &rarr;</h2>
+      <h2> Add Here &rarr;</h2>
 
-      <form action="#" method="post" enctype="multipart/form-data">
+      <form action="{{route('accessories.store')}}" method="post" enctype="multipart/form-data">
         @csrf 
-        <h2>Accessories Model</h2>
+        <h2>Model</h2>
         <div class="input-box">
           <input type="string" name="accessories_model" value="" placeholder="Enter Accessories Model" required>
         </div>
@@ -21,12 +20,12 @@
         <div class="input-box">
           <input type="string" name="accessories_type" value="" placeholder="Enter Accessories Type" required>
         </div>
-        <h2>Accessories Details</h2>
+        <h2> Details</h2>
         <div class="input-box">
           <textarea type="string"  name="accessories_details" value="" placeholder="Enter Accessories Details:" required></textarea>
         </div>
         <div class="input-box">
-          <input type="file" name="accessories_image" value="" required>
+          <input type="file" name="acc_img" value="" required>
         </div>
         <div class="input-box button">
           <input type="Submit"value="Submit Now">

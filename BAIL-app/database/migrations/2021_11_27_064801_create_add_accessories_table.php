@@ -20,7 +20,7 @@ class CreateAddAccessoriesTable extends Migration
             $table->string('name');
             $table->string('accessories_type');
             $table->string('accessories_details');
-            $table->string('accessories_image');
+            $table->string('acc_img');
 
             $table->timestamps();
         });
