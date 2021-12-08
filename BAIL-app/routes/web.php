@@ -5,12 +5,19 @@ use App\Http\Controllers\Backend\EditAccessoriesController;
 use App\Http\Controllers\Backend\EditProductController;
 use App\Http\Controllers\Backend\EditStockController;
 use App\Http\Controllers\Backend\ManageOrderController;
-use App\Http\Controllers\Frontend\UsersController;
+use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', [UsersController::class, 'home'])->name('home.user');
+Route::get('/', [HomeController::class, 'index'])->name('website.index');
+
+
+
+// Route::group(['prefix'=>'website'],function(){
+
+//     Route::get('/product',[ProductController::class],'userIndex')->name('product.user');
+// });
 
 
 
