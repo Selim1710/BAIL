@@ -35,8 +35,8 @@
 
                 <td>
 
-                    <a href="#">Edit &rarr;</a>
-                    <a href="#">Delete</a>
+                    <a href="{{route('accessories.edit',$accessory->id)}}">Edit &rarr;</a>
+                    <a href="{{route('accessories.destroy',$accessory->id)}}">Delete</a>
                 </td>
 
 

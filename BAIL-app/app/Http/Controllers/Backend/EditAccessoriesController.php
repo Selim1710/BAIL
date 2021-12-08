@@ -84,7 +84,8 @@ class EditAccessoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $accessories=AddAccessory::findOrFail($id);
+        return view('admin.layouts.forms.edit_accessories',compact('accessories'));
     }
 
     /**
@@ -94,9 +95,22 @@ class EditAccessoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        // dd($request);
+        $accessories=AddAccessory::find($request->id);
+        // dd($accessories);
+        $accessories->accessories_model = $request->accessories_model;
+        $accessories->name = $request->name;
+        $accessories->accessories_type = $request->accessories_type;
+        $accessories->accessories_details = $request->accessories_details;
+        $accessories->acc_img = $request->acc_img;
+
+        // dd($accessories);
+
+        $accessories->save();
+        return redirect('/admin/accessories');
+
     }
 
     /**
@@ -107,6 +121,10 @@ class EditAccessoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // dd($id);
+        $accessories=AddAccessory::findOrFail($id);
+        $accessories->delete();
+        return redirect('/admin/accessories');
+        
     }
 }

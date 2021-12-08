@@ -38,5 +38,8 @@ Route::get('/stock',[EditStockController::class,'index'])->name('stock.index');
 Route::get('/accessories',[EditAccessoriesController::class,'index'])->name('accessories.index');
 Route::get('/accessories/create',[EditAccessoriesController::class,'create'])->name('accessories.create');
 Route::post('/accessories/store',[EditAccessoriesController::class,'store'])->name('accessories.store');
+Route::get('/accessories/edit/{id}',[EditAccessoriesController::class,'edit'])->name('accessories.edit');
+Route::post('/accessories/update',[EditAccessoriesController::class,'update'])->name('accessories.update');
+Route::get('/accessories/destroy/{id}',[EditAccessoriesController::class,'destroy'])->name('accessories.destroy');
 
 });
