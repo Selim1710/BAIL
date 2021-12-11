@@ -16,15 +16,17 @@
           Accessories
         </h2>
       </div>
+      @foreach($accessories as $accessory)
+   
       <div class="row">
         <div class="col-md-6  ">
           <div class="box ">
             <div class="img-box">
-              <img src="images/P-1.jpg" alt="">
+              <img src="{{ asset('uploads/accessories/'.$accessory->acc_img) }}" alt="">
             </div>
             <div class="detail-box">
               <h5>
-                Accessories Name
+                {{ $accessory->accessories_model }}
               </h5>
               <h6>
                 <span>20%</span> Off
@@ -87,6 +89,7 @@
           </div>
         </div>
       </div>
+    @endforeach
     </div>
   </div>
 </section>

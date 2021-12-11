@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\AddAccessory;
 use App\Models\AddProduct;
 use Illuminate\Http\Request;
 
@@ -15,8 +16,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $accessories=AddAccessory::all();
         $products=AddProduct::all();
-        return view('website.layouts.home',compact('products'));
+        return view('website.layouts.home',compact('products','accessories'));
     }
 
     /**
