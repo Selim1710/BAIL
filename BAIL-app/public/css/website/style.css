@@ -103,19 +103,20 @@ a:focus {
 }
 
 .bg-box {
-  position: absolute;
+  /* position: absolute; */
+  background-color: grey;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 }
 
-.bg-box img {
+/* .bg-box img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-}
+} */
 
 .sub_page .hero_area {
   min-height: auto;

@@ -54,7 +54,7 @@ class EditProductController extends Controller
         $filename = '';
         if ($request->hasfile('image_path')) {
             $file = $request->file('image_path');
-            $filename =date('Ymdmhs'). '.' . $file->getClientOriginalExtension();
+            $filename = date('Ymdmhs'). '.' . $file->getClientOriginalExtension();
             $file->storeAs('/uploads/product',$filename);
         }
 

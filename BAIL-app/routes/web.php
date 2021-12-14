@@ -4,20 +4,26 @@ use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\EditAccessoriesController;
 use App\Http\Controllers\Backend\EditProductController;
 use App\Http\Controllers\Backend\EditStockController;
+use App\Http\Controllers\Backend\ManageCustommerController;
 use App\Http\Controllers\Backend\ManageOrderController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\UsersController;
 use Illuminate\Support\Facades\Route;
 
 
 
 Route::get('/', [HomeController::class, 'index'])->name('website.index');
 
+Route::group(['prefix'=>'website'],function(){
 
-
-// Route::group(['prefix'=>'website'],function(){
-
-//     Route::get('/product',[ProductController::class],'userIndex')->name('product.user');
-// });
+    Route::get('/user/login',[UsersController::class,'index'])->name('users.login');
+    Route::post('/user/do/login',[UsersController::class,'doLogin'])->name('user.do.login');
+    Route::get('/user/registration',[UsersController::class,'create'])->name('users.registration.create');
+    Route::post('/user/registration/store',[UsersController::class,'store'])->name('users.registration.store');
+    Route::get('/user/logout',[UsersController::class,'logout'])->name('user.logout');
+    
+    
+});
 
 
 
@@ -48,5 +54,9 @@ Route::post('/accessories/store',[EditAccessoriesController::class,'store'])->na
 Route::get('/accessories/edit/{id}',[EditAccessoriesController::class,'edit'])->name('accessories.edit');
 Route::post('/accessories/update',[EditAccessoriesController::class,'update'])->name('accessories.update');
 Route::get('/accessories/destroy/{id}',[EditAccessoriesController::class,'destroy'])->name('accessories.destroy');
+
+
+Route::get('/customer/list',[ManageCustommerController::class,'index'])->name('customer.list');
+
 
 });
