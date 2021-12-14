@@ -6,7 +6,9 @@ use App\Http\Controllers\Backend\EditProductController;
 use App\Http\Controllers\Backend\EditStockController;
 use App\Http\Controllers\Backend\ManageCustommerController;
 use App\Http\Controllers\Backend\ManageOrderController;
+use App\Http\Controllers\Frontend\AccessoryOrderController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\ProductOrderController;
 use App\Http\Controllers\Frontend\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +23,12 @@ Route::group(['prefix'=>'website'],function(){
     Route::get('/user/registration',[UsersController::class,'create'])->name('users.registration.create');
     Route::post('/user/registration/store',[UsersController::class,'store'])->name('users.registration.store');
     Route::get('/user/logout',[UsersController::class,'logout'])->name('user.logout');
+
+
+    Route::get('/user/accessory/order',[AccessoryOrderController::class,'index'])->name('user.accessory.order');
+
+    
+    Route::get('/user/product/order',[ProductOrderController::class,'index'])->name('user.product.order');
     
     
 });

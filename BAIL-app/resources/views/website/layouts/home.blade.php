@@ -11,17 +11,16 @@
 <!-- just for making the website beautiful -->
 
 
-
-
-
 <section class="client_section layout_padding-bottom">
   <div class="container">
     <div class="heading_container heading_center psudo_white_primary mb_45">
       <h2>
         <br>
         <br>
-        Bangladesh Auto Industries Limited
+          Welcome to ,<br>
+        Bangladesh Auto Industries Limited <br> <br>
       </h2>
+      <button class="btn btn-success">Order Now</button>
     </div>
     
   </div>
@@ -63,7 +62,7 @@
               <h6>
                 <span>20%</span> Off
               </h6>
-              <a href="#" class="btn btn-primary">Order Now</a>
+              <a href="{{route('user.accessory.order')}}" class="btn btn-primary">Order Now</a>
             </div>
           </div>
 
@@ -119,7 +118,7 @@
                     Price
                   </h6>
                 </div>
-                <a href="#" class="btn btn-primary">Order Now</a>
+                <a href="{{route('user.product.order')}}" class="btn btn-primary">Order Now</a>
               </div>
             </div>
 

@@ -11,22 +11,22 @@
 
               <form action="{{ route('users.registration.store') }}" method="post" enctype="multipart/form-data">
 
-              @csrf
+                @csrf
                 <div class="form-outline mb-4">
-                  <label class="form-label"  for="form3Example1cg">Your Name</label>
-                  <input type="text" name="name" id="form3Example1cg" class="form-control form-control-lg" required/>
+                  <label class="form-label" for="form3Example1cg">Your Name</label>
+                  <input type="text" name="name" id="form3Example1cg" class="form-control form-control-lg" required />
 
                 </div>
 
                 <div class="form-outline mb-4">
                   <label class="form-label" for="form3Example3cg">Your Email</label>
-                  <input type="email" name="email" id="form3Example3cg" class="form-control form-control-lg"required />
+                  <input type="email" name="email" id="form3Example3cg" class="form-control form-control-lg" required />
 
                 </div>
 
                 <div class="form-outline mb-4">
                   <label class="form-label" for="form3Example4cg">Password</label>
-                  <input type="password" name="password" id="form3Example4cg" class="form-control form-control-lg" required/>
+                  <input type="password" name="password" id="form3Example4cg" class="form-control form-control-lg" required />
                 </div>
 
                 <!-- <div class="form-outline mb-4">
@@ -56,4 +56,10 @@
 
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
 @endsection
