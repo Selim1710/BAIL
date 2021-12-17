@@ -95,10 +95,8 @@
     <div class="filters-content">
       <div class="row grid">
         @foreach($products as $car)
-        <div class="col-sm-6 col-lg-4 all car">
-
+        <div class="col-sm-6 col-lg-4 all {{ $car->product_type }}">
           <div class="box">
-
             <div>
               <div class="img-box">
                 <img src="{{url('/uploads/product/'.$car->image_path)}}" alt="">
