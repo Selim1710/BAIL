@@ -20,7 +20,7 @@
           Welcome to ,<br>
         Bangladesh Auto Industries Limited <br> <br>
       </h2>
-      <button class="btn btn-success">Order Now</button>
+      <button class="btn btn-success">See Our Product &rarr;</button>
     </div>
     
   </div>
