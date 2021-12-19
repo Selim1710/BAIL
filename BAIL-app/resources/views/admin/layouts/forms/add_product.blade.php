@@ -17,6 +17,10 @@
         <div class="input-box">
           <input type="string" name="name" value="" placeholder="Enter product name" required>
         </div>
+        <h2>Product Price</h2>
+        <div class="input-box">
+          <input type="string" name="product_price" value="" placeholder="Enter Product Price" required>
+        </div>
         <h2>Product Type</h2>
         <div class="input-box">
           <input type="string" name="product_type" value="" placeholder="Enter Product Type" required>

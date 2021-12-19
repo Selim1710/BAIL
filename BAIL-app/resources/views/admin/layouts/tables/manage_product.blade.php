@@ -17,6 +17,7 @@
                     <th>SL</th>
                     <th>Model</th>
                     <th>Name</th>
+                    <th>Price</th>
                     <th>Image</th>
                     <th>Product Type</th>
                     <th>Product Details</th>
@@ -29,6 +30,7 @@
                         <td>{{$key+1}}</td>
                         <td>{{$product->product_model}}</td>
                         <td>{{$product->name}}</td>
+                        <td>{{$product->product_price}}</td>
                         <td><img src="{{url('/uploads/product/'.$product->image_path)}}" style="width:50px;height:50px" alt=""></td>
                         <td>{{$product->product_type}}</td>
                         <td>{{$product->product_details}}</td>

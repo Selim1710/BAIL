@@ -15,15 +15,15 @@
                                 
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form3Example1cg">Product Model</label>
-                                    <input type="string" name="product_model" value="" id="form3Example1cg" class="form-control form-control-lg" required />
+                                    <input type="string" name="product_model" value="{{$products->product_model}}" id="form3Example1cg" class="form-control form-control-lg" required />
                                 </div>
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form3Example1cg">Name</label>
-                                    <input type="string" name="name" id="form3Example1cg" class="form-control form-control-lg" required />
+                                    <input type="string" name="name" value="{{$products->name}}" id="form3Example1cg" class="form-control form-control-lg" required />
                                 </div>
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form3Example1cg">Product Details</label>
-                                    <input type="string" name="product_details" id="form3Example1cg" class="form-control form-control-lg" required />
+                                    <input type="string" name="product_details" value="{{$products->product_details}}" id="form3Example1cg" class="form-control form-control-lg" required />
                                 </div>
 
                                 <div class="d-flex justify-content-center">

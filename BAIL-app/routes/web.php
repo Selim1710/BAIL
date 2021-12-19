@@ -27,7 +27,7 @@ Route::group(['prefix'=>'website'],function(){
 
 
     Route::get('/user/show/product',[ShowProductController::class,'index'])->name('user.show.product');
-    Route::get('/user/product/order',[ShowProductController::class,'create'])->name('user.product.order');
+    Route::get('/user/product/order/{id}',[ShowProductController::class,'create'])->name('user.product.order');
 
 
     Route::get('/user/show/accessory',[ShowAccessoryController::class,'index'])->name('user.show.accessories');

@@ -8,33 +8,21 @@ use Illuminate\Http\Request;
 
 class ShowProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
         $products=AddProduct::all();
         return view('website.layouts.show_product', compact('products'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    
+    public function create($id)
     {
-        return view('website.layouts.form.product_order');
+        $products=AddProduct::findOrFail($id);
+        return view('website.layouts.form.product_order',compact('products'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
         //

@@ -44,10 +44,11 @@ class EditProductController extends Controller
         $request->validate([
             'product_model' => 'required',
             'name' => 'required',
+            'product_price' => 'required',
             'product_type' => 'required',
             'product_details' => 'required',
             'total_produce'=>'required',
-            'image_path' => 'required|mimes:jpg,png,jpeg|max:1024'
+            'image_path' => 'required|mimes:jpg,png,jpeg|'
         ]);
 
         //  we concatenate(.) uniqid with the file name
@@ -62,6 +63,7 @@ class EditProductController extends Controller
             AddProduct::create([
                 'product_model' => $request->input('product_model'),
                 'name' => $request->input('name'),
+                'product_price' => $request->input('product_price'),
                 'product_type' => $request->input('product_type'),
                 'product_details' => $request->input('product_details'),
                 'total_produce' => $request->input('total_produce'),
@@ -112,6 +114,7 @@ class EditProductController extends Controller
          $products=AddProduct::findOrFail($request->id);
          $products->product_model = $request->product_model;
          $products->name = $request->name;
+         $products->product_price = $request->product_price;
          $products->product_type = $request->product_type;
          $products->product_details = $request->product_details;
          $products->total_produce = $request->total_produce;

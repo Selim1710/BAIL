@@ -18,6 +18,7 @@ class CreateAddProductsTable extends Migration
             
             $table->string('product_model');
             $table->string('name');
+            $table->string('product_price');
             $table->string('product_type');
             $table->string('product_details');
             $table->string('total_produce');

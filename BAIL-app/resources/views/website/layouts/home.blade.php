@@ -112,12 +112,12 @@
                 <p>
                   {{ $car->product_details }}
                 </p>
-                <div class="options">
+                
                   <h6>
-                    Price
+                    {{ $car->product_price }}
                   </h6>
-                </div>
-                <a href="{{route('user.product.order')}}" class="btn btn-primary">Order Now</a>
+                
+                <a href="{{route('user.product.order',$car->id)}}" class="btn btn-primary">Order Now</a>
               </div>
             </div>
 
