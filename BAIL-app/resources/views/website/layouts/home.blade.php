@@ -17,12 +17,12 @@
       <h2>
         <br>
         <br>
-          Welcome to ,<br>
+        Welcome to ,<br>
         Bangladesh Auto Industries Limited <br> <br>
       </h2>
       <button class="btn btn-success">See Our Product &rarr;</button>
     </div>
-    
+
   </div>
 </section>
 
@@ -69,9 +69,9 @@
         </div>
         @endforeach
       </div>
-      </div>
-
     </div>
+
+  </div>
   </div>
 </section>
 
@@ -112,11 +112,11 @@
                 <p>
                   {{ $car->product_details }}
                 </p>
-                
-                  <h6>
-                    {{ $car->product_price }}
-                  </h6>
-                
+
+                <h6>
+                  {{ $car->product_price }}
+                </h6>
+
                 <a href="{{route('user.product.order',$car->id)}}" class="btn btn-primary">Order Now</a>
               </div>
             </div>
@@ -143,8 +143,7 @@
 <!-- about section -->
 
 <section class="about_section layout_padding">
-  <div class="container  ">
-
+  <div class="container">
     <div class="row">
       <div class="col-md-6 ">
         <div class="img-box">
@@ -174,6 +173,71 @@
 </section>
 
 <!-- end about section -->
+
+<!-- employee section -->
+
+<br>
+
+<section class="employee_section layout_padding-bottom">
+  <div class="container ">
+    <div class="heading_container heading_center">
+      <h2>
+        Our Employee
+      </h2>
+      <br>
+    </div>
+
+    <div class="card-group">
+      <!-- loop here -->
+      <div class="card col-sm-4">
+        <img src="#" class="card-img-top" alt="Add image Here">
+        <div class="card-body">
+          <h5 class="card-title">employee Name</h5>
+          <p class="card-text">employee details</p>
+        </div>
+      </div>
+      <!-- end loop -->
+    </div>
+  </div>
+  </div>
+</section>
+
+<br>
+
+
+
+<!-- Our Branches -->
+
+<br>
+
+<section class="branch_section layout_padding-bottom">
+  <div class="container ">
+    <div class="heading_container heading_center">
+      <h2>
+        Our Branches
+      </h2>
+      <br>
+    </div>
+
+    <div class="card-group">
+      <!-- loop here -->
+      <div class="card col-sm-4">
+        <img src="#" class="card-img-top" alt="Add image Here">
+        <div class="card-body">
+          <h5 class="card-title"> Name</h5>
+          <p class="card-text">Address</p>
+        </div>
+      </div>
+      <!-- end loop -->
+    </div>
+  </div>
+  </div>
+</section>
+
+<br>
+
+
+
 
 <!-- customize section -->
 <section class="customize_section layout_padding">
