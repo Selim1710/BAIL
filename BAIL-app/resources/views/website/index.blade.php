@@ -34,11 +34,11 @@
 
 <body>
 
-  @include('website.partials.header')
+@include('website.partials.header')
  
- @yield('contents')
+@yield('contents')
 
-  @include('website.partials.footer')
+@include('website.partials.footer')
 
   <!-- jQery -->
   <script src="{{ url('js/website/jquery-3.4.1.min.js') }}"></script>
@@ -60,6 +60,7 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>
   <!-- End Google Map -->
+
 
 </body>
 

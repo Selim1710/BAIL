@@ -44,8 +44,7 @@
       <div class="row">
         @foreach($accessories as $accessory)
         <div class="col-md-6">
-
-          <div class="box ">
+          <div class="box">
             <div class="img-box">
               <img src="{{ asset('uploads/accessories/'.$accessory->acc_img) }}" alt="">
             </div>
@@ -68,6 +67,7 @@
 
         </div>
         @endforeach
+      </div>
       </div>
 
     </div>

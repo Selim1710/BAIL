@@ -1,10 +1,3 @@
-
-
-<!-- <div class="hero_area">
-  <div class="bg-box">
-    <img src="images/Background.jpg" alt="..">
-  </div> -->
-  <!-- header section strats -->
   <header class="header_section bg-box">
     <div class="container">
       <nav class="navbar navbar-expand-lg custom_nav-container ">
@@ -20,16 +13,16 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent" >
           <ul class="navbar-nav  mx-auto ">
-            <li class="nav-item active">
+            <li class="nav-item">
               <a  class="nav-link" href="{{route('website.index')}}">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-              <a  class="nav-link" href="#">Product</a>
+            <li class="nav-item ">
+              <a  class="nav-link" href="{{ route('user.show.product') }}">Product</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Accessories</a>
+            <li class="nav-item ">
+              <a class="nav-link" href="{{ route('user.show.accessories') }}">Accessories</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item ">
               <a class="nav-link" href="#">About Us</a>
             </li>
             <div class="user_option">
@@ -53,4 +46,4 @@
       </nav>
     </div>
   </header>
-<!-- </div> -->
+<

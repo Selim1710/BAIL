@@ -3,18 +3,16 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\AddAccessory;
 use Illuminate\Http\Request;
 
-class ProductOrderController extends Controller
+class ShowAccessoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index()
     {
-        return view('website.layouts.form.product_order');
+        $accessories=AddAccessory::all();
+        return view('website.layouts.show_accessories',compact('accessories'));
     }
 
     /**
@@ -24,7 +22,7 @@ class ProductOrderController extends Controller
      */
     public function create()
     {
-        //
+        return view('website.layouts.form.accessories_order');
     }
 
     /**

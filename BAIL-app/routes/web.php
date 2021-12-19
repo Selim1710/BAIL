@@ -6,9 +6,9 @@ use App\Http\Controllers\Backend\EditProductController;
 use App\Http\Controllers\Backend\EditStockController;
 use App\Http\Controllers\Backend\ManageCustommerController;
 use App\Http\Controllers\Backend\ManageOrderController;
-use App\Http\Controllers\Frontend\AccessoryOrderController;
+use App\Http\Controllers\Frontend\ShowAccessoryController;
 use App\Http\Controllers\Frontend\HomeController;
-use App\Http\Controllers\Frontend\ProductOrderController;
+use App\Http\Controllers\Frontend\ShowProductController;
 use App\Http\Controllers\Frontend\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,12 +25,14 @@ Route::group(['prefix'=>'website'],function(){
     Route::get('/user/logout',[UsersController::class,'logout'])->name('user.logout');
 
 
-    Route::get('/user/accessory/order',[AccessoryOrderController::class,'index'])->name('user.accessory.order');
 
-    
-    Route::get('/user/product/order',[ProductOrderController::class,'index'])->name('user.product.order');
-    
-    
+    Route::get('/user/show/product',[ShowProductController::class,'index'])->name('user.show.product');
+    Route::get('/user/product/order',[ShowProductController::class,'create'])->name('user.product.order');
+
+
+    Route::get('/user/show/accessory',[ShowAccessoryController::class,'index'])->name('user.show.accessories');
+    Route::get('/user/accessory/order',[ShowAccessoryController::class,'create'])->name('user.accessory.order');
+
 });
 
 
@@ -42,6 +44,9 @@ Route::group(['prefix'=>'website'],function(){
 
 
 Route::group(['prefix'=>'admin'], function(){
+
+
+// Route::get('/login',);
 
 Route::get('/', [AdminController::class, 'home'])->name('home');
 

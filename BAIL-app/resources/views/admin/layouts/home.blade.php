@@ -6,24 +6,24 @@
                 <h1>Dashboard</h1>
 
                 <div class="col-4 text-center">
-                    <h1>5000</h1>
-                    <br>
-                    Total Product
-                </div>
-
-                <div class="col-4 text-center">
-                    <h1>50000</h1>
+                    <h1>500</h1>
                     <br>
                     Total Order
                 </div>
+
                 <div class="col-4 text-center">
-                    <h1>50000</h1>
+                    <h1>500</h1>
                     <br>
-                    Total Sell
+                    Total sell
+                </div>
+                <div class="col-4 text-center">
+                    <h1>500</h1>
+                    <br>
+                    Total Price
                 </div>
 
                 <div class="col-4 text-center">
-                    <h1>50000</h1>
+                    <h1>500</h1>
                     <br>
                     Total Revenue
                 </div>
