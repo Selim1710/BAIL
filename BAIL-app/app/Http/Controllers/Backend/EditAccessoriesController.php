@@ -43,6 +43,7 @@ class EditAccessoriesController extends Controller
             'name'=>'required',
             'accessories_type'=>'required',
             'accessories_details'=>'required',
+            'accessories_price'=>'required',
             'acc_img'=>'required',
         ]);
 
@@ -59,6 +60,7 @@ class EditAccessoriesController extends Controller
             'name'=> $request ->input('name'),
             'accessories_type'=> $request ->input('accessories_type'),
             'accessories_details'=> $request ->input('accessories_details'),
+            'accessories_price'=> $request ->input('accessories_price'),
             'acc_img'=> $accessories
 
         ]);
@@ -105,6 +107,7 @@ class EditAccessoriesController extends Controller
         $accessories->accessories_type = $request->accessories_type;
         $accessories->accessories_details = $request->accessories_details;
         $accessories->acc_img = $request->acc_img;
+        $accessories->accessories_price = $request->accessories_price;
 
         // dd($accessories);
 

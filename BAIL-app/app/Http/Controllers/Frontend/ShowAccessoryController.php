@@ -20,9 +20,11 @@ class ShowAccessoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        return view('website.layouts.form.accessories_order');
+        $accessory=AddAccessory::findOrFail($id);
+        // dd($accessory);
+        return view('website.layouts.form.accessories_order',compact('accessory'));
     }
 
     /**

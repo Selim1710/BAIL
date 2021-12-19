@@ -15,19 +15,19 @@
                                 
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form3Example1cg">Accessories Model</label>
-                                    <input type="string" name="accessories_model" value="" id="form3Example1cg" class="form-control form-control-lg" required />
+                                    <input type="string" name="accessories_model" value="{{$accessory->accessories_model}}" id="form3Example1cg" class="form-control form-control-lg" required />
                                 </div>
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form3Example1cg">Name</label>
-                                    <input type="string" name="name" id="form3Example1cg" class="form-control form-control-lg" required />
+                                    <input type="string" name="name"value="{{$accessory->name}}" id="form3Example1cg" class="form-control form-control-lg" required />
                                 </div>
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form3Example1cg">Accessories Details</label>
-                                    <input type="string" name="accessories_details" id="form3Example1cg" class="form-control form-control-lg" required />
+                                    <input type="string" name="accessories_details"value="{{$accessory->accessories_details}}" id="form3Example1cg" class="form-control form-control-lg" required />
                                 </div>
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form3Example1cg">Price</label>
-                                    <input type="string" name="accessories_price" id="form3Example1cg" class="form-control form-control-lg" required />
+                                    <input type="string" name="accessories_price"value="{{$accessory->accessories_price}}" id="form3Example1cg" class="form-control form-control-lg" required />
                                 </div>
 
                                 <div class="d-flex justify-content-center">

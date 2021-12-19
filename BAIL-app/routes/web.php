@@ -31,7 +31,7 @@ Route::group(['prefix'=>'website'],function(){
 
 
     Route::get('/user/show/accessory',[ShowAccessoryController::class,'index'])->name('user.show.accessories');
-    Route::get('/user/accessory/order',[ShowAccessoryController::class,'create'])->name('user.accessory.order');
+    Route::get('/user/accessory/order/{id}',[ShowAccessoryController::class,'create'])->name('user.accessory.order');
 
 });
 

@@ -16,6 +16,7 @@
                     <br>
                     Total sell
                 </div>
+                
                 <div class="col-4 text-center">
                     <h1>500</h1>
                     <br>

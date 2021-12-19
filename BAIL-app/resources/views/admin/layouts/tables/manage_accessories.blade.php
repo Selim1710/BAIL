@@ -20,6 +20,7 @@
                 <th>Image</th>
                 <th>Type</th>
                 <th>Details</th>
+                <th>Price</th>
                 <th>Action</th>
             </tr>
 
@@ -31,6 +32,7 @@
                 <td><img src="{{url('/uploads/accessories/'.$accessory->acc_img)}}" style="width:50px;height:50px"alt=""></td>
                 <td>{{$accessory->accessories_type}}</td>
                 <td>{{$accessory->accessories_details}}</td>
+                <td>{{$accessory->accessories_price}}</td>
 
 
                 <td>

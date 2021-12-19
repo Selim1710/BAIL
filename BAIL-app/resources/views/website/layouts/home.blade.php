@@ -50,18 +50,19 @@
             </div>
             <div class="detail-box">
               <h5>
-                {{ $accessory->accessories_model }}
+                Model: {{ $accessory->accessories_model }}
               </h5>
               <h5>
-                {{ $accessory->name }}
+                Name: {{ $accessory->name }}
               </h5>
               <h5>
-                {{ $accessory->accessories_details }}
+                Details: {{ $accessory->accessories_details }}
               </h5>
               <h6>
                 <span>20%</span> Off
               </h6>
-              <a href="{{route('user.accessory.order')}}" class="btn btn-primary">Order Now</a>
+              <h5>Price: </h5>
+              <a href="{{route('user.accessory.order',$accessory->id)}}" class="btn btn-primary">Order Now</a>
             </div>
           </div>
 
