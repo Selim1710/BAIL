@@ -4,7 +4,7 @@
 
     <div class="main-content">
         <div class="wrapper">
-            <h1>Manage Stock</h1>
+            <h1>Manage Customer</h1>
 
             <br /><br />
 
@@ -22,11 +22,10 @@
                 @foreach($customers as $key=>$customer)
                     <tr>
                         <td>{{$key+1}}</td>
-                        <td>{{$customer->user_name}}</td>
-                        <td>{{$customer->user_email}}</td>
+                        <td>{{$customer->name}}</td>
+                        <td>{{$customer->email}}</td>
                         <td>
-                            <a href="#">Confirm</a>
-                            <a href="#">Cancel</a>
+                            <a href="#">Remove</a>
                         </td>
                         
                     </tr>
