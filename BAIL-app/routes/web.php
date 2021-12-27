@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\ManageOrderController;
 use App\Http\Controllers\Frontend\ShowAccessoryController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ShowProductController;
+use App\Http\Controllers\Frontend\UserProfileController;
 use App\Http\Controllers\Frontend\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,8 @@ Route::get('/', [HomeController::class, 'index'])->name('website.index');
 Route::group(['prefix'=>'website'],function(){
     // Route without login
     // Route::group(['middleware'=>'auth'],function(){
+
+    Route::get('/user/profile',[UserProfileController::class, 'index'])->name('user.profile');
 
 
     Route::get('/user/login',[UsersController::class,'index'])->name('users.login');

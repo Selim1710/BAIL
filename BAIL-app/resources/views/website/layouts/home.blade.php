@@ -17,7 +17,8 @@
       <h2>
         <br>
         <br>
-        Welcome to ,<br>
+        Welcome to ,
+        <br>
         Bangladesh Auto Industries Limited <br> <br>
       </h2>
       <button class="btn btn-success">See Our Product &rarr;</button>

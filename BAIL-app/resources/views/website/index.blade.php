@@ -29,16 +29,19 @@
   <link href="{{ url('css/website/style.css') }}" rel="stylesheet" />
   <!-- responsive style -->
   <link href="{{ url('css/website/responsive.css') }}" rel="stylesheet" />
-
+  <!-- For User Profile -->
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
 
-@include('website.partials.header')
- 
-@yield('contents')
+  @include('website.partials.header')
 
-@include('website.partials.footer')
+  @yield('contents')
+
+  @include('website.partials.footer')
 
   <!-- jQery -->
   <script src="{{ url('js/website/jquery-3.4.1.min.js') }}"></script>
