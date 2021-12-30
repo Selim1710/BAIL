@@ -11,7 +11,7 @@
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt="" />
                     <div class="file btn btn-lg btn-primary">
                         Change Photo
-                        <input type="file" name="file" />
+                        <input type="file" name="file"/>
                     </div>
                 </div>
             </div>
@@ -37,11 +37,11 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-work">
-
+                    <!-- top -->
                     <p>Earn Coins</p>
                     <a href="#">Total Coins:</a><br />
                     
-
+                    <!-- bottom -->
                     <p>Our Services</p>
                     <a href="#">Message</a><br />
                     <a href="#">My Review</a><br />

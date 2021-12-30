@@ -9,16 +9,19 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    
+    public function index(Request $request)
     {
-        $accessories=AddAccessory::all();
-        $products=AddProduct::all();
-        return view('website.layouts.home',compact('products','accessories'));
+        $search = $request['search'] ?? "";
+        if ($search != "") {
+            $products = AddProduct::where('product_model', 'LIKE', "%$search")->get();
+            // dd($products);
+
+        } else {
+            $products = AddProduct::all();
+        }
+        $accessories = AddAccessory::all();
+        return view('website.layouts.home', compact('products', 'accessories', 'search'));
     }
 
     /**

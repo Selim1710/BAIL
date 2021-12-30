@@ -105,17 +105,17 @@
               </div>
               <div class="detail-box">
                 <h5>
-                  {{ $car->product_model }}
+                  Model: {{ $car->product_model }}
                 </h5>
                 <h5>
-                  {{ $car->name }}
+                  Name: {{ $car->name }}
                 </h5>
                 <p>
-                  {{ $car->product_details }}
+                 Details: {{ $car->product_details }}
                 </p>
 
                 <h6>
-                  {{ $car->product_price }}
+                  Price: {{ $car->product_price }}
                 </h6>
 
                 <a href="{{route('user.product.order',$car->id)}}" class="btn btn-primary">Order Now</a>

@@ -31,7 +31,7 @@
               <h6>
                 <span>20%</span> Off
               </h6>
-              <a href="{{route('user.accessory.order')}}" class="btn btn-primary">Order Now</a>
+              <a href="{{route('user.accessory.order',$accessory->id)}}" class="btn btn-primary">Order Now</a>
             </div>
           </div>
 
