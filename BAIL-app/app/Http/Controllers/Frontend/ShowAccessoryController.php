@@ -9,30 +9,25 @@ use Illuminate\Http\Request;
 class ShowAccessoryController extends Controller
 {
    
-    public function index()
+    public function index(Request $request)
     {
-        $accessories=AddAccessory::all();
-        return view('website.layouts.show_accessories',compact('accessories'));
+        $search = $request['search'] ?? "";
+        if($search != ""){
+            $accessories=AddAccessory::where('accessories_model', 'LIKE', "%$search%")->orwhere('name', 'LIKE', "%$search%")->get();
+        }else{
+            $accessories=AddAccessory::all();
+        }
+        return view('website.layouts.show_accessories',compact('accessories','search'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create($id)
     {
         $accessory=AddAccessory::findOrFail($id);
-        // dd($accessory);
         return view('website.layouts.form.accessories_order',compact('accessory'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
         //

@@ -14,13 +14,14 @@ class HomeController extends Controller
     {
         $search = $request['search'] ?? "";
         if ($search != "") {
-            $products = AddProduct::where('product_model', 'LIKE', "%$search")->get();
-            // dd($products);
+            $products = AddProduct::where('product_model', 'LIKE', "%$search%")->orwhere('name', 'LIKE', "%$search%")->get();
+            $accessories = AddAccessory::where('accessories_model', 'LIKE', "%$search")->orwhere('name', 'LIKE', "%$search%")->get();
+            
 
         } else {
             $products = AddProduct::all();
+            $accessories = AddAccessory::all();
         }
-        $accessories = AddAccessory::all();
         return view('website.layouts.home', compact('products', 'accessories', 'search'));
     }
 

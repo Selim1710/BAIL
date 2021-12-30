@@ -23,7 +23,7 @@
             <form action="">
               <div class="user_option">
                 <div class="input-group">
-                  <input type="search" name="search" value="{{ $search }}" class="form-control rounded" placeholder="Search Product By Model"/>
+                  <input type="search" name="search" value="{{ $search }}" class="form-control rounded" placeholder="Enter Model and name"/>
                   <!-- search icon -->
                   <button type="submit" class="btn btn-primary">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
