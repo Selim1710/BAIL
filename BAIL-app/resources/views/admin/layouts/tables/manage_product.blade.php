@@ -56,8 +56,9 @@
 
 
                 <td>
-                    <a href="{{route('product.edit',$product->id)}}">edit &rarr;</a>
-                    <a href="{{route('product.destroy',$product->id)}}">Delete</a>
+                    <a href="{{ route('admin.view.product',$product->id) }}" class="btn btn-primary">View</a>
+                    <a href="{{route('product.edit',$product->id)}}" class="btn btn-success">Edit &rarr;</a>
+                    <a href="{{route('product.destroy',$product->id)}}" class="btn btn-danger">Delete</a>
                 </td>
 
 

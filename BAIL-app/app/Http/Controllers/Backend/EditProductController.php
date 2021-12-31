@@ -63,9 +63,10 @@ class EditProductController extends Controller
         }
     }
 
-    public function show($id)
+    public function view($id)
     {
-        // dd($id);
+        $product=AddProduct::findOrFail($id);
+        return view('admin.layouts.tables.view.view_product',compact('product'));
     }
 
     

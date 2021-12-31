@@ -45,10 +45,24 @@ table tr td{
   text-align: center;
 }
 
+.btn-success{
+  background-color: #1E9100;
+  padding:2%;
+  color:#f1f2f6;
+  text-decoration: none;
+  font-weight:bold;
+}
 .btn-primary{
-  background-color: #1e90ff;
+  background-color: #0984e3;
   padding:1%;
   color:#f1f2f6;
+  text-decoration: none;
+  font-weight:bold;
+}
+.btn-danger{
+  background-color: #d63031;
+  padding:2%;
+  color:#dfe6e9;
   text-decoration: none;
   font-weight:bold;
 }
@@ -95,12 +109,7 @@ table tr td{
 }
 
 
-
 /* end Search */
-
-
-
-
 
 
 /* css for add_product form */
@@ -265,6 +274,30 @@ h1{
   margin: 1%;
   padding: 2%;
   float:left;
+}
+
+/* CSS for Product Details */
+
+.print-product{
+  margin-left: 15%;
+}
+.print-product .btn{
+  padding:1% 2% 1% 2%;
+}
+
+.product-image img{
+  margin-left: 20%;
+  width:50%;
+  height:50%;
+}
+.img-details{
+  margin-left: 20%;
+  width:50%;
+  height:50%;  
+}
+.img-details h2{
+  font-size: 1.5rem;
+  margin:5px;
 }
   
   
