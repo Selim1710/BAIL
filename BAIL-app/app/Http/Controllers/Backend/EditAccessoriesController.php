@@ -9,10 +9,15 @@ use Illuminate\Http\Request;
 class EditAccessoriesController extends Controller
 {
     
-    public function index()
+    public function index(Request $request)
     {
-        $accessories=AddAccessory::all();
-        return view('admin.layouts.tables.manage_accessories',compact('accessories'));
+        $search=$request['search'] ?? "";
+        if($search != ""){
+            $accessories=AddAccessory::where("name", 'LIKE', "%$search%")->get();
+        }else{
+            $accessories=AddAccessory::all();
+        }
+        return view('admin.layouts.tables.manage_accessories',compact('accessories','search'));
     }
 
     
