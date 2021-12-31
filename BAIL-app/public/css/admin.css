@@ -52,6 +52,57 @@ table tr td{
   text-decoration: none;
   font-weight:bold;
 }
+
+/* CSS for Search  */
+
+.search input{
+  margin-right:5px;
+  border-radius: 5px;
+}
+
+
+.search input[type=search] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 25%;
+  background: #f1f1f1;
+}
+
+.search button {
+  border-radius: 5px;
+  float: left;
+  width: 5%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+.search button:hover {
+  background: #0b7dda;
+}
+
+/* Clear floats */
+.search::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+
+/* end Search */
+
+
+
+
+
+
 /* css for add_product form */
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
@@ -144,7 +195,7 @@ form .text h3 a:hover{
 
 h1{
   margin:2%;
-  width:25%;
+  width:50%;
   border:0;
   position: relative;
 }
