@@ -58,13 +58,13 @@ table tr td{
 .search input{
   margin-right:5px;
   border-radius: 5px;
+  border:1px solid grey;
 }
 
 
 .search input[type=search] {
   padding: 10px;
   font-size: 17px;
-  border: 1px solid grey;
   float: left;
   width: 25%;
   background: #f1f1f1;

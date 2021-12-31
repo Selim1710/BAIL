@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\HomeController as AdminController;
 use App\Http\Controllers\Backend\AdminLoginController;
 use App\Http\Controllers\Backend\EditAccessoriesController;
 use App\Http\Controllers\Backend\EditProductController;

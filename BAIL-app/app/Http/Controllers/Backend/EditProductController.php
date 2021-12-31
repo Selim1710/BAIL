@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Backend;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\AddProduct;
@@ -10,12 +9,15 @@ use App\Models\AddProduct;
 class EditProductController extends Controller
 {
     
-    public function index()
+    public function index(Request $request)
     {
-        $products = AddProduct::all();
-        return view('admin.layouts.tables.manage_product', [
-            'products' => $products
-        ]);
+        $search=$request['search'] ?? "";
+        if($search !=""){
+            $products = AddProduct::where('product_model','LIKE',"%$search%")->get();
+        }else{
+            $products = AddProduct::all();
+        }
+        return view('admin.layouts.tables.manage_product',compact('products','search'));
     }
 
     
