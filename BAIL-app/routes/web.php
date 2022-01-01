@@ -10,7 +10,6 @@ use App\Http\Controllers\Backend\ManageOrderController;
 use App\Http\Controllers\Frontend\ShowAccessoryController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ShowProductController;
-use App\Http\Controllers\Frontend\UserProfileController;
 use App\Http\Controllers\Frontend\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,7 +22,6 @@ Route::group(['prefix' => 'website'], function () {
 
     // Route::group(['middleware'=>'auth'],function(){
 
-    Route::get('/user/profile', [UserProfileController::class, 'index'])->name('user.profile');
 
 
     Route::get('/user/login', [UsersController::class, 'index'])->name('users.login');
@@ -31,6 +29,7 @@ Route::group(['prefix' => 'website'], function () {
     Route::get('/user/registration', [UsersController::class, 'create'])->name('users.registration.create');
     Route::post('/user/registration/store', [UsersController::class, 'store'])->name('users.registration.store');
     Route::get('/user/logout', [UsersController::class, 'logout'])->name('user.logout');
+    Route::get('/user/profile', [UsersController::class, 'profile'])->name('user.profile');
 
 
 

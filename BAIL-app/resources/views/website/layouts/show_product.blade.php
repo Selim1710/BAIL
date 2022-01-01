@@ -53,9 +53,6 @@
       </div>
     </div>
 
-
-    <!-- bus -->
-
     <div class="btn-box">
       <a href="#">
         View More
