@@ -278,11 +278,17 @@ h1{
 
 /* CSS for Product Details */
 
-.print-product{
+.printProduct{
   margin-left: 15%;
+  margin-bottom: 15px;
 }
-.print-product .btn{
-  padding:1% 2% 1% 2%;
+
+#divToPrint{
+  margin-left: 15%;
+  margin-bottom: 15px;
+}
+.printProduct .btn{
+  padding:1% 2%;
 }
 
 .product-image img{

@@ -60,9 +60,10 @@ class EditAccessoriesController extends Controller
     }
 
     
-    public function show($id)
+    public function view($id)
     {
-        //
+        $accessory= AddAccessory::find($id);
+        return view('admin.layouts.tables.view.view_accessories',compact('accessory'));
     }
 
    

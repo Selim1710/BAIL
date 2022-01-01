@@ -15,22 +15,25 @@
         @foreach($accessories as $accessory)
         <div class="col-md-6">
           <div class="box">
-            <div class="img-box">
-              <img src="{{ asset('uploads/accessories/'.$accessory->acc_img) }}" alt="">
-            </div>
+            <a href="{{ route('website.accessory.details',$accessory->id) }}">
+              <div class="img-box">
+                <img src="{{ asset('uploads/accessories/'.$accessory->acc_img) }}" alt="">
+              </div>
+            </a>
             <div class="detail-box">
               <h5>
-                {{ $accessory->accessories_model }}
+                Model: {{ $accessory->accessories_model }}
               </h5>
               <h5>
-                {{ $accessory->name }}
+                Name: {{ $accessory->name }}
               </h5>
               <h5>
-                {{ $accessory->accessories_details }}
+                Details: {{ $accessory->accessories_details }}
               </h5>
               <h6>
                 <span>20%</span> Off
               </h6>
+              <h5>Price: </h5>
               <a href="{{route('user.accessory.order',$accessory->id)}}" class="btn btn-primary">Order Now</a>
             </div>
           </div>
@@ -38,9 +41,9 @@
         </div>
         @endforeach
       </div>
-      </div>
-
     </div>
+
+  </div>
   </div>
 </section>
 

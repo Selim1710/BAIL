@@ -52,9 +52,9 @@
 
 
                 <td>
-
-                    <a href="{{route('accessories.edit',$accessory->id)}}">Edit &rarr;</a>
-                    <a href="{{route('accessories.destroy',$accessory->id)}}">Delete</a>
+                    <a href="{{ route('admin.view.accessory',$accessory->id) }}" class="btn btn-primary">view</a>
+                    <a href="{{route('accessories.edit',$accessory->id)}}" class="btn btn-success">Edit &rarr;</a>
+                    <a href="{{route('accessories.destroy',$accessory->id)}}" class="btn btn-danger">Delete</a>
                 </td>
 
 
