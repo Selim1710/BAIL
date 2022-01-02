@@ -15,6 +15,7 @@ class AdminLoginController extends Controller
             'email'=>$request->input('email'),
             'password'=>$request->input('password')
         ];
+        // dd(Auth::attempt($adminPost));
         if (Auth::attempt($adminPost)){
             return redirect()->route('home');
         }
