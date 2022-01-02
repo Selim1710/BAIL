@@ -53,15 +53,18 @@
                 </div>
                 <div class="col-md-6">
                     <div class="profile-head">
-                        <h5> Name </h5>
-                        <h6> Address </h6>
+                        <h5> {{ auth()->user()->name }} </h5>
+                        <h6> Be Happy, <br> Spread Hapiness </h6>
 
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">My Order</a>
+                                <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">User Details</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Track your Package</a>
+                                <a class="nav-link " id="order-tab" data-toggle="tab" href="#order" role="tab" aria-controls="order" aria-selected="true">My Order</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="package-tab" data-toggle="tab" href="#package" role="tab" aria-controls="package" aria-selected="false">Track your Package</a>
                             </li>
                         </ul>
                     </div>
@@ -90,9 +93,40 @@
                 <div class="col-md-8">
                     <div class="tab-content profile-tab" id="myTabContent">
 
+
+                        <!-- User Details -->
+
+
+                        <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>E-mail</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{ auth()->user()->email }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Phone</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>01628-520989</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>address</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>give address</p>
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- My Order -->
 
-                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="tab-pane fade" id="order" role="tabpanel" aria-labelledby="order-tab">
                             <div class="row">
                                 <div class="col-md-6">
                                     <label>Product Model</label>
@@ -137,7 +171,7 @@
 
                         <!-- track your package -->
 
-                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="tab-pane fade" id="package" role="tabpanel" aria-labelledby="package-tab">
                             <div class="row">
                                 <div class="col-md-6">
                                     <label>Ready To Ship</label>

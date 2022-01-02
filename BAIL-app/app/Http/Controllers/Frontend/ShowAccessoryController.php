@@ -21,10 +21,16 @@ class ShowAccessoryController extends Controller
     }
 
     
-    public function create($id)
+    public function orderForm(Request $request, $id)
     {
+        $search=$request['search'] ?? "";
+        if($search!=""){
+            $accessory=AddAccessory::where('accessories_model', 'LIKE', "%$search%")->orwhere('name', 'LIKE', "%$search%")->get();
+        }else{
+            $accessories=AddAccessory::all();
+        }
         $accessory=AddAccessory::findOrFail($id);
-        return view('website.layouts.form.accessories_order',compact('accessory'));
+        return view('website.layouts.form.accessories_order',compact('accessory','search'));
     }
 
     

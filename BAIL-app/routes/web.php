@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\ManageOrderController;
 use App\Http\Controllers\Frontend\ShowAccessoryController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ShowProductController;
+use App\Http\Controllers\Frontend\UserProfileController;
 use App\Http\Controllers\Frontend\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,29 +21,26 @@ Route::get('/', [HomeController::class, 'index'])->name('website.index');
 
 Route::group(['prefix' => 'website'], function () {
 
-    // Route::group(['middleware'=>'auth'],function(){
-
-
-
     Route::get('/user/login', [UsersController::class, 'index'])->name('users.login');
     Route::post('/user/do/login', [UsersController::class, 'doLogin'])->name('user.do.login');
     Route::get('/user/registration', [UsersController::class, 'create'])->name('users.registration.create');
     Route::post('/user/registration/store', [UsersController::class, 'store'])->name('users.registration.store');
     Route::get('/user/logout', [UsersController::class, 'logout'])->name('user.logout');
-    Route::get('/user/profile', [UsersController::class, 'profile'])->name('user.profile');
+
+
+    Route::get('/user/profile', [UserProfileController::class, 'index'])->name('user.profile');
 
 
 
     Route::get('/user/show/product', [ShowProductController::class, 'index'])->name('user.show.product');
     Route::get('/view/product/details/{id}', [ShowProductController::class,'view'])->name('website.product.details');
-    Route::get('/user/product/order/{id}', [ShowProductController::class, 'create'])->name('user.product.order');
+    Route::get('/user/product/order/{id}', [ShowProductController::class, 'orderForm'])->name('user.product.order');
 
 
     Route::get('/user/show/accessory', [ShowAccessoryController::class, 'index'])->name('user.show.accessories');
     Route::get('/user/view/accessory/details/{id}',[ShowAccessoryController::class,'view'])->name('website.accessory.details');
-    Route::get('/user/accessory/order/{id}', [ShowAccessoryController::class, 'create'])->name('user.accessory.order');
+    Route::get('/user/accessory/order/{id}', [ShowAccessoryController::class, 'orderForm'])->name('user.accessory.order');
 
-    // });
 
 });
 

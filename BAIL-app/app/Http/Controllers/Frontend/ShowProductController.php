@@ -26,9 +26,15 @@ class ShowProductController extends Controller
         return view('website.layouts.details.product_details',compact('product'));
     }
 
-    public function create($id)
+    public function orderForm(Request $request, $id)
     {
+        $search=$request['search'] ?? "";
+        if($search != ""){
+            $products=AddProduct::where('product_model', 'LIKE', "%$search%")->orwhere('name', 'LIKE', "%$search%")->get();
+        }else{
+            $products=AddProduct::all();
+        }
         $products=AddProduct::findOrFail($id);
-        return view('website.layouts.form.product_order',compact('products'));
+        return view('website.layouts.form.product_order',compact('products','search'));
     }
 }

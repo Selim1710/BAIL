@@ -21,11 +21,6 @@ class UsersController extends Controller
         return view('website.pages.registration_form');
     }
 
-    public function profile()
-    {
-        return view('website.pages.user_profile');
-    }
-
 
     public function store(Request $request)
     {

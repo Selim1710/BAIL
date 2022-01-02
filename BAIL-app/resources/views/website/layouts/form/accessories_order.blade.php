@@ -29,6 +29,10 @@
                                     <label class="form-label" for="form3Example1cg">Price</label>
                                     <input type="string" name="accessories_price"value="{{$accessory->accessories_price}}" id="form3Example1cg" class="form-control form-control-lg" required />
                                 </div>
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example1cg">Quantity</label>
+                                    <input type="string" name="quantity" placeholder="Enter the Quantity" value="" id="form3Example1cg" class="form-control form-control-lg" required />
+                                </div>
 
                                 <div class="d-flex justify-content-center">
                                     <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Confirm Order</button>
