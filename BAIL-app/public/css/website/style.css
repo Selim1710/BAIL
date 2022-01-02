@@ -5,6 +5,18 @@ body {
   background-color: #ffffff;
   overflow-x: hidden;
 }
+
+/* car background image */
+
+.car_bg_img{
+  background-image: url('/images/P-3.jpg');
+}
+
+
+
+
+
+
 /* css for User Profile */
 .emp-profile{
   padding: 3%;
@@ -114,7 +126,7 @@ body {
 }
 
 .layout_padding2-bottom {
-  padding-bottom: 75px;
+  padding-bottom: 220px;
 }
 
 .layout_padding-top {

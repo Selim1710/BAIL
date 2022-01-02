@@ -31,17 +31,6 @@
 
                 @endforeach
 
-                <!-- @foreach($stocks as $stock)
-                    <tr>
-                        <td>{{$stock->product_model}}</td>
-                        <td>{{$stock->name}}</td>
-                        <td>{{$stock->product_type}}</td>
-                        <td></td>
-
-
-                    </tr>
-                @endforeach -->
-
             </table>
 
 

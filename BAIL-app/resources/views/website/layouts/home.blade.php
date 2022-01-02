@@ -11,9 +11,9 @@
 <!-- just for making the website beautiful -->
 
 
-<section class="client_section layout_padding-bottom">
+<section class="client_section layout_padding2-bottom car_bg_img">
   <div class="container">
-    <div class="heading_container heading_center psudo_white_primary mb_45">
+    <div class="heading_container heading_center psudo_white_primary mb_45 ">
       <h2>
         <br>
         <br>
