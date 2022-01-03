@@ -149,7 +149,7 @@
     <div class="row">
       <div class="col-md-6 ">
         <div class="img-box">
-          <img src="images/about-img.png" alt="">
+          <img src="{{ asset('/images/suhag.jpg') }}" alt="">
         </div>
       </div>
       <div class="col-md-6">
@@ -267,6 +267,7 @@
                 <option value="" disabled selected>
                   How many products?
                 </option>
+                <!-- here value will be id -->
                 <option value="">
                   2
                 </option>

@@ -10,6 +10,8 @@ body {
 
 .car_bg_img{
   background-image: url('/images/P-3.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 
