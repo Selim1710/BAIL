@@ -14,8 +14,19 @@ body {
   background-size: cover;
 }
 
+/* User Profile Table */
 
 
+.profile-table table tr{
+  margin-bottom:2px;
+}
+.profile-table table tr th{
+  padding:0 4px 0 4px;
+}
+.profile-table table tr td{
+  padding:0 4px 0 4px;
+  text-align: center;
+}
 
 
 
@@ -114,13 +125,15 @@ body {
 }
 
 /* end user profile */
-
 .layout_padding {
   padding: 90px 0;
 }
 
 .layout_padding2 {
   padding: 75px 0;
+}
+.layout_padding3 {
+  padding: 150px 0;
 }
 
 .layout_padding2-top {

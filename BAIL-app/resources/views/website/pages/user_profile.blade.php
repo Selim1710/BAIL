@@ -127,7 +127,39 @@
                         <!-- My Order -->
 
                         <div class="tab-pane fade" id="order" role="tabpanel" aria-labelledby="order-tab">
-                            <div class="row">
+
+                            <div class="profile-table">
+                                <table>
+                                    <tr>
+                                        <th>SL</th>
+                                        <th>Model</th>
+                                        <th>Name</th>
+                                        <th>Price</th>
+                                        <th>Image</th>
+                                        <th>Product Type</th>
+                                        <th>Product Details</th>
+                                        <th>Total Produce</th>
+                                        <th>Action</th>
+                                    </tr>
+
+                                    <tr>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>
+                                            <a href="#">view</a>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </div>
+
+                            <!-- <div class="row">
                                 <div class="col-md-6">
                                     <label>Product Model</label>
                                 </div>
@@ -166,7 +198,7 @@
                                 <div class="col-md-6">
                                     <p>125</p>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
 
                         <!-- track your package -->

@@ -11,7 +11,7 @@
 <!-- just for making the website beautiful -->
 
 
-<section class="client_section layout_padding2-bottom car_bg_img">
+<section class="client_section layout_padding2-bottom  car_bg_img">
   <div class="container">
     <div class="heading_container heading_center psudo_white_primary mb_45 ">
       <h2>
@@ -144,7 +144,7 @@
 
 <!-- about section -->
 
-<section class="about_section layout_padding">
+<section class="about_section layout_padding3">
   <div class="container">
     <div class="row">
       <div class="col-md-6 ">
@@ -192,7 +192,7 @@
     <div class="card-group">
       <!-- loop here -->
       <div class="card col-sm-4">
-        <img src="#" class="card-img-top" alt="Add image Here">
+        <img src="{{ url('images/employee-1.jpg')  }}" class="card-img-top" alt="Add image Here">
         <div class="card-body">
           <h5 class="card-title">employee Name</h5>
           <p class="card-text">employee details</p>
@@ -224,7 +224,7 @@
     <div class="card-group">
       <!-- loop here -->
       <div class="card col-sm-4">
-        <img src="#" class="card-img-top" alt="Add image Here">
+        <img src="{{ url('images/show-room-1.jpg') }}" class="card-img-top" alt="Add image Here">
         <div class="card-body">
           <h5 class="card-title"> Name</h5>
           <p class="card-text">Address</p>
