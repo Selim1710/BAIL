@@ -10,7 +10,8 @@ class UserProfileController extends Controller
     
     public function index()
     {
-        return view('website.pages.user_profile');
+        $carts=session()->get('cart');
+        return view('website.pages.user_profile',compact('carts'));
     }
 
     /**

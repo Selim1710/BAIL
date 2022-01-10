@@ -41,7 +41,6 @@
             <li class="nav-item">
                <a class="nav-link" href="{{ route('user.logout') }}">Logout</a>
             </li>
-
             <li class="nav-item ">
               <a class="nav-link" href="{{ route('user.profile') }}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">

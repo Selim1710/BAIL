@@ -35,8 +35,11 @@ class UsersController extends Controller
     public function doLogin(Request $request)
     {
         $userpost = $request->except('_token');
+
         if (Auth::attempt($userpost)) {
+
             return redirect()->route('website.index');
+            
         } else {
             return redirect()->back('');
         }

@@ -36,6 +36,11 @@ Route::group(['prefix' => 'website'], function () {
     Route::get('/view/product/details/{id}', [ShowProductController::class,'view'])->name('website.product.details');
     Route::get('/user/product/order/{id}', [ShowProductController::class, 'orderForm'])->name('user.product.order');
 
+    
+    Route::group(['middleware'=>'web_auth'],function(){
+        Route::get('/user/product/add/to/card/{id}',[ShowProductController::class,'addToCart'])->name('product.add.to.cart');
+    });
+
 
     Route::get('/user/show/accessory', [ShowAccessoryController::class, 'index'])->name('user.show.accessories');
     Route::get('/user/view/accessory/details/{id}',[ShowAccessoryController::class,'view'])->name('website.accessory.details');

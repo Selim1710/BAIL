@@ -61,10 +61,13 @@
                                 <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">User Details</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link " id="order-tab" data-toggle="tab" href="#order" role="tab" aria-controls="order" aria-selected="true">My Order</a>
+                                <a class="nav-link " id="order-tab" data-toggle="tab" href="#order" role="tab" aria-controls="order" aria-selected="false">My Order</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="package-tab" data-toggle="tab" href="#package" role="tab" aria-controls="package" aria-selected="false">Track your Package</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="cart-tab" data-toggle="tab" href="#cart" role="tab" aria-controls="cart" aria-selected="false">My Cart({{ session()->has('cart') ? count(session()->get('cart')):0 }})</a>
                             </li>
                         </ul>
                     </div>
@@ -158,47 +161,6 @@
 
                                 </table>
                             </div>
-
-                            <!-- <div class="row">
-                                <div class="col-md-6">
-                                    <label>Product Model</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>11111</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Name</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>Model S</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Product Type</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>car</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label> <q>Quantity</q></label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>12</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Price</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>125</p>
-                                </div>
-                            </div> -->
                         </div>
 
                         <!-- track your package -->
@@ -255,6 +217,38 @@
 
                         </div>
                         <!-- end tracking Package -->
+
+                        <!-- Add To Cart -->
+                        <div class="tab-pane fade" id="cart" role="tabpanel" aria-labelledby="cart-tab">
+
+                            <div class="profile-table">
+                                <table>
+                                    <tr>
+                                        <th>SL</th>
+                                        <th>Product Name</th>
+                                        <th>Product Price</th>
+                                        <th>Quantity</th>
+                                        <th>Sub-Total</th>
+                                        <th>Action</th>
+
+                                    </tr>
+                                    @if($carts)
+                                    @foreach($carts as $key=>$cart)
+                                    <tr>
+                                        <td>{{ $key+1 }}</td>
+                                        <td>{{ $cart['product_name'] }}</td>
+                                        <td>{{ $cart['product_price'] }}</td>
+                                        <td>{{ $cart['product_quantity'] }}</td>
+                                        <td>{{ (int)$cart['product_price'] * (int)$cart['product_quantity'] }}</td>
+                                        <td><a href="#">View</a></td>
+                                    </tr>
+                                    @endforeach
+                                    @endif
+
+                                </table>
+                            </div>
+                        </div>
+                        <!-- add to cart end here -->
                     </div>
                 </div>
             </div>
