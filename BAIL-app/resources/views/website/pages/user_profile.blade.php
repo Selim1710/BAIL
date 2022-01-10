@@ -224,7 +224,6 @@
                             <div class="profile-table">
                                 <table>
                                     <tr>
-                                        <th>SL</th>
                                         <th>Product Name</th>
                                         <th>Product Price</th>
                                         <th>Quantity</th>
@@ -233,14 +232,16 @@
 
                                     </tr>
                                     @if($carts)
-                                    @foreach($carts as $key=>$cart)
+                                    @foreach($carts as $cart)
                                     <tr>
-                                        <td>{{ $key+1 }}</td>
                                         <td>{{ $cart['product_name'] }}</td>
                                         <td>{{ $cart['product_price'] }}</td>
                                         <td>{{ $cart['product_quantity'] }}</td>
                                         <td>{{ (int)$cart['product_price'] * (int)$cart['product_quantity'] }}</td>
-                                        <td><a href="#">View</a></td>
+
+                                        <td>
+                                            <a href="{{ route('product.clear.cart') }}">clear</a>
+                                        </td>
                                     </tr>
                                     @endforeach
                                     @endif

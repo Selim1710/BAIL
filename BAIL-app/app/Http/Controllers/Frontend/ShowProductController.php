@@ -92,4 +92,9 @@ class ShowProductController extends Controller
 
 
     }
+
+    public function clearCart(){
+        session()->forget('cart');
+        return redirect()->back()->with('message','Cart cleared successfully');
+    }
 }
