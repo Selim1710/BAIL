@@ -64,7 +64,7 @@
               <h6>
                 <span>20%</span> Off
               </h6>
-              <h5>Price: </h5>
+              <h5>Price: {{ $accessory->accessories_price }} </h5>
               <a href="{{route('user.accessory.order',$accessory->id)}}" class="btn btn-primary">Order Now</a>
             </div>
           </div>

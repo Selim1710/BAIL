@@ -52,8 +52,9 @@
 
 
                 <td>
-                    <a href="#">Confirm</a>
-                    <a href="#">Cancel</a>
+                    <a href="#" class="btn btn-success">Confirm</a>
+
+                    <a href="#" class="btn btn-danger">Remove</a>
                 </td>
             </tr>
             @endforeach

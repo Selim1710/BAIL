@@ -38,19 +38,23 @@ Route::group(['prefix' => 'website'], function () {
 
     Route::group(['middleware'=>'web_auth'],function(){
         Route::get('/user/product/add/to/card/{id}',[ShowProductController::class,'addToCart'])->name('product.add.to.cart');
-        Route::get('/user/product/get/from/cart',[ShowProductController::class,'clearCart'])->name('product.clear.cart');
+        Route::get('/user/product/clear/from/cart',[ShowProductController::class,'clearCart'])->name('product.clear.cart');
+
+
+        Route::get('/accessory/add/to/cart/{id}', [ShowAccessoryController::class, 'addToCart'])->name('accessory.add.to.cart');
+        Route::post('/accessory/place/order/{id}', [ShowAccessoryController::class, 'accessoryOrder'])->name('accessory.place.order');
 
 
         Route::get('/user/product/order/{id}', [ShowProductController::class, 'orderForm'])->name('user.product.order');
         Route::post('/user/place/order/{id}', [ShowProductController::class, 'orderPlace'])->name('customer.place.order');
 
-        
+        Route::get('/user/accessory/order/{id}', [ShowAccessoryController::class, 'orderForm'])->name('user.accessory.order');
+
     });
 
 
     Route::get('/user/show/accessory', [ShowAccessoryController::class, 'index'])->name('user.show.accessories');
     Route::get('/user/view/accessory/details/{id}',[ShowAccessoryController::class,'view'])->name('website.accessory.details');
-    Route::get('/user/accessory/order/{id}', [ShowAccessoryController::class, 'orderForm'])->name('user.accessory.order');
 
 
 });

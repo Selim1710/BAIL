@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\ManageOrder;
 use Illuminate\Http\Request;
 
 class UserProfileController extends Controller
@@ -11,7 +12,8 @@ class UserProfileController extends Controller
     public function index()
     {
         $carts=session()->get('cart');
-        return view('website.pages.user_profile',compact('carts'));
+        $orders=ManageOrder::all();
+        return view('website.pages.user_profile',compact('carts','orders'));
     }
 
     /**

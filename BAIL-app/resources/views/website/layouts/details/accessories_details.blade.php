@@ -15,7 +15,7 @@
     <h2>Price:{{ $accessory->accessories_details }}</h2>
     
     <br>
-    <a href="#" style="padding:1%; background:blue; color:cornsilk; text-decoration:none; border-radius:5px;">Order Now</a>
-    <a href="#" style="padding:1%; background:green; color:cornsilk; text-decoration:none; border-radius:5px;">Add To Cart</a>
+    <a href="{{ route('user.accessory.order',$accessory->id )}}" style="padding:1%; background:blue; color:cornsilk; text-decoration:none; border-radius:5px;">Order Now</a>
+    <a href="{{ route('accessory.add.to.cart',$accessory->id) }}" style="padding:1%; background:green; color:cornsilk; text-decoration:none; border-radius:5px;">Add To Cart</a>
 
 </div>

@@ -21,7 +21,7 @@
     <h2>Price:{{$product->product_price}}</h2>
     <h2>Total Produce:{{$product->total_produce}}</h2>
     <br>
-    <a href="#" style="padding:1%; background:blue; color:cornsilk; text-decoration:none; border-radius:5px;">Order Now</a>
+    <a href="{{route('user.product.order',$product->id)}}" style="padding:1%; background:blue; color:cornsilk; text-decoration:none; border-radius:5px;">Order Now</a>
     <a href="{{ route('product.add.to.cart', $product->id) }}" style="padding:1%;border:none; background:green; color:cornsilk; text-decoration:none; border-radius:5px;">Add To Cart</a>
 
 

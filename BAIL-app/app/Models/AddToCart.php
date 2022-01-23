@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class AddToCart extends Model
 {
     use HasFactory;
+    protected $guarder=[];
 }

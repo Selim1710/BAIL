@@ -9,7 +9,7 @@
                         <div class="card-body p-5">
                             <h2 class="text-uppercase text-center mb-5">Confirm Order</h2>
 
-                            <form action="#" method="" enctype="multipart/form-data">
+                            <form action="{{ route('accessory.place.order',$accessory->id) }}" method="POST" enctype="multipart/form-data">
 
                                 @csrf
                                 

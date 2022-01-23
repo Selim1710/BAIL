@@ -133,26 +133,26 @@
                                         <th>Model</th>
                                         <th>Name</th>
                                         <th>Price</th>
-                                        <th>Image</th>
-                                        <th>Product Type</th>
-                                        <th>Product Details</th>
-                                        <th>Total Produce</th>
+                                        <th>Quantity</th>
+                                        <th>Total Price</th>
                                         <th>Action</th>
                                     </tr>
 
+                                    @foreach($orders as $order)
                                     <tr>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $order->product_model }}</td>
+                                        <td>{{ $order->product_name }}</td>
+                                        <td>{{ $order->unit_price }}</td>
+                                        <td>{{ $order->quantity }}</td>
+                                        <td>{{ $order->total_price }}</td>
+                                        
+
                                         <td>
                                             <a href="#">view</a>
                                         </td>
                                     </tr>
+                                    @endforeach
 
                                 </table>
                             </div>
