@@ -37,7 +37,9 @@ Route::group(['prefix' => 'website'], function () {
 
 
     Route::group(['middleware'=>'web_auth'],function(){
+
         Route::get('/user/product/add/to/card/{id}',[ShowProductController::class,'addToCart'])->name('product.add.to.cart');
+        Route::get('/user/product/delete/from/card/{id}',[ShowProductController::class,'deleteFromCart'])->name('product.cart.delete');
         Route::get('/user/product/clear/from/cart',[ShowProductController::class,'clearCart'])->name('product.clear.cart');
 
 

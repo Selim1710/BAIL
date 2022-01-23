@@ -230,7 +230,7 @@
 
                                     </tr>
                                     @if($carts)
-                                    @foreach($carts as $cart)
+                                    @foreach($carts as $key=>$cart)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $cart['product_name'] }}</td>
@@ -239,7 +239,7 @@
                                         <td>{{ (int)$cart['product_price'] * (int)$cart['product_quantity'] }}</td>
 
                                         <td>
-                                            <a href="#" class="btn btn-danger">Delete</a>
+                                            <a href="{{ route('product.cart.delete',$key) }}" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
                                     @endforeach

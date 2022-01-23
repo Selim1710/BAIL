@@ -116,6 +116,14 @@ class ShowProductController extends Controller
 
     }
 
+    public function deleteFromCart($id)
+    {
+        $cart=session()->get('cart');
+        unset($cart[$id]);
+        session()->put('cart',$cart);
+        return redirect()->back();
+    }
+
     public function clearCart(){
         session()->forget('cart');
         return redirect()->back()->with('message','Cart cleared successfully');
