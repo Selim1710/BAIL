@@ -16,16 +16,15 @@ class CreateManageOrdersTable extends Migration
         Schema::create('manage_orders', function (Blueprint $table) {
             $table->id();
 
-            $table->string('customer_id');
-            $table->string('customer_name');
-            $table->string('customer_address');
+            $table->string('user_id');
+            $table->string('name');
+            $table->string('email');
+            $table->string('product_model');
+            $table->string('product_name');
+            $table->string('unit_price');
+            $table->string('quantity');
 
-            $table->unsignedBigInteger('product_id');
-            $table->foreign('product_id')
-                    ->references('id')
-                    ->on('add_products')
-                    ->onDelete('cascade');
-                    // ->onDelete('set null');
+            $table->string('total_price');
 
             $table->timestamps();
         });

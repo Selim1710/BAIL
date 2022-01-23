@@ -22,25 +22,42 @@
 
         <table class="full-width">
             <tr>
-                <th>Customer ID</th>
-                <th>Customer Name</th>
-                <th>Customer Address</th>
-                <th>Product Id</th>
+                <th>SL</th>
+
+                <th>User ID</th>
+                <th> Name</th>
+                <th> E-mail</th>
+                <th>Product Model</th>
+                <th>Product Name</th>
+                <th>Unit Price</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+
                 <th>Action</th>
             </tr>
 
+
             @foreach($orders as $order)
             <tr>
-                <td>{{$order->customer_id}}</td>
-                <td>{{$order->customer_name}}</td>
-                <td>{{$order->customer_address}}</td>
-                <td>{{$order->product_id}}</td>
+                <td>{{ $loop->iteration }}</td>
+
+                <td>{{ $order->user_id }}</td>
+                <td>{{ $order->name }}</td>
+                <td>{{ $order->email }}</td>
+                <td>{{ $order->product_model }}</td>
+                <td>{{ $order->product_name }}</td>
+                <td>{{ $order->unit_price }}</td>
+                <td>{{ $order->quantity }}</td>
+                <td>{{ $order->total_price }}</td>
+
+
                 <td>
                     <a href="#">Confirm</a>
                     <a href="#">Cancel</a>
                 </td>
             </tr>
             @endforeach
+
 
 
         </table>

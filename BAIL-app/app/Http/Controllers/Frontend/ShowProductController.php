@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\AddProduct;
+use App\Models\ManageOrder;
+
 use Illuminate\Http\Request;
 
 
@@ -43,6 +45,27 @@ class ShowProductController extends Controller
         }
         $products = AddProduct::findOrFail($id);
         return view('website.layouts.form.product_order', compact('products', 'search'));
+    }
+
+    public function orderPlace(Request $request, $id){
+        
+        ManageOrder::create([
+            'user_id' => auth()->user()->id,
+            'name' =>auth()->user()->name,
+            'email' => auth()->user()->email,
+            'product_model' => $request->product_model,
+            'product_name' => $request->name,
+            'unit_price' => $request->price,
+            'quantity' => $request->quantity,
+
+            'total_price'=> $request['price'] * $request['quantity'],
+
+            
+
+        ]);
+        return redirect()->route('user.show.product');
+        
+        
     }
 
     public function addToCart($id)

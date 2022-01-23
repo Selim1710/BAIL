@@ -58,16 +58,16 @@
 
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">User Details</a>
+                                <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" >User Details</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link " id="order-tab" data-toggle="tab" href="#order" role="tab" aria-controls="order" aria-selected="false">My Order</a>
+                                <a class="nav-link " id="order-tab" data-toggle="tab" href="#order" role="tab" >My Order</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="package-tab" data-toggle="tab" href="#package" role="tab" aria-controls="package" aria-selected="false">Track your Package</a>
+                                <a class="nav-link" id="package-tab" data-toggle="tab" href="#package" role="tab" >Track your Package</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="cart-tab" data-toggle="tab" href="#cart" role="tab" aria-controls="cart" aria-selected="false">My Cart({{ session()->has('cart') ? count(session()->get('cart')):0 }})</a>
+                                <a class="nav-link" id="cart-tab" data-toggle="tab" href="#cart" role="tab">My Cart({{ session()->has('cart') ? count(session()->get('cart')):0 }})</a>
                             </li>
                         </ul>
                     </div>
@@ -90,16 +90,11 @@
                         <a href="#">Payment Option</a><br />
                         <a href="#">Help</a>
 
-
                     </div>
                 </div>
                 <div class="col-md-8">
                     <div class="tab-content profile-tab" id="myTabContent">
-
-
                         <!-- User Details -->
-
-
                         <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                             <div class="row">
                                 <div class="col-md-6">
@@ -221,9 +216,12 @@
                         <!-- Add To Cart -->
                         <div class="tab-pane fade" id="cart" role="tabpanel" aria-labelledby="cart-tab">
 
+                            <a href="{{ route('product.clear.cart') }}" class="btn btn-danger">Clear All Cart</a>
+                            <br>
                             <div class="profile-table">
                                 <table>
                                     <tr>
+                                        <th>SL</th>
                                         <th>Product Name</th>
                                         <th>Product Price</th>
                                         <th>Quantity</th>
@@ -234,13 +232,14 @@
                                     @if($carts)
                                     @foreach($carts as $cart)
                                     <tr>
+                                        <td>{{ $loop->iteration }}</td>
                                         <td>{{ $cart['product_name'] }}</td>
                                         <td>{{ $cart['product_price'] }}</td>
                                         <td>{{ $cart['product_quantity'] }}</td>
                                         <td>{{ (int)$cart['product_price'] * (int)$cart['product_quantity'] }}</td>
 
                                         <td>
-                                            <a href="{{ route('product.clear.cart') }}">clear</a>
+                                            <a href="#" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
                                     @endforeach

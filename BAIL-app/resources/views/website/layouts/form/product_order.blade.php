@@ -9,10 +9,10 @@
                         <div class="card-body p-5">
                             <h2 class="text-uppercase text-center mb-5">Confirm Order</h2>
 
-                            <form action="#" method="" enctype="multipart/form-data">
+                            <form action="{{ route('customer.place.order',$products->id) }}" method="post" enctype="multipart/form-data">
 
                                 @csrf
-                                
+
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form3Example1cg">Product Model</label>
                                     <input type="string" name="product_model" value="{{$products->product_model}}" id="form3Example1cg" class="form-control form-control-lg" required />
@@ -20,6 +20,10 @@
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form3Example1cg">Name</label>
                                     <input type="string" name="name" value="{{$products->name}}" id="form3Example1cg" class="form-control form-control-lg" required />
+                                </div>
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example1cg">Price</label>
+                                    <input type="string" name="price" value="{{$products->product_price}}" id="form3Example1cg" class="form-control form-control-lg" required />
                                 </div>
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form3Example1cg">Product Details</label>
