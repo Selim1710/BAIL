@@ -19,7 +19,8 @@ class CreateManageOrdersTable extends Migration
             $table->string('user_id');
             $table->string('name');
             $table->string('email');
-            $table->string('product_model');
+            $table->string('product_id');
+            $table->string('product_model')->default('');
             $table->string('product_name');
             $table->string('unit_price');
             $table->string('quantity');

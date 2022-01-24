@@ -51,6 +51,16 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Message -->
+                @if(session()->has('error'))
+                <p class="alert alert-danger">{{ session()->get('error') }}</p>
+
+                @endif
+                @if(session()->has('message'))
+                <p class="alert alert-success">{{ session()->get('message') }}</p>
+                @endif
+
                 <div class="col-md-6">
                     <div class="profile-head">
                         <h5> {{ auth()->user()->name }} </h5>
@@ -58,13 +68,13 @@
 
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" >User Details</a>
+                                <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab">User Details</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link " id="order-tab" data-toggle="tab" href="#order" role="tab" >My Order</a>
+                                <a class="nav-link " id="order-tab" data-toggle="tab" href="#order" role="tab">My Order</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="package-tab" data-toggle="tab" href="#package" role="tab" >Track your Package</a>
+                                <a class="nav-link" id="package-tab" data-toggle="tab" href="#package" role="tab">Track your Package</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="cart-tab" data-toggle="tab" href="#cart" role="tab">My Cart({{ session()->has('cart') ? count(session()->get('cart')):0 }})</a>
@@ -146,7 +156,7 @@
                                         <td>{{ $order->unit_price }}</td>
                                         <td>{{ $order->quantity }}</td>
                                         <td>{{ $order->total_price }}</td>
-                                        
+
 
                                         <td>
                                             <a href="#">view</a>
@@ -217,6 +227,8 @@
                         <div class="tab-pane fade" id="cart" role="tabpanel" aria-labelledby="cart-tab">
 
                             <a href="{{ route('product.clear.cart') }}" class="btn btn-danger">Clear All Cart</a>
+                            <a href="{{ route('user.product.checkout') }}" class="btn btn-success">Checkout</a>
+
                             <br>
                             <div class="profile-table">
                                 <table>
