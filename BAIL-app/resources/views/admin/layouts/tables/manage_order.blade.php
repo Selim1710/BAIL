@@ -5,6 +5,16 @@
 <div class="main-content">
     <div class="wrapper">
         <h1>Manage Order</h1>
+        <br>
+
+        <!-- Message -->
+        @if(session()->has('error'))
+        <p style="background-color: red;width:100%;padding:2%;">{{ session()->get('error') }}</p>
+
+        @endif
+        @if(session()->has('message'))
+        <p style="background-color: green;width:100%;padding:2%;">{{ session()->get('message') }}</p>
+        @endif
 
         <br />
         <!-- button to add product -->
@@ -52,9 +62,11 @@
 
 
                 <td>
-                    <a href="#" class="btn btn-success">Confirm</a>
 
-                    <a href="#" class="btn btn-danger">Remove</a>
+                    <a href="{{ route('admin.confirm.order',$order->id) }}" class="btn btn-success" style="text-transform: capitalize;">{{ $order->status }}</a>
+
+                    <a href="{{ route('admin.remove.order',$order->id) }}" class="btn btn-danger">Remove</a>
+                    
                 </td>
             </tr>
             @endforeach

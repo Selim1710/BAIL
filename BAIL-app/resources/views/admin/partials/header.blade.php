@@ -21,7 +21,7 @@
                         <li><a href="#">Employee</a></li>
                         <li><a href="#">Branch</a></li> <!-- Customer will buy product from show room -->
                         <li><a href="#">Life Style</a></li>
-                        <li><a href="{{route('admin.login')}}">Logout</a></li>
+                        <li><a href="{{route('admin.logout')}}">Logout</a></li>
                     </ul>
                 </div>
 

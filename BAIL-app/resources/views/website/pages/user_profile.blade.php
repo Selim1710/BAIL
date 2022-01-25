@@ -145,6 +145,7 @@
                                         <th>Price</th>
                                         <th>Quantity</th>
                                         <th>Total Price</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
 
@@ -156,7 +157,7 @@
                                         <td>{{ $order->unit_price }}</td>
                                         <td>{{ $order->quantity }}</td>
                                         <td>{{ $order->total_price }}</td>
-
+                                        <td>{{ $order->status }}</td>
 
                                         <td>
                                             <a href="#">view</a>

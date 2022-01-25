@@ -26,7 +26,7 @@ class CreateManageOrdersTable extends Migration
             $table->string('quantity');
 
             $table->string('total_price');
-
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }

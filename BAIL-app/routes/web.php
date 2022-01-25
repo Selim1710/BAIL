@@ -70,8 +70,7 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::get('/login', [AdminLoginController::class, 'loginForm'])->name('admin.login');
     Route::post('/do/login', [AdminLoginController::class, 'adminDoLogin'])->name('admin.do.login');
-
-    // Route::get('/admin/logout',[AdminLoginController::class,'logout'])->name('admin.logout');
+    Route::get('/admin/logout',[AdminLoginController::class,'logout'])->name('admin.logout');
 
     Route::group(['middleware' => ['auth','admin']], function () {
 
@@ -86,6 +85,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/product/delete/{id}', [EditProductController::class, 'destroy'])->name('product.destroy');
 
         Route::get('/order', [ManageOrderController::class, 'index'])->name('order.index');
+        Route::get('/confirm/order/{id}', [ManageOrderController::class, 'confirmOrder'])->name('admin.confirm.order');
+        Route::get('/remove/order/{id}', [ManageOrderController::class, 'removeOrder'])->name('admin.remove.order');
 
         Route::get('/stock', [EditStockController::class, 'index'])->name('stock.index');
 
