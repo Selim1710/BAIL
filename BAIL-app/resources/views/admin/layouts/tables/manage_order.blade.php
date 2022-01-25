@@ -17,8 +17,11 @@
         @endif
 
         <br />
-        <!-- button to add product -->
-        <a href="#" class="btn-primary">See order list &rarr;</a>
+        <!-- print button -->
+        <div class="printProduct">
+            <button onclick="printProduct()" class="btn btn-success">Print</button>
+        </div>
+
         <br /><br /> <br>
         <div class="search">
             <input type="search" name="search" placeholder="Search Order Product Here">
@@ -29,57 +32,54 @@
             </button>
         </div>
         <br />
+        <div id="divToPrint">
+            <table class="full-width">
+                <tr>
+                    <th>SL</th>
+                    <th>User ID</th>
+                    <th>Name</th>
+                    <th>E-mail</th>
+                    <th>Product Model</th>
+                    <th>Product Name</th>
+                    <th>Unit Price</th>
+                    <th>Quantity</th>
+                    <th>Total Price</th>
+                    <th>Action</th>
+                </tr>
 
-        <table class="full-width">
-            <tr>
-                <th>SL</th>
-
-                <th>User ID</th>
-                <th> Name</th>
-                <th> E-mail</th>
-                <th>Product Model</th>
-                <th>Product Name</th>
-                <th>Unit Price</th>
-                <th>Quantity</th>
-                <th>Total Price</th>
-
-                <th>Action</th>
-            </tr>
-
-
-            @foreach($orders as $order)
-            <tr>
-                <td>{{ $loop->iteration }}</td>
-
-                <td>{{ $order->user_id }}</td>
-                <td>{{ $order->name }}</td>
-                <td>{{ $order->email }}</td>
-                <td>{{ $order->product_model }}</td>
-                <td>{{ $order->product_name }}</td>
-                <td>{{ $order->unit_price }}</td>
-                <td>{{ $order->quantity }}</td>
-                <td>{{ $order->total_price }}</td>
+                @foreach($orders as $order)
+                <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $order->user_id }}</td>
+                    <td>{{ $order->name }}</td>
+                    <td>{{ $order->email }}</td>
+                    <td>{{ $order->product_model }}</td>
+                    <td>{{ $order->product_name }}</td>
+                    <td>{{ $order->unit_price }}</td>
+                    <td>{{ $order->quantity }}</td>
+                    <td>{{ $order->total_price }}</td>
 
 
-                <td>
+                    <td>
 
-                    <a href="{{ route('admin.confirm.order',$order->id) }}" class="btn btn-success" style="text-transform: capitalize;">{{ $order->status }}</a>
+                        <a href="{{ route('admin.confirm.order',$order->id) }}" style="text-transform: capitalize;background:#10ac84;padding:1%;color:#ecf0f1;text-decoration:none;">{{ $order->status }}</a>
+                        <a href="{{ route('admin.remove.order',$order->id) }}" style="text-transform: capitalize;background:#ee5253;padding:1%;color:#ecf0f1;text-decoration:none;">Remove</a>
 
-                    <a href="{{ route('admin.remove.order',$order->id) }}" class="btn btn-danger">Remove</a>
-                    
-                </td>
-            </tr>
-            @endforeach
-
-
-
-        </table>
-
-
+                    </td>
+                </tr>
+                @endforeach
+            </table>
+        </div>
     </div>
 </div>
-
-
-
-
 @endsection
+
+<script type="text/javascript">
+    function printProduct() {
+        var divToPrint = document.getElementById('divToPrint');
+        var popupwin = window.open('', '_blank', 'width=1100, height=700');
+        popupwin.document.open();
+        popupwin.document.write('<html><head><link href="http://127.0.0.1:8000/Backend/css/style.css" rel="stylesheet"></head><body onload="window.print()">' + divToPrint.innerHTML + '</html>');
+        popupwin.document.close();
+    }
+</script>

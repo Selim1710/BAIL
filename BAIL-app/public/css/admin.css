@@ -279,20 +279,22 @@ h1{
   float:left;
 }
 
-/* CSS for Product Details */
+/* CSS for print */
 
 .printProduct{
-  margin-left: 15%;
-  margin-bottom: 15px;
+  margin-left: 1%;
+  
 }
 
 #divToPrint{
-  margin-left: 15%;
+  margin-left: 1%;
   margin-bottom: 15px;
 }
-.printProduct .btn{
-  padding:1% 2%;
+.printProduct button{
+  padding:1%;
 }
+
+/* CSS for view - product details */
 
 .product-image img{
   margin-left: 20%;
