@@ -28,8 +28,9 @@ Route::group(['prefix' => 'website'], function () {
     Route::get('/user/logout', [UsersController::class, 'logout'])->name('user.logout');
 
 
-    Route::get('/user/profile', [UserProfileController::class, 'index'])->name('user.profile');
-
+    Route::get('/user/profile', [UserProfileController::class, 'userProfile'])->name('user.profile');
+    Route::get('/user/edit/profile/{id}', [UserProfileController::class, 'editProfile'])->name('user.edit.profile');
+    Route::post('/user/update/profile/{id}', [UserProfileController::class, 'updateProfile'])->name('user.update.profile');
 
 
     Route::get('/user/show/product', [ShowProductController::class, 'index'])->name('user.show.product');

@@ -44,8 +44,8 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-img">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt="" />
-                        <div class="file btn btn-lg btn-primary">
+                        <img src="{{ asset('images/profile-1.jpg') }}" style="height:150px;width:150px;" />
+                        <div class="file btn btn-primary">
                             Change Photo
                             <input type="file" name="file" />
                         </div>
@@ -61,9 +61,10 @@
                 <p class="alert alert-success">{{ session()->get('message') }}</p>
                 @endif
 
+                <!-- User Name -->
                 <div class="col-md-6">
                     <div class="profile-head">
-                        <h5> {{ auth()->user()->name }} </h5>
+                        <h5 style="text-transform:uppercase;"> {{ auth()->user()->name }} </h5>
                         <h6> Be Happy, <br> Spread Hapiness </h6>
 
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -83,7 +84,7 @@
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" />
+                    <a href="{{ route('user.edit.profile', auth()->user()->id) }}" class="btn btn-info">Edit Profile</a>
                 </div>
             </div>
             <div class="row">
@@ -178,47 +179,6 @@
                                     <p>yes</p>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Package is Ready</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>10$/hr</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Ship Transit</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>10$/hr</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Logistic Facility</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>wrapping the product</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Product sent</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>10$/hr</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Complete Delivery</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>done</p>
-                                </div>
-                            </div>
-
                         </div>
                         <!-- end tracking Package -->
 
