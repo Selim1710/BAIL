@@ -31,4 +31,8 @@ class UserProfileController extends Controller
         return redirect()->route('user.profile')->with('message','Your Profile is Updated');
     }
 
+    public function uploadImage($id){
+        dd($id);
+    }
+
 }

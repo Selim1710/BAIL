@@ -40,190 +40,183 @@
     <!-- user profile -->
 
     <div class="container emp-profile">
-        <form action="#" method="">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="profile-img">
-                        <img src="{{ asset('images/profile-1.jpg') }}" style="height:150px;width:150px;" />
-                        <div class="file btn btn-primary">
-                            Change Photo
-                            <input type="file" name="file" />
-                        </div>
-                    </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-img">
+                    <img src="{{ asset('images/profile-1.jpg') }}" style="height:150px;width:150px;" />
                 </div>
-
-                <!-- Message -->
-                @if(session()->has('error'))
-                <p class="alert alert-danger">{{ session()->get('error') }}</p>
-
-                @endif
-                @if(session()->has('message'))
-                <p class="alert alert-success">{{ session()->get('message') }}</p>
-                @endif
-
-                <!-- User Name -->
-                <div class="col-md-6">
-                    <div class="profile-head">
-                        <h5 style="text-transform:uppercase;"> {{ auth()->user()->name }} </h5>
-                        <h6> Be Happy, <br> Spread Hapiness </h6>
-
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab">User Details</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " id="order-tab" data-toggle="tab" href="#order" role="tab">My Order</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="package-tab" data-toggle="tab" href="#package" role="tab">Track your Package</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="cart-tab" data-toggle="tab" href="#cart" role="tab">My Cart({{ session()->has('cart') ? count(session()->get('cart')):0 }})</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <a href="{{ route('user.edit.profile', auth()->user()->id) }}" class="btn btn-info">Edit Profile</a>
+                <div class="file">
+                    <a href="{{ route('user.upload.image',auth()->user()->id) }}" class="btn btn-primary">Edit</a>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="profile-work">
-                        <!-- top -->
-                        <p>Earn Coins</p>
-                        <a href="#">Total Coins:</a><br />
-
-                        <!-- bottom -->
-                        <p>Our Services</p>
-                        <a href="#">Message</a><br />
-                        <a href="#">My Review</a><br />
-                        <a href="#">Payment Option</a><br />
-                        <a href="#">Help</a>
-
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <div class="tab-content profile-tab" id="myTabContent">
-                        <!-- User Details -->
-                        <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>E-mail</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>{{ auth()->user()->email }}</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Phone</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>01628-520989</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>address</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>give address</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- My Order -->
-
-                        <div class="tab-pane fade" id="order" role="tabpanel" aria-labelledby="order-tab">
-
-                            <div class="profile-table">
-                                <table>
-                                    <tr>
-                                        <th>SL</th>
-                                        <th>Name</th>
-                                        <th>Price</th>
-                                        <th>Quantity</th>
-                                        <th>Total Price</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
-                                    </tr>
-
-                                    @foreach($orders as $order)
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $order->product_name }}</td>
-                                        <td>{{ $order->unit_price }}</td>
-                                        <td>{{ $order->quantity }}</td>
-                                        <td>{{ $order->total_price }}</td>
-                                        <td>{{ $order->status }}</td>
-
-                                        <td>
-                                            <a href="#">view</a>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-
-                                </table>
-                            </div>
-                        </div>
-
-                        <!-- track your package -->
-
-                        <div class="tab-pane fade" id="package" role="tabpanel" aria-labelledby="package-tab">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Ready To Ship</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p>yes</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end tracking Package -->
-
-                        <!-- Add To Cart -->
-                        <div class="tab-pane fade" id="cart" role="tabpanel" aria-labelledby="cart-tab">
-
-                            <a href="{{ route('product.clear.cart') }}" class="btn btn-danger">Clear All Cart</a>
-                            <a href="{{ route('user.product.checkout') }}" class="btn btn-success">Checkout</a>
-
-                            <br>
-                            <div class="profile-table">
-                                <table>
-                                    <tr>
-                                        <th>SL</th>
-                                        <th>Product Name</th>
-                                        <th>Product Price</th>
-                                        <th>Quantity</th>
-                                        <th>Sub-Total</th>
-                                        <th>Action</th>
-
-                                    </tr>
-                                    @if($carts)
-                                    @foreach($carts as $key=>$cart)
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $cart['product_name'] }}</td>
-                                        <td>{{ $cart['product_price'] }}</td>
-                                        <td>{{ $cart['product_quantity'] }}</td>
-                                        <td>{{ (int)$cart['product_price'] * (int)$cart['product_quantity'] }}</td>
-
-                                        <td>
-                                            <a href="{{ route('product.cart.delete',$key) }}" class="btn btn-danger">Delete</a>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                    @endif
-
-                                </table>
-                            </div>
-                        </div>
-                        <!-- add to cart end here -->
-                    </div>
+            <!-- User Name -->
+            <div class="col-md-6">
+                <div class="profile-head">
+                    <h5 style="text-transform:capitalize;"> {{ auth()->user()->name }} </h5>
+                    <h6> Be Happy, <br> Spread Hapiness </h6>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab">User Details</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " id="order-tab" data-toggle="tab" href="#order" role="tab">My Order</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="package-tab" data-toggle="tab" href="#package" role="tab">Track your Package</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="cart-tab" data-toggle="tab" href="#cart" role="tab">My Cart({{ session()->has('cart') ? count(session()->get('cart')):0 }})</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </form>
+            <div class="col-md-2">
+                <a href="{{ route('user.edit.profile', auth()->user()->id) }}" class="btn btn-info">Edit Profile</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-work">
+                    <!-- top -->
+                    <p>Earn Coins</p>
+                    <a href="#">Total Coins:</a><br />
+
+                    <!-- bottom -->
+                    <p>Our Services</p>
+                    <a href="#">Message</a><br />
+                    <a href="#">My Review</a><br />
+                    <a href="#">Payment Option</a><br />
+                    <a href="#">Help</a>
+
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <!-- User Details -->
+                    <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>E-mail</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{ auth()->user()->email }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Phone</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>01628-520989</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>address</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>give address</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- My Order -->
+
+                    <div class="tab-pane fade" id="order" role="tabpanel" aria-labelledby="order-tab">
+
+                        <div class="profile-table">
+                            <table>
+                                <tr>
+                                    <th>SL</th>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total Price</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+
+                                @foreach($orders as $order)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $order->product_name }}</td>
+                                    <td>{{ $order->unit_price }}</td>
+                                    <td>{{ $order->quantity }}</td>
+                                    <td>{{ $order->total_price }}</td>
+                                    <td>{{ $order->status }}</td>
+
+                                    <td>
+                                        <a href="#">view</a>
+                                    </td>
+                                </tr>
+                                @endforeach
+
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- track your package -->
+
+                    <div class="tab-pane fade" id="package" role="tabpanel" aria-labelledby="package-tab">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Ready To Ship</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>yes</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Message Showing -->
+                    @if(session()->has('error'))
+                    <p class="alert alert-danger">{{ session()->get('error') }}</p>
+
+                    @endif
+                    @if(session()->has('message'))
+                    <p class="alert alert-success">{{ session()->get('message') }}</p>
+                    @endif
+
+                    <!-- Add To Cart -->
+                    <div class="tab-pane fade" id="cart" role="tabpanel" aria-labelledby="cart-tab">
+
+                        <a href="{{ route('product.clear.cart') }}" class="btn btn-danger">Clear All Cart</a>
+                        <a href="{{ route('user.product.checkout') }}" class="btn btn-success">Checkout</a>
+
+                        <br>
+                        <div class="profile-table">
+                            <table>
+                                <tr>
+                                    <th>SL</th>
+                                    <th>Product Name</th>
+                                    <th>Product Price</th>
+                                    <th>Quantity</th>
+                                    <th>Sub-Total</th>
+                                    <th>Action</th>
+
+                                </tr>
+                                @if($carts)
+                                @foreach($carts as $key=>$cart)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $cart['product_name'] }}</td>
+                                    <td>{{ $cart['product_price'] }}</td>
+                                    <td>{{ $cart['product_quantity'] }}</td>
+                                    <td>{{ (int)$cart['product_price'] * (int)$cart['product_quantity'] }}</td>
+
+                                    <td>
+                                        <a href="{{ route('product.cart.delete',$key) }}" class="btn btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                                @endif
+
+                            </table>
+                        </div>
+                    </div>
+                    <!-- add to cart end here -->
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- jQery -->

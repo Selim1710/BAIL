@@ -31,7 +31,7 @@ Route::group(['prefix' => 'website'], function () {
     Route::get('/user/profile', [UserProfileController::class, 'userProfile'])->name('user.profile');
     Route::get('/user/edit/profile/{id}', [UserProfileController::class, 'editProfile'])->name('user.edit.profile');
     Route::post('/user/update/profile/{id}', [UserProfileController::class, 'updateProfile'])->name('user.update.profile');
-
+    Route::get('/user/upload/image/{id}', [UserProfileController::class, 'uploadImage'])->name('user.upload.image');
 
     Route::get('/user/show/product', [ShowProductController::class, 'index'])->name('user.show.product');
     Route::get('/view/product/details/{id}', [ShowProductController::class,'view'])->name('website.product.details');
