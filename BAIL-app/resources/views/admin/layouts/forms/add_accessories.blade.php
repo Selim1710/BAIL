@@ -8,10 +8,7 @@
 
       <form action="{{route('accessories.store')}}" method="post" enctype="multipart/form-data">
         @csrf 
-        <h2>Model</h2>
-        <div class="input-box">
-          <input type="string" name="accessories_model" value="" placeholder="Enter Accessories Model" required>
-        </div>
+        
         <h2>Name</h2>
         <div class="input-box">
           <input type="string" name="name" value="" placeholder="Enter Accessories name" required>

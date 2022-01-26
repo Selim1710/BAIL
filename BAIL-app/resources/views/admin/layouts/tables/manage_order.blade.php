@@ -39,7 +39,6 @@
                     <th>User ID</th>
                     <th>Name</th>
                     <th>E-mail</th>
-                    <th>Product Model</th>
                     <th>Product Name</th>
                     <th>Unit Price</th>
                     <th>Quantity</th>
@@ -53,7 +52,6 @@
                     <td>{{ $order->user_id }}</td>
                     <td>{{ $order->name }}</td>
                     <td>{{ $order->email }}</td>
-                    <td>{{ $order->product_model }}</td>
                     <td>{{ $order->product_name }}</td>
                     <td>{{ $order->unit_price }}</td>
                     <td>{{ $order->quantity }}</td>

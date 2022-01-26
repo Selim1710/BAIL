@@ -16,7 +16,7 @@ class ShowProductController extends Controller
     {
         $search = $request['search'] ?? "";
         if ($request != "") {
-            $products = AddProduct::where('product_model', 'LIKE', "%$search%")->orwhere('name', 'LIKE', "%$search%")->get();
+            $products = AddProduct::where('product_type', 'LIKE', "%$search%")->orwhere('name', 'LIKE', "%$search%")->get();
         } else {
             $products = AddProduct::all();
         }
@@ -55,7 +55,6 @@ class ShowProductController extends Controller
             'name' => auth()->user()->name,
             'email' => auth()->user()->email,
             'product_id' => $request->id,
-            'product_model' => $request->product_model,
             'product_name' => $request->name,
             'unit_price' => $request->price,
             'quantity' => $request->quantity,

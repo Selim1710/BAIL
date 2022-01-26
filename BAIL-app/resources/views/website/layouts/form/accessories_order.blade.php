@@ -13,10 +13,7 @@
 
                                 @csrf
                                 
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="form3Example1cg">Accessories Model</label>
-                                    <input type="string" name="accessories_model" value="{{$accessory->accessories_model}}" id="form3Example1cg" class="form-control form-control-lg" required />
-                                </div>
+                                
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form3Example1cg">Name</label>
                                     <input type="string" name="name"value="{{$accessory->name}}" id="form3Example1cg" class="form-control form-control-lg" required />

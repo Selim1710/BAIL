@@ -31,7 +31,6 @@ class EditAccessoriesController extends Controller
     {
         // dd($request);
         $request->validate([
-            'accessories_model'=>'required',
             'name'=>'required',
             'accessories_type'=>'required',
             'accessories_details'=>'required',
@@ -48,7 +47,6 @@ class EditAccessoriesController extends Controller
         }
 
         AddAccessory::create([
-            'accessories_model'=> $request ->input('accessories_model'),
             'name'=> $request ->input('name'),
             'accessories_type'=> $request ->input('accessories_type'),
             'accessories_details'=> $request ->input('accessories_details'),
@@ -78,7 +76,6 @@ class EditAccessoriesController extends Controller
     {
         $accessories=AddAccessory::find($request->id);
         // dd($accessories);
-        $accessories->accessories_model = $request->accessories_model;
         $accessories->name = $request->name;
         $accessories->accessories_type = $request->accessories_type;
         $accessories->accessories_details = $request->accessories_details;

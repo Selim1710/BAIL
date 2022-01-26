@@ -31,7 +31,6 @@
         <table class="full-width">
             <tr>
                 <th>ID</th>
-                <th>Model</th>
                 <th>Name</th>
                 <th>Image</th>
                 <th>Type</th>
@@ -43,7 +42,6 @@
             @foreach($accessories as $key=>$accessory)
             <tr>
                 <td>{{$key+1}}</td>
-                <td>{{$accessory->accessories_model}}</td>
                 <td>{{$accessory->name}}</td>
                 <td><img src="{{url('/uploads/accessories/'.$accessory->acc_img)}}" style="width:50px;height:50px" alt=""></td>
                 <td>{{$accessory->accessories_type}}</td>

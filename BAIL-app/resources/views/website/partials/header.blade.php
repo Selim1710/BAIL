@@ -1,7 +1,7 @@
   <header class="header_section bg-box">
     <div class="container">
       <nav class="navbar navbar-expand-lg custom_nav-container ">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{{ route('website.index') }}">
           <span>
             BAIL
           </span>
@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav  mx-auto ">
             <li class="nav-item">
-              <a class="nav-link" href="{{route('website.index')}}">Home</a>
+              <a class="nav-link" href="{{ route('website.index') }}">Home</a>
             </li>
             <li class="nav-item ">
               <a class="nav-link" href="{{ route('user.show.product') }}">Product</a>
@@ -23,7 +23,7 @@
             <form action="">
               <div class="user_option">
                 <div class="input-group">
-                  <input type="search" name="search" value="{{ $search }}" class="form-control rounded" placeholder="Enter Model or Name"/>
+                  <input type="search" name="search" value="{{ $search }}" class="form-control rounded" placeholder="Enter Name To Search"/>
                   <!-- search icon -->
                   <button type="submit" class="btn btn-primary">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">

@@ -32,9 +32,6 @@
             </a>
             <div class="detail-box">
               <h5>
-                Model: {{ $car->product_model }}
-              </h5>
-              <h5>
                 Name: {{ $car->name }}
               </h5>
               <p>

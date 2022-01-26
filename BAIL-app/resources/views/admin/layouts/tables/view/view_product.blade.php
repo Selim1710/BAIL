@@ -8,7 +8,6 @@
     </div>
     <div class="img-details text-center">
         <h1>Product Details:</h1>
-        <h2>Models: {{$product->product_model}}</h2>
         <h2>Name: {{$product->name}}</h2>
         <h2>Price:{{$product->product_price}}</h2>
         <h2>Total Produce:{{$product->total_produce}}</h2>

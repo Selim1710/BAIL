@@ -30,7 +30,6 @@ class EditProductController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'product_model' => 'required',
             'name' => 'required',
             'product_price' => 'required',
             'product_type' => 'required',
@@ -49,7 +48,6 @@ class EditProductController extends Controller
 
         try {
             AddProduct::create([
-                'product_model' => $request->input('product_model'),
                 'name' => $request->input('name'),
                 'product_price' => $request->input('product_price'),
                 'product_type' => $request->input('product_type'),
@@ -84,7 +82,6 @@ class EditProductController extends Controller
     public function update(Request $request)
     {
          $products=AddProduct::findOrFail($request->id);
-         $products->product_model = $request->product_model;
          $products->name = $request->name;
          $products->product_price = $request->product_price;
          $products->product_type = $request->product_type;

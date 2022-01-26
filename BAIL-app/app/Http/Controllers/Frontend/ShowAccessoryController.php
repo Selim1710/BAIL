@@ -15,7 +15,7 @@ class ShowAccessoryController extends Controller
     {
         $search = $request['search'] ?? "";
         if ($search != "") {
-            $accessories = AddAccessory::where('accessories_model', 'LIKE', "%$search%")->orwhere('name', 'LIKE', "%$search%")->get();
+            $accessories = AddAccessory::where('accessories_type', 'LIKE', "%$search%")->orwhere('name', 'LIKE', "%$search%")->get();
         } else {
             $accessories = AddAccessory::all();
         }
@@ -50,7 +50,6 @@ class ShowAccessoryController extends Controller
             'user_id' => auth()->user()->id,
             'name' => auth()->user()->name,
             'email' => auth()->user()->email,
-            'product_model' => $request->accessories_model,
             'product_name' => $request->name,
             'unit_price' => $request->accessories_price,
             'quantity' => $request->quantity,
@@ -63,6 +62,5 @@ class ShowAccessoryController extends Controller
     public function addToCart($id)
     {
         dd('my cart');
-        $cart = AddToCart::create([]);
     }
 }

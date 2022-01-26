@@ -22,9 +22,6 @@
             </a>
             <div class="detail-box">
               <h5>
-                Model: {{ $accessory->accessories_model }}
-              </h5>
-              <h5>
                 Name: {{ $accessory->name }}
               </h5>
               <h5>

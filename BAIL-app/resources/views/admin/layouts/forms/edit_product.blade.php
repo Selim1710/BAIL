@@ -9,14 +9,12 @@
 
       <form action="{{route('product.update')}}" method="post" enctype="multipart/form-data">
         @csrf 
-
+        
+      <!-- hidden id -->
         <div class="input-box">
           <input type="hidden" name="id" value="{{$products['id']}}" required>
         </div>
-        <h2>Model</h2>
-        <div class="input-box">
-          <input type="string" name="product_model" value="{{$products['product_model']}}" placeholder="Enter Product Model" required>
-        </div>
+        
         <h2>Name</h2>
         <div class="input-box">
           <input type="string" name="name" value="{{$products['name']}}" placeholder="Enter product name" required>

@@ -14,7 +14,6 @@
 
             <table class="full-width">
                 <tr>
-                    <th>Product Model</th>
                     <th>Name</th>
                     <th>Product Type</th>
                     <th>Total Produce</th>
@@ -24,7 +23,6 @@
                 </tr>
                 @foreach($stocks as $stock)
                     <tr>
-                        <td>{{$stock->product_model}}</td>
                         <td>{{$stock->name}}</td>
                         <td>{{$stock->product_type}}</td>
                         <td>{{$stock->total_produce}}</td>

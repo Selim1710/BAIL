@@ -10,7 +10,6 @@
 <div style="margin-left:10%;margin-bottom:7%; text-align:center;">
 
     <h1>Accessories Details:</h1>
-    <h2>Models: {{ $accessory->accessories_model }}</h2>
     <h2>Name: {{ $accessory->name  }}</h2>
     <h2>Price:{{ $accessory->accessories_details }}</h2>
     

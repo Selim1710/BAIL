@@ -9,10 +9,7 @@
 
       <form action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
         @csrf 
-        <h2>Model</h2>
-        <div class="input-box">
-          <input type="string" name="product_model" value="" placeholder="Enter Product Model" required>
-        </div>
+        
         <h2>Name</h2>
         <div class="input-box">
           <input type="string" name="name" value="" placeholder="Enter product name" required>

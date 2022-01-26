@@ -10,7 +10,6 @@
     </div>
     <div class="img-details text-center">
         <h1>Accessory Details:</h1>
-        <h2>Model: {{$accessory->accessories_model}}</h2>
         <h2>Name: {{$accessory->name}}</h2>
         <h2>Price:{{$accessory->accessories_price}}</h2>
     </div>

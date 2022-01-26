@@ -14,8 +14,8 @@ class HomeController extends Controller
     {
         $search = $request['search'] ?? "";
         if ($search != "") {
-            $products = AddProduct::where('product_model', 'LIKE', "%$search%")->orwhere('name', 'LIKE', "%$search%")->get();
-            $accessories = AddAccessory::where('accessories_model', 'LIKE', "%$search")->orwhere('name', 'LIKE', "%$search%")->get();
+            $products = AddProduct::where('name', 'LIKE', "%$search%")->orwhere('product_type', 'LIKE', "%$search%")->get();
+            $accessories = AddAccessory::where('name', 'LIKE', "%$search")->orwhere('accessories_type', 'LIKE', "%$search%")->get();
             
 
         } else {

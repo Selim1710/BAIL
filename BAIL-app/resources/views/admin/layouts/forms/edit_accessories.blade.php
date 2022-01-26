@@ -8,13 +8,11 @@
 
       <form action="{{route('accessories.update')}}" method="post" enctype="multipart/form-data">
         @csrf 
+        <!-- id hidden -->
         <div class="input-box">
           <input type="hidden" name="id" value="{{$accessories['id']}}" required>
         </div>
-        <h2>Model</h2>
-        <div class="input-box">
-          <input type="string" name="accessories_model" value="{{$accessories['accessories_model']}}" placeholder="Enter Accessories Model" required>
-        </div>
+        
         <h2>Name</h2>
         <div class="input-box">
           <input type="string" name="name" value="{{$accessories['name']}}" placeholder="Enter Accessories name" required>

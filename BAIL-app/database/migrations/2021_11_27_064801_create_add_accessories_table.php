@@ -16,7 +16,6 @@ class CreateAddAccessoriesTable extends Migration
         Schema::create('add_accessories', function (Blueprint $table) {
             $table->id();
 
-            $table->string('accessories_model');
             $table->string('name');
             $table->string('accessories_type');
             $table->string('accessories_details');
