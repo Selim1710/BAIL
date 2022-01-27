@@ -52,8 +52,8 @@
             <!-- User Name -->
             <div class="col-md-6">
                 <div class="profile-head">
-                    <h5 style="text-transform:capitalize;"> {{ auth()->user()->name }} </h5>
-                    <h6> Be Happy, <br> Spread Hapiness </h6>
+                    <h5> User Profile</h5>
+                    <h6 style="text-transform:capitalize;"> {{ auth()->user()->name }}  </h6>
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab">User Details</a>
@@ -79,14 +79,15 @@
                 <div class="profile-work">
                     <!-- top -->
                     <p>Earn Coins</p>
-                    <a href="#">Total Coins:</a><br />
+                    <a href="#">Total Coins:</a><br /><br />
 
                     <!-- bottom -->
                     <p>Our Services</p>
                     <a href="#">Message</a><br />
                     <a href="#">My Review</a><br />
                     <a href="#">Payment Option</a><br />
-                    <a href="#">Help</a>
+                    <a href="#" >Help</a> <br /><br />
+                    <a href="{{ route('user.logout') }}" class="btn btn-danger">Logout</a>
 
                 </div>
             </div>
