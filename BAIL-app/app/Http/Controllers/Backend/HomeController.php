@@ -15,7 +15,7 @@ class HomeController extends Controller
 
         $products = AddProduct::all()->count();
         $accessories = AddAccessory::all()->count();
-        $customers = User::all()->count();
+        $customers = User::where('role','user')->count();
         $orders = ManageOrder::all()->count();
 
         return view('admin.layouts.home',compact('customers','orders','products','accessories'));

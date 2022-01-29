@@ -70,8 +70,6 @@ class ShowProductController extends Controller
     public function addToCart($id)
     {
 
-        // dd($id);
-
         //Case-1: if there is no product in the cart. first time user adding product into the cart
         // Action: add to cart
 

@@ -2,41 +2,45 @@
 
 @section('content')
 
-    <div class="main-content">
-        <div class="wrapper">
-            <h1>Manage Stock</h1>
+<div class="main-content">
+    <div class="wrapper">
+        <h1>Manage Stock</h1>
 
-            <br /><br />
+        <br /><br />
 
-            <!-- button to add product -->
-            <a href="#" class="btn-primary">See Stock &rarr;</a>
-            <br /><br /><br />
+        <!-- button to add product -->
+        <a href="#" class="btn-primary">See Stock &rarr;</a>
+        <br /><br /><br />
 
-            <table class="full-width">
-                <tr>
-                    <th>Name</th>
-                    <th>Product Type</th>
-                    <th>Total Produce</th>
-                    <th>Total Order</th>
-                    <th>Current Stock</th>
-                    <th>Action</th>
-                </tr>
-                @foreach($stocks as $stock)
-                    <tr>
-                        <td>{{$stock->name}}</td>
-                        <td>{{$stock->product_type}}</td>
-                        <td>{{$stock->total_produce}}</td>
-                        <td>00</td>
-                        <td>00</td>  
-                    </tr>
-                @endforeach
+        <table class="full-width">
+            <tr>
+                <th>SL</th>
+                <th>Name</th>
+                <th>Product Type</th>
+                <th>Total Produce</th>
+                <th>Total Order</th>
+                <th>Current Stock</th>
+            </tr>
+            @foreach($currentStocks as $stock)
+            <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{$stock->name}}</td>
+                <td>{{$stock->product_type}}</td>
+                <td>{{$stock->total_produce}}</td>
+                <td>{{$stock->total_order}}</td>
+                <td>{{$stock->current_stock}}</td>
 
-            </table>
+    
+
+            </tr>
+            @endforeach
+
+        </table>
 
 
-        </div>
     </div>
-   
+</div>
+
 
 
 

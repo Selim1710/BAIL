@@ -61,6 +61,47 @@ class ShowAccessoryController extends Controller
 
     public function addToCart($id)
     {
-        dd('my cart');
+        $accessories = AddAccessory::find($id);
+
+        // case:1
+
+        if (!$accessories) {
+            return redirect()->back()->with('error', 'accessories is not availabe into the card');
+        }
+
+        $cartExist = session()->get('cart');
+        if (!$cartExist) {
+            $cartData = [
+                $id => [
+                    'product_id' => $id,
+                    'product_name' => $accessories->name,
+                    'product_price' => $accessories->accessories_price,
+                    'product_quantity' => 1,
+                ]
+            ];
+
+            session()->put('cart', $cartData);
+            return redirect()->back()->with('message', 'accessories added into cart');
+        }
+
+        // case:2
+
+        if (!isset($cartExist[$id])) {
+            $cartExist[$id] = [
+                'product_id' => $id,
+                'product_name' => $accessories->name,
+                'product_price' => $accessories->accessories_price,
+                'product_quantity' => 1,
+            ];
+
+            session()->put('cart', $cartExist);
+            return redirect()->back()->with('message', 'Product added on cart');
+        }
+
+        // case: 3
+
+        $cartExist[$id]['product_quantity'] = $cartExist[$id]['product_quantity'] + 1;
+        session()->put('cart', $cartExist);
+        return redirect()->back()->with('message', 'Same Product added into the cart');
     }
 }

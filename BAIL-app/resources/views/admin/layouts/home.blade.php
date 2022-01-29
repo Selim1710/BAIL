@@ -14,7 +14,7 @@
         <div class="col-4 text-center">
             <h1>{{ $accessories }}</h1>
             <br>
-            Number of accessories
+            Total accessories
         </div>
 
         <div class="col-4 text-center">

@@ -91,6 +91,7 @@ Route::group(['prefix' => 'admin'], function () {
 
         Route::get('/stock', [EditStockController::class, 'index'])->name('stock.index');
 
+
         Route::get('/accessories', [EditAccessoriesController::class, 'index'])->name('accessories.index');
         Route::get('/accessories/create', [EditAccessoriesController::class, 'create'])->name('accessories.create');
         Route::post('/accessories/store', [EditAccessoriesController::class, 'store'])->name('accessories.store');
