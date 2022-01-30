@@ -21,10 +21,10 @@ Route::get('/', [HomeController::class, 'index'])->name('website.index');
 
 Route::group(['prefix' => 'website'], function () {
 
-    Route::get('/user/login', [UsersController::class, 'index'])->name('users.login');
+    Route::get('/users/login/form', [UsersController::class, 'loginForm'])->name('users.login.form');
     Route::post('/user/do/login', [UsersController::class, 'doLogin'])->name('user.do.login');
-    Route::get('/user/registration', [UsersController::class, 'create'])->name('users.registration.create');
-    Route::post('/user/registration/store', [UsersController::class, 'store'])->name('users.registration.store');
+    Route::get('/user/registration', [UsersController::class, 'registrationForm'])->name('users.registration.form');
+    Route::post('/user/do/registration', [UsersController::class, 'doRegistration'])->name('user.do.registration');
     Route::get('/user/logout', [UsersController::class, 'logout'])->name('user.logout');
 
 

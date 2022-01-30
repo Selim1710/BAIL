@@ -67,7 +67,7 @@
                     <button type="submit" class="btn btn-primary">Login</button>
                   </div>
 
-                  <p class="text-center text-muted mt-5 mb-0">Don't have an account? <a href="{{ route('users.registration.create') }}" class="fw-bold text-body"><u>Register here</u></a></p>
+                  <p class="text-center text-muted mt-5 mb-0">Don't have an account? <a href="{{ route('users.registration.form') }}" class="fw-bold text-body"><u>Register here</u></a></p>
                 </form>
 
               </div>
