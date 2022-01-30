@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\AddProduct;
 use App\Models\ManageOrder;
-
+use App\Models\Stock;
 use Illuminate\Http\Request;
 
 
@@ -39,32 +39,39 @@ class ShowProductController extends Controller
     {
         $search = $request['search'] ?? "";
         if ($search != "") {
-            $products = AddProduct::where('product_model', 'LIKE', "%$search%")->orwhere('name', 'LIKE', "%$search%")->get();
+            $products = AddProduct::where('name', 'LIKE', "%$search%")->orwhere('name', 'LIKE', "%$search%")->get();
         } else {
             $products = AddProduct::all();
         }
         $products = AddProduct::findOrFail($id);
+        $products->sold = ManageOrder::where('product_id', $products->id)->sum('quantity');
+        $products->stock = Stock::where('product_id', $products->id)->sum('quantity');
+        $products->available = $products->total_produce + $products->stock - $products->sold;
         return view('website.layouts.form.product_order', compact('products', 'search'));
     }
 
     public function orderPlace(Request $request, $id)
     {
-
-        ManageOrder::create([
-            'user_id' => auth()->user()->id,
-            'name' => auth()->user()->name,
-            'email' => auth()->user()->email,
-            'product_id' => $request->id,
-            'product_name' => $request->name,
-            'unit_price' => $request->price,
-            'quantity' => $request->quantity,
-
-            'total_price' => $request['price'] * $request['quantity'],
-
-
-
+        $products = AddProduct::find($id);
+        $request->validate([
+            'quantity' => 'required'
         ]);
-        return redirect()->route('user.show.product');
+
+        if ($request->available >= $request->quantity) {
+            ManageOrder::create([
+                'user_id' => auth()->user()->id,
+                'name' => auth()->user()->name,
+                'email' => auth()->user()->email,
+                'product_id' => $request->id,
+                'product_name' => $request->name,
+                'unit_price' => $request->price,
+                'quantity' => $request->quantity,
+                'total_price' => $request['price'] * $request['quantity'],
+            ]);
+            return redirect()->route('user.show.product');
+        }
+
+        return redirect()->back()->with('message', 'out of stock');
     }
 
     public function addToCart($id)
@@ -153,9 +160,9 @@ class ShowProductController extends Controller
 
                     'total_price' => (int)$cart['product_price'] * (int)$cart['product_quantity'],
                 ]);
-                session()->forget('cart');
+            session()->forget('cart');
             return redirect()->back()->with('message', 'Order place successfully');
         }
-        return redirect()->back()->with('error','No data found into the cart');
+        return redirect()->back()->with('error', 'No data found into the cart');
     }
 }

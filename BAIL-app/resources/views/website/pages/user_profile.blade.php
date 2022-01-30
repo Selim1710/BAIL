@@ -62,7 +62,10 @@
                             <a class="nav-link " id="order-tab" data-toggle="tab" href="#order" role="tab">My Order</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="package-tab" data-toggle="tab" href="#package" role="tab">Track your Package</a>
+                            <a class="nav-link" id="package-tab" data-toggle="tab" href="#package" role="tab">Track Order</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="notification-tab" data-toggle="tab" href="#notification" role="tab">Notification</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="cart-tab" data-toggle="tab" href="#cart" role="tab">My Cart({{ session()->has('cart') ? count(session()->get('cart')):0 }})</a>
@@ -165,6 +168,17 @@
                             </div>
                             <div class="col-md-6">
                                 <p>yes</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Notification -->
+                    <div class="tab-pane fade" id="notification" role="tabpanel" aria-labelledby="notification-tab">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>message</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>cancel</p>
                             </div>
                         </div>
                     </div>

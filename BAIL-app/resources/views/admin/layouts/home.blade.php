@@ -30,7 +30,7 @@
         </div>
 
         <div class="col-4 text-center">
-            <h1>500</h1>
+            <h1>{{ $revenue }}</h1>
             <br>
             Total Revenue
         </div>

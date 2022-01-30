@@ -82,14 +82,17 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/product/store', [EditProductController::class, 'store'])->name('product.store');
         Route::get('/product/view/{id}', [EditProductController::class, 'view'])->name('admin.view.product');
         Route::get('/product/edit/{id}', [EditProductController::class, 'edit'])->name('product.edit');
-        Route::post('/product/update', [EditProductController::class, 'update'])->name('product.update');
+        Route::post('/product/update/{id}', [EditProductController::class, 'update'])->name('product.update');
         Route::get('/product/delete/{id}', [EditProductController::class, 'destroy'])->name('product.destroy');
 
         Route::get('/order', [ManageOrderController::class, 'index'])->name('order.index');
         Route::get('/confirm/order/{id}', [ManageOrderController::class, 'confirmOrder'])->name('admin.confirm.order');
         Route::get('/remove/order/{id}', [ManageOrderController::class, 'removeOrder'])->name('admin.remove.order');
 
+        //stock
         Route::get('/stock', [EditStockController::class, 'index'])->name('stock.index');
+        Route::get('/stock/create', [EditStockController::class, 'create'])->name('stock.create');
+        Route::post('/stock/store', [EditStockController::class, 'store'])->name('stock.store');
 
 
         Route::get('/accessories', [EditAccessoriesController::class, 'index'])->name('accessories.index');

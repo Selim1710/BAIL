@@ -7,36 +7,47 @@
         <h1>Manage Stock</h1>
 
         <br /><br />
+        <!-- Message -->
+        @if(session()->has('error'))
+        <p style="background-color: red;width:100%;padding:2%;">{{ session()->get('error') }}</p>
+
+        @endif
+        @if(session()->has('message'))
+        <p style="background-color: green;width:100%;padding:2%;">{{ session()->get('message') }}</p>
+        @endif
+        <br />
+        <br />
 
         <!-- button to add product -->
-        <a href="#" class="btn-primary">See Stock &rarr;</a>
-        <br /><br /><br />
+        <a href="{{ route('stock.create') }}" class="btn-primary">Add Stock &rarr;</a>
+        <br /><br />
 
         <table class="full-width">
             <tr>
                 <th>SL</th>
+                <th>Product ID</th>
                 <th>Name</th>
-                <th>Product Type</th>
                 <th>Total Produce</th>
-                <th>Total Order</th>
-                <th>Current Stock</th>
+                <th>Action</th>
             </tr>
-            @foreach($currentStocks as $stock)
+            @foreach($stocks as $stock)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{$stock->name}}</td>
-                <td>{{$stock->product_type}}</td>
-                <td>{{$stock->total_produce}}</td>
-                <td>{{$stock->total_order}}</td>
-                <td>{{$stock->current_stock}}</td>
+                <td>{{$stock->product_id}}</td>
+                <td>{{$stock->product->name}}</td>
+                <td>{{$stock->quantity}}</td>
+                
+                <td>
+                    <a href="#" class="btn-primary">View</a>
+                    <a href="#" class="btn-success">Edit</a>
+                    <a href="#" class="btn-danger">Remove</a>
+                </td>
 
-    
 
             </tr>
             @endforeach
 
         </table>
-
 
     </div>
 </div>

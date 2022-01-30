@@ -16,8 +16,8 @@
                 <div class="sub_menu_1">
                     <ul>
                         <li><a href="{{route('accessories.index')}}">Accessories</a></li>
-                        <li><a href="#">Supplier</a></li>
                         <li><a href="{{route('customer.list')}}">Customer</a></li>
+                        <li><a href="#">Supplier</a></li>
                         <li><a href="#">Employee</a></li>
                         <li><a href="#">Branch</a></li> <!-- Customer will buy product from show room -->
                         <li><a href="#">Life Style</a></li>

@@ -15,11 +15,12 @@ class CreateStocksTable extends Migration
     {
         Schema::create('stocks', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('product_type');
-            $table->string('total_produce');
-            $table->string('total_order');
-            $table->string('current_stock');
+            $table->unsignedBigInteger('product_id');
+            $table->integer('quantity');
+            $table->foreign('product_id')
+                ->references('id')
+                ->on('add_products')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

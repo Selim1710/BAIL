@@ -17,14 +17,13 @@
         <div class="input-box">
           <input type="string" name="accessories_type" value="" placeholder="Enter Accessories Type" required>
         </div>
-        <h2> Details</h2>
-        <div class="input-box">
-          <textarea type="string"  name="accessories_details" value="" placeholder="Enter Accessories Details:" required></textarea>
-        </div>
-
         <h2>Price</h2>
         <div class="input-box">
           <input type="string" name="accessories_price" value="" placeholder="Enter Accessories Type" required>
+        </div>
+        <h2> Details</h2>
+        <div class="input-box">
+          <textarea type="string"  name="accessories_details" value="" placeholder="Enter Accessories Details:" required></textarea>
         </div>
         <div class="input-box">
           <input type="file" name="acc_img" value="" required>
