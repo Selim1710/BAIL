@@ -106,6 +106,8 @@ Route::group(['prefix' => 'admin'], function () {
 
         Route::get('/customer/list', [ManageCustommerController::class, 'index'])->name('customer.list');
         Route::get('/remove/customer/{id}', [ManageCustommerController::class, 'remove'])->name('admin.remove.customer');
+        Route::get('/view/customer/block/list', [ManageCustommerController::class, 'blockList'])->name('customer.block.list');
+
 
     });
 });

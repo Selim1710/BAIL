@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\CustomerBlockList;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -20,8 +21,16 @@ class ManageCustommerController extends Controller
     }
 
     public function remove($id){
-        $customers = User::find($id);
-        $customers->delete();
+        $customer = User::find($id);
+            CustomerBlockList::create([
+                'email'=>$customer->email,
+            ]);
+        $customer->delete();
         return redirect()->route('customer.list')->with('error','Customer Removed');
+    }
+
+    public function blockList(){
+        $blockLists = CustomerBlockList::paginate(10);
+        return view('admin.layouts.tables.customer_block_list',compact('blockLists'));
     }
 }

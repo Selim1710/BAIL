@@ -43,10 +43,16 @@
           <div class="col-12 col-md-9 col-lg-7 col-xl-6">
             <div class="card" style="border-radius: 15px;">
               <div class="card-body p-5">
+                <!-- message -->
+                @if(session()->has('error'))
+                <p class="alert alert-danger">{{ session()->get('error') }}</p>
+                @endif
+                @if(session()->has('message'))
+                <p class="alert alert-success">{{ session()->get('message') }}</p>
+                @endif
+                
                 <h2 class="text-uppercase text-center mb-5">Create an account</h2>
-
                 <form action="{{ route('users.registration.store') }}" method="post" enctype="multipart/form-data">
-
                   @csrf
                   <div class="form-outline mb-4">
                     <label class="form-label" for="form3Example1cg">Your Name</label>

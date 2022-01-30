@@ -24,24 +24,31 @@ class UsersController extends Controller
 
     public function store(Request $request)
     {
-        User::create([
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'password' => bcrypt($request->input('password')),
-        ]);
-        return redirect('website/user/login');
+        try{
+            User::create([
+                'name' => $request->input('name'),
+                'email' => $request->input('email'),
+                'password' => bcrypt($request->input('password')),
+            ]);
+            return redirect('website/user/login');
+        }catch(\Throwable $throw){
+            return redirect()->route('users.registration.create')->with('message','Email Already Taken');
+        }
     }
 
     public function doLogin(Request $request)
     {
+        try{  
         $userpost = $request->except('_token');
-
         if (Auth::attempt($userpost)) {
 
             return redirect()->route('website.index');
             
         } else {
-            return redirect()->back('');
+            return redirect()->back()->with('error','Invalid Username Or Password');
+        }
+        }catch(\Throwable $throw){
+            return redirect()->route('users.login')->with('error','Invalid Username Or Password');
         }
     }
 
