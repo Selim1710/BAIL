@@ -65,9 +65,9 @@ class EditProductController extends Controller
                 'total_produce' => $request->input('total_produce'),
                 'image_path' => $filename,
             ]);
-            return redirect('/admin/product');
+            return redirect()->route('product.index')->with('message','Product Added');
         } catch (\Throwable $throw) {
-            return redirect('/admin/product');
+            return redirect()->route('product.index')->with('error','Product is not Added');
         }
     }
 
@@ -83,9 +83,7 @@ class EditProductController extends Controller
 
         $products = AddProduct::findOrFail($id);
         //->first()
-        return view('admin.layouts.forms.edit_product', [
-            'products' => $products
-        ]);
+        return view('admin.layouts.forms.edit_product',compact('products'));
     }
 
 
@@ -107,7 +105,7 @@ class EditProductController extends Controller
                 'total_produce' => $request->input('total_produce'),
                 'image_path' => $filename,
             ]);
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')->with('message','Product Updated');
     }
 
 
@@ -115,6 +113,6 @@ class EditProductController extends Controller
     {
         $products = AddProduct::findOrFail($id);
         $products->delete();
-        return redirect('/admin/product');
+        return redirect()->route('product.index')->with('error','Product Deleted');
     }
 }

@@ -8,7 +8,17 @@
 
         <br />
 
-        <!-- button to add product -->
+        <!-- Message -->
+        @if(session()->has('error'))
+        <p style="background-color: red;width:100%;padding:2%;">{{ session()->get('error') }}</p>
+
+        @endif
+        @if(session()->has('message'))
+        <p style="background-color: green;width:100%;padding:2%;">{{ session()->get('message') }}</p>
+        @endif
+        <br />
+
+        <!-- button  -->
         <a href="{{route('product.create')}}" class="btn-primary">Add Product &rarr;</a>
         <br />
         <br />

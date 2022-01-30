@@ -100,10 +100,12 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/accessories/store', [EditAccessoriesController::class, 'store'])->name('accessories.store');
         Route::get('/accessories/view/{id}',[EditAccessoriesController::class,'view'])->name('admin.view.accessory');
         Route::get('/accessories/edit/{id}', [EditAccessoriesController::class, 'edit'])->name('accessories.edit');
-        Route::post('/accessories/update', [EditAccessoriesController::class, 'update'])->name('accessories.update');
+        Route::post('/accessories/update/{id}', [EditAccessoriesController::class, 'update'])->name('accessories.update');
         Route::get('/accessories/destroy/{id}', [EditAccessoriesController::class, 'destroy'])->name('accessories.destroy');
 
 
         Route::get('/customer/list', [ManageCustommerController::class, 'index'])->name('customer.list');
+        Route::get('/remove/customer/{id}', [ManageCustommerController::class, 'remove'])->name('admin.remove.customer');
+
     });
 });

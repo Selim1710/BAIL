@@ -20,12 +20,12 @@ class AdminLoginController extends Controller
             return redirect()->route('home');
         }
         else
-        return redirect()->route('admin.login');
+        return redirect()->route('admin.login')->with('error','Invalid Username Or Password');
 
     }
 
     public function logout(){
         Auth::logout();
-        return redirect()->route('admin.login');
+        return redirect()->route('admin.login')->with('message','You Have Logout Successfully');;
     }
 }

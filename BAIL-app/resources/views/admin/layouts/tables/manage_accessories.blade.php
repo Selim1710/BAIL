@@ -6,8 +6,16 @@
     <div class="wrapper">
         <h1>Manage Accessories</h1>
         <br />
+        <!-- Message -->
+        @if(session()->has('error'))
+        <p style="background-color: red;width:100%;padding:2%;">{{ session()->get('error') }}</p>
 
-           <!-- Button -->
+        @endif
+        @if(session()->has('message'))
+        <p style="background-color: green;width:100%;padding:2%;">{{ session()->get('message') }}</p>
+        @endif
+        <br />
+        <!-- Button -->
 
         <a href="{{route('accessories.create')}}" class="btn-primary">Add Accessories &rarr;</a>
         <br /><br /><br />
