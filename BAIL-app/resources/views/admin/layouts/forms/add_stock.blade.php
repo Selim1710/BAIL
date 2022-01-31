@@ -11,7 +11,7 @@
       @csrf
       <h2>Product Name</h2>
       <div class="input-box">
-        <select class="input-box" style="background-color: grey;font-size: 1.3rem;color:blanchedalmond;border-radius:10px;" name="product_id" id="">
+        <select class="input-box" name="product_id" style="background-color: grey;font-size: 1.3rem;color:blanchedalmond;border-radius:10px;" id="">
           <option>--Select Product--</option>
           @foreach( $products as $product )
           <option value="{{ $product->id }}">{{ $product->name }}</option>

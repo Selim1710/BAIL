@@ -22,10 +22,6 @@
         <div class="input-box">
           <input type="string" name="product_type" value="" placeholder="Enter Product Type" required>
         </div>
-        <h2>Total Produce</h2>
-        <div class="input-box">
-          <input type="string" name="total_produce" value="" placeholder="Enter total produce product" required>
-        </div>
         <h2>Product Details</h2>
         <div class="input-box">
           <textarea type="string"  name="product_details" value="" placeholder="Enter Product Details:" required></textarea>

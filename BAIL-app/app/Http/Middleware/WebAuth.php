@@ -19,6 +19,6 @@ class WebAuth
         if(auth()->user()){
             return $next($request);
         }
-        return redirect()->route('users.login')->with('error','Login First');
+        return redirect()->route('users.login.form')->with('error','Login First');
     }
 }

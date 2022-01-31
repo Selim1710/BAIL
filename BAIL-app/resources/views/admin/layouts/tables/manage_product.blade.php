@@ -74,7 +74,7 @@
             @endforeach
 
         </table>
-
+        <div class="paginate" style="margin: 6% 0 0 40%;">{{ $products->links() }}</div>
 
     </div>
 </div>

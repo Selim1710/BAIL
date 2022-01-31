@@ -32,22 +32,22 @@
             </tr>
             @foreach($stocks as $stock)
             <tr>
-                <td>{{ $loop->iteration }}</td>
+                <td>{{ $no++ }}</td>
                 <td>{{$stock->product_id}}</td>
                 <td>{{$stock->product->name}}</td>
                 <td>{{$stock->quantity}}</td>
-                
+
                 <td>
                     <a href="#" class="btn-primary">View</a>
-                    <a href="#" class="btn-success">Edit</a>
-                    <a href="#" class="btn-danger">Remove</a>
+                    <a href="{{ route('admin.edit.stock',$stock->id) }}" class="btn-success">Edit</a>
+                    <a href="{{ route('admin.remove.stock',$stock->id) }}" class="btn-danger">Remove</a>
                 </td>
 
 
             </tr>
             @endforeach
-
         </table>
+        <div class="paginate" style="margin: 6% 0 0 40%;">{{ $stocks->links() }}</div>
 
     </div>
 </div>

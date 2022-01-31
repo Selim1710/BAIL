@@ -8,7 +8,7 @@
         <div class="col-4 text-center">
             <h1>{{ $products }}</h1>
             <br>
-            Number of Products
+            Total Products
         </div>
 
         <div class="col-4 text-center">
@@ -26,13 +26,13 @@
         <div class="col-4 text-center">
             <h1>{{ $orders }}</h1>
             <br>
-            Total Order
+            Total Product Order
         </div>
 
         <div class="col-4 text-center">
-            <h1>{{ $revenue }}</h1>
+            <h1>{{ $arrears }}</h1>
             <br>
-            Total Revenue
+            Total Arrears
         </div>
 
         <div class="clearfix"></div>

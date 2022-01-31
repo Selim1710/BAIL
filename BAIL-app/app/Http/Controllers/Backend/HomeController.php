@@ -17,8 +17,8 @@ class HomeController extends Controller
         $accessories = AddAccessory::all()->count();
         $customers = User::where('role','user')->count();
         $orders = ManageOrder::sum('quantity');
-        $revenue = ManageOrder::where('status','confirmed')->sum('total_price');
+        $arrears = ManageOrder::where('status','confirmed')->sum('total_price');
 
-        return view('admin.layouts.home',compact('customers','orders','products','accessories','revenue'));
+        return view('admin.layouts.home',compact('customers','orders','products','accessories','arrears'));
     }
 }

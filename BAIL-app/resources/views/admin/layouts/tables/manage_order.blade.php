@@ -67,6 +67,7 @@
                 </tr>
                 @endforeach
             </table>
+            <div class="paginate" style="margin: 6% 0 0 40%;">{{ $orders->links() }}</div>
         </div>
     </div>
 </div>

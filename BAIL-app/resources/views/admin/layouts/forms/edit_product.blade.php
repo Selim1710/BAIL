@@ -25,10 +25,6 @@
         <div class="input-box">
           <textarea type="string" name="product_details"  placeholder="Enter Product Details" required>{{$products['product_details']}}</textarea>
         </div>
-        <h2>Total Produce</h2>
-        <div class="input-box">
-          <input type="string"  name="total_produce" value="{{$products['total_produce']}}" placeholder="Enter total produce product" required>
-        </div>
         <div class="input-box">
           <input type="file" name="image_path" required>
         </div>

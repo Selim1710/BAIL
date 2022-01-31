@@ -21,7 +21,7 @@ class EditProductController extends Controller
                 $product->stock = Stock::where('product_id', $product->id)->sum('quantity');
             }
         } else {
-            $products = AddProduct::all();
+            $products = AddProduct::orderBy('id','DESC')->cursorPaginate(5);
             foreach ($products as $product) {
                 $product->sold = ManageOrder::where('product_id', $product->id)->sum('quantity');
                 $product->stock = Stock::where('product_id', $product->id)->sum('quantity');
@@ -44,7 +44,6 @@ class EditProductController extends Controller
             'product_price' => 'required',
             'product_type' => 'required',
             'product_details' => 'required',
-            'total_produce' => 'required',
             'image_path' => 'required|mimes:jpg,png,jpeg|'
         ]);
 
@@ -62,7 +61,6 @@ class EditProductController extends Controller
                 'product_price' => $request->input('product_price'),
                 'product_type' => $request->input('product_type'),
                 'product_details' => $request->input('product_details'),
-                'total_produce' => $request->input('total_produce'),
                 'image_path' => $filename,
             ]);
             return redirect()->route('product.index')->with('message','Product Added');
@@ -102,7 +100,6 @@ class EditProductController extends Controller
                 'product_price' => $request->input('product_price'),
                 'product_type' => $request->input('product_type'),
                 'product_details' => $request->input('product_details'),
-                'total_produce' => $request->input('total_produce'),
                 'image_path' => $filename,
             ]);
         return redirect()->route('product.index')->with('message','Product Updated');

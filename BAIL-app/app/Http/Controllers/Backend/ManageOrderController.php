@@ -11,7 +11,7 @@ class ManageOrderController extends Controller
 
     public function index()
     {
-        $orders = ManageOrder::all();
+        $orders = ManageOrder::orderBy('id','DESC')->cursorPaginate(5);
         return view('admin.layouts.tables.manage_order', compact('orders'));
     }
 

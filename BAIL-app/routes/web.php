@@ -93,7 +93,9 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/stock', [EditStockController::class, 'index'])->name('stock.index');
         Route::get('/stock/create', [EditStockController::class, 'create'])->name('stock.create');
         Route::post('/stock/store', [EditStockController::class, 'store'])->name('stock.store');
-
+        Route::get('/stock/edit/{id}', [EditStockController::class, 'edit'])->name('admin.edit.stock');
+        Route::post('/stock/update{id}', [EditStockController::class, 'update'])->name('admin.update.stock');
+        Route::get('/stock/remove/{id}', [EditStockController::class, 'remove'])->name('admin.remove.stock');
 
         Route::get('/accessories', [EditAccessoriesController::class, 'index'])->name('accessories.index');
         Route::get('/accessories/create', [EditAccessoriesController::class, 'create'])->name('accessories.create');

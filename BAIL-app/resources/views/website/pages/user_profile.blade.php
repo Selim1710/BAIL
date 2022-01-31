@@ -56,16 +56,16 @@
                     <h6 style="text-transform:capitalize;"> {{ auth()->user()->name }}  </h6>
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab">User Details</a>
+                            <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab">User details</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " id="order-tab" data-toggle="tab" href="#order" role="tab">My Order</a>
+                            <a class="nav-link " id="order-tab" data-toggle="tab" href="#order" role="tab">My order</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="package-tab" data-toggle="tab" href="#package" role="tab">Track Order</a>
+                            <a class="nav-link" id="package-tab" data-toggle="tab" href="#package" role="tab">Track order</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="notification-tab" data-toggle="tab" href="#notification" role="tab">Notification</a>
+                            <a class="nav-link" id="message-tab" data-toggle="tab" href="#message" role="tab">Message</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="cart-tab" data-toggle="tab" href="#cart" role="tab">My Cart({{ session()->has('cart') ? count(session()->get('cart')):0 }})</a>
@@ -159,7 +159,7 @@
                         </div>
                     </div>
 
-                    <!-- track your package -->
+                    <!-- track order -->
 
                     <div class="tab-pane fade" id="package" role="tabpanel" aria-labelledby="package-tab">
                         <div class="row">
@@ -171,14 +171,14 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Notification -->
-                    <div class="tab-pane fade" id="notification" role="tabpanel" aria-labelledby="notification-tab">
+                    <!-- order cancel message -->
+                    <div class="tab-pane fade" id="message" role="tabpanel" aria-labelledby="message-tab">
                         <div class="row">
                             <div class="col-md-6">
                                 <label>message</label>
                             </div>
                             <div class="col-md-6">
-                                <p>cancel</p>
+                                <p>order canceled</p>
                             </div>
                         </div>
                     </div>

@@ -31,7 +31,7 @@ class UsersController extends Controller
                 'email' => $request->input('email'),
                 'password' => bcrypt($request->input('password')),
             ]);
-            return redirect()->route('users.login.form')->with('message', 'You Have Registered');
+            return redirect()->route('users.login.form')->with('message', 'Ragistration Successfull');
         } catch (\Throwable $throw) {
             return redirect()->route('users.registration.form')->with('message', 'Email Already Taken');
         }
