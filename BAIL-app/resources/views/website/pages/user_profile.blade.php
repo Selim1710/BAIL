@@ -133,6 +133,7 @@
                                 <tr>
                                     <th>SL</th>
                                     <th>Name</th>
+                                    <th>Type</th>
                                     <th>Price</th>
                                     <th>Quantity</th>
                                     <th>Total Price</th>
@@ -144,6 +145,7 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $order->product_name }}</td>
+                                    <td>{{ $order->product_type }}</td>
                                     <td>{{ $order->unit_price }}</td>
                                     <td>{{ $order->quantity }}</td>
                                     <td>{{ $order->total_price }}</td>
@@ -203,6 +205,7 @@
                                 <tr>
                                     <th>SL</th>
                                     <th>Product Name</th>
+                                    <th>Type</th>
                                     <th>Product Price</th>
                                     <th>Quantity</th>
                                     <th>Sub-Total</th>
@@ -214,6 +217,7 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $cart['product_name'] }}</td>
+                                    <td>{{ $cart['product_type'] }}</td>
                                     <td>{{ $cart['product_price'] }}</td>
                                     <td>{{ $cart['product_quantity'] }}</td>
                                     <td>{{ (int)$cart['product_price'] * (int)$cart['product_quantity'] }}</td>

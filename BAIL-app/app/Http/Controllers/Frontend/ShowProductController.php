@@ -39,14 +39,16 @@ class ShowProductController extends Controller
     {
         $search = $request['search'] ?? "";
         if ($search != "") {
-            $products = AddProduct::where('name', 'LIKE', "%$search%")->orwhere('name', 'LIKE', "%$search%")->get();
+            $products = AddProduct::where('name', 'LIKE', "%$search%")->orwhere('product_type', 'LIKE', "%$search%")->get();
         } else {
             $products = AddProduct::all();
         }
+
         $products = AddProduct::findOrFail($id);
         $products->sold = ManageOrder::where('product_id', $products->id)->sum('quantity');
         $products->stock = Stock::where('product_id', $products->id)->sum('quantity');
         $products->available = $products->total_produce + $products->stock - $products->sold;
+
         return view('website.layouts.form.product_order', compact('products', 'search'));
     }
 
@@ -62,6 +64,7 @@ class ShowProductController extends Controller
                 'user_id' => auth()->user()->id,
                 'name' => auth()->user()->name,
                 'email' => auth()->user()->email,
+                'product_type' => $request->product_type,
                 'product_id' => $request->id,
                 'product_name' => $request->name,
                 'unit_price' => $request->price,
@@ -71,7 +74,7 @@ class ShowProductController extends Controller
             return redirect()->route('user.show.product');
         }
 
-        return redirect()->back()->with('message', 'out of stock');
+        return redirect()->back()->with('message', 'Out Of Stock');
     }
 
     public function addToCart($id)
@@ -93,6 +96,7 @@ class ShowProductController extends Controller
                     'product_id' => $id,
                     'product_name' => $products->name,
                     'product_price' => $products->product_price,
+                    'product_type' => $products->product_type,
                     'product_quantity' => 1,
                 ]
             ];
@@ -110,6 +114,7 @@ class ShowProductController extends Controller
                 'product_id' => $id,
                 'product_name' => $products->name,
                 'product_price' => $products->product_price,
+                'product_type' => $products->product_type,
                 'product_quantity' => 1,
             ];
 
@@ -156,8 +161,9 @@ class ShowProductController extends Controller
                     'product_id' => $cart['product_id'],
                     'product_name' => $cart['product_name'],
                     'unit_price' => $cart['product_price'],
+                    'product_type' => $cart['product_type'],
                     'quantity' => $cart['product_quantity'],
-
+                    
                     'total_price' => (int)$cart['product_price'] * (int)$cart['product_quantity'],
                 ]);
             session()->forget('cart');
