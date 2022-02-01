@@ -56,7 +56,7 @@
                 <td>{{$accessory->accessories_type}}</td>
                 <td>{{$accessory->accessories_details}}</td>
                 <td>{{$accessory->accessories_price}}</td>
-                <td>0</td>
+                <td>{{$accessories->available}}</td>
 
 
                 <td>

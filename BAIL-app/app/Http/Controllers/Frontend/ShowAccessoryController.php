@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\AccessoryOrder;
+use App\Models\AccessoryStock;
 use App\Models\AddAccessory;
 use App\Models\AddToCart;
 use App\Models\ManageOrder;
@@ -31,9 +32,13 @@ class ShowAccessoryController extends Controller
             $accessory = AddAccessory::where('accessories_type', 'LIKE', "%$search%")->orwhere('name', 'LIKE', "%$search%")->get();
         } else {
             $accessories = AddAccessory::with('accessoryStock')->get();
+
+            $accessories->total_order = AccessoryOrder::where('status', 'confirmed')->sum('quantity');
+            $accessories->current_stock = AccessoryStock::all()->sum('total_produce');
+            $accessories->available = +$accessories->current_stock - $accessories->total_order;
         }
         $accessory = AddAccessory::findOrFail($id);
-        return view('website.layouts.form.accessories_order', compact('accessory', 'search'));
+        return view('website.layouts.form.accessories_order', compact('accessory', 'search', 'accessories'));
     }
 
 
@@ -47,20 +52,24 @@ class ShowAccessoryController extends Controller
 
     public function accessoryOrder(Request $request, $id)
     {
-        AccessoryOrder::create([
-            'user_id' => auth()->user()->id,
-            'name' => auth()->user()->name,
-            'email' => auth()->user()->email,
+        if ($request->available > $request->quantity) {
+            AccessoryOrder::create([
+                'user_id' => auth()->user()->id,
+                'name' => auth()->user()->name,
+                'email' => auth()->user()->email,
 
-            'accessories_type' => $request->accessories_type,
-            'accessories_id' => $request->id,
-            'accessories_name' => $request->name,
-            'accessories_price' => $request->accessories_price,
-            'quantity' => $request->quantity,
+                'accessories_type' => $request->accessories_type,
+                'accessories_id' => $request->id,
+                'accessories_name' => $request->name,
+                'accessories_price' => $request->accessories_price,
+                'quantity' => $request->quantity,
 
-            'total_price' => $request['accessories_price'] * $request['quantity'],
-        ]);
-        return redirect()->route('user.show.accessories')->with('message', 'Accessories Ordered Successfully');
+                'total_price' => $request['accessories_price'] * $request['quantity'],
+            ]);
+            return redirect()->route('user.show.accessories')->with('message', 'Accessories Ordered Successfully');
+        } else {
+            return redirect()->back()->with('error', 'Out Of Stock');
+        }
     }
 
     public function addToCart($id)
@@ -81,7 +90,7 @@ class ShowAccessoryController extends Controller
                     'accessories_name' => $accessories->name,
                     'accessories_type' => $accessories->accessories_type,
                     'accessories_price' => $accessories->accessories_price,
-                    'accessories_quantity' => 1,
+                    'quantity' => 1,
                 ]
             ];
             session()->put('cartA', $cartData);
@@ -96,7 +105,7 @@ class ShowAccessoryController extends Controller
                 'accessories_name' => $accessories->name,
                 'accessories_type' => $accessories->accessories_type,
                 'accessories_price' => $accessories->accessories_price,
-                'accessories_quantity' => 1,
+                'quantity' => 1,
             ];
 
             session()->put('cartA', $cartExist);
@@ -130,11 +139,11 @@ class ShowAccessoryController extends Controller
                     'accessories_name' => $cart['accessories_name'],
                     'accessories_price' => $cart['accessories_price'],
                     'accessories_type' => $cart['accessories_type'],
-                    'accessories_quantity' => $cart['accessories_quantity'],
-                    
-                    'total_price' => (int)$cart['accessories_price'] * (int)$cart['accessories_quantity'],
+                    'quantity' => $cart['quantity'],
+
+                    'total_price' => (int)$cart['accessories_price'] * (int)$cart['quantity'],
                 ]);
-            session()->forget('cart');
+            session()->forget('cartA');
             return redirect()->back()->with('message', 'Order place successfully');
         }
         return redirect()->back()->with('error', 'No data found into the cart');
@@ -145,6 +154,6 @@ class ShowAccessoryController extends Controller
         $cart = session()->get('cartA');
         unset($cart[$id]);
         session()->put('cartA', $cart);
-        return redirect()->back();
+        return redirect()->back()->with('error', 'Accessories Deleted');
     }
 }

@@ -220,8 +220,8 @@
                                     <td>{{ $cart['accessories_name'] }}</td>
                                     <td>{{ $cart['accessories_type'] }}</td>
                                     <td>{{ $cart['accessories_price'] }}</td>
-                                    <td>{{ $cart['accessories_quantity'] }}</td>
-                                    <td>{{ (int)$cart['accessories_price'] * (int)$cart['accessories_quantity'] }}</td>
+                                    <td>{{ $cart['quantity'] }}</td>
+                                    <td>{{ (int)$cart['accessories_price'] * (int)$cart['quantity'] }}</td>
 
                                     <td>
                                         <a href="{{ route('accessories.cart.delete',$key) }}" class="btn btn-danger">Delete</a>

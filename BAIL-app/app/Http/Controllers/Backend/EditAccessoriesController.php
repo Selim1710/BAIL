@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\AddAccessory;
+use App\Models\AccessoryOrder;
+USE App\Models\AccessoryStock;
 use Illuminate\Http\Request;
 
 class EditAccessoriesController extends Controller
@@ -16,6 +18,10 @@ class EditAccessoriesController extends Controller
             $accessories = AddAccessory::where("name", 'LIKE', "%$search%")->get();
         } else {
             $accessories = AddAccessory::with('accessoryStock')->get();
+
+            $accessories->total_order=AccessoryOrder::where('status','confirmed')->sum('quantity');
+            $accessories->current_stock=AccessoryStock::all()->sum('total_produce');           
+            $accessories->available=+ $accessories->current_stock-$accessories->total_order;
         }
         return view('admin.layouts.tables.manage_accessories', compact('accessories', 'search'));
     }

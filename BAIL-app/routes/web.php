@@ -121,6 +121,8 @@ Route::group(['prefix' => 'admin'], function () {
 
         // accessory order
         Route::get('/manage/accessories/order', [AccessoryOrderController::class, 'accessoryOrderTable'])->name('admin.manage.accessory.order');
+        Route::get('/remove/accessories/order/{id}', [AccessoryOrderController::class, 'remove'])->name('admin.remove.accessory.order');
+        Route::get('/confirm/accessories/order/{id}', [AccessoryOrderController::class, 'confirmOrder'])->name('admin.confirm.accessory.order');
 
 
         Route::get('/customer/list', [ManageCustommerController::class, 'index'])->name('customer.list');

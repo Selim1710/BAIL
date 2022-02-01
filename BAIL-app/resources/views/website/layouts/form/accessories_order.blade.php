@@ -1,6 +1,6 @@
 @extends('website.index')
 @section('contents')
-<section class="vh-100 bg-image" style="background-image: url('https://mdbootstrap.com/img/Photos/new-templates/search-box/img4.jpg');">
+<section class="vh-100 bg-image" style="background:#bdc3c7;">
     <div class="mask d-flex align-items-center h-100 gradient-custom-3">
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -33,7 +33,7 @@
 
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form3Example1cg">Current Stock</label>
-                                    <input type="string" name="available" value="" id="form3Example1cg" class="form-control form-control-lg" readonly required />
+                                    <input type="string" name="available" value="{{$accessories->available}}" id="form3Example1cg" class="form-control form-control-lg" readonly required />
                                 </div>
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form3Example1cg">Quantity</label>
@@ -52,4 +52,6 @@
     </div>
 
 </section>
+
+<div style="background:#bdc3c7"><br><br><br><br><br><br><br><br><br><br><br><br></div>
 @endsection
