@@ -38,7 +38,6 @@
 <body>
 
     <!-- user profile -->
-
     <div class="container emp-profile">
         <div class="row">
             <div class="col-md-4">
@@ -53,23 +52,24 @@
             <div class="col-md-6">
                 <div class="profile-head">
                     <h5> User Profile</h5>
-                    <h6 style="text-transform:capitalize;"> {{ auth()->user()->name }}  </h6>
+                    <h6 style="text-transform:capitalize;"> {{ auth()->user()->name }} </h6>
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab">User details</a>
+                            <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab">Users</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " id="order-tab" data-toggle="tab" href="#order" role="tab">My order</a>
+                            <a class="nav-link " id="product-tab" data-toggle="tab" href="#product" role="tab">Product</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="package-tab" data-toggle="tab" href="#package" role="tab">Track order</a>
+                            <a class="nav-link" id="cart-tab" data-toggle="tab" href="#cart" role="tab">Cart({{ session()->has('cart') ? count(session()->get('cart')):0 }})</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="message-tab" data-toggle="tab" href="#message" role="tab">Message</a>
+                            <a class="nav-link" id="accessories-tab" data-toggle="tab" href="#accessories" role="tab">Accessories</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="cart-tab" data-toggle="tab" href="#cart" role="tab">My Cart({{ session()->has('cart') ? count(session()->get('cart')):0 }})</a>
+                            <a class="nav-link" id="cartA-tab" data-toggle="tab" href="#cartA" role="tab">Cart({{ session()->has('cartA') ? count(session()->get('cartA')):0 }})</a>
                         </li>
+
                     </ul>
                 </div>
             </div>
@@ -89,7 +89,7 @@
                     <a href="#">Message</a><br />
                     <a href="#">My Review</a><br />
                     <a href="#">Payment Option</a><br />
-                    <a href="#" >Help</a> <br /><br />
+                    <a href="#">Help</a> <br /><br />
                     <a href="{{ route('user.logout') }}" class="btn btn-danger">Logout</a>
 
                 </div>
@@ -124,10 +124,9 @@
                         </div>
                     </div>
 
-                    <!-- My Order -->
+                    <!-- Product Order -->
 
-                    <div class="tab-pane fade" id="order" role="tabpanel" aria-labelledby="order-tab">
-
+                    <div class="tab-pane fade" id="product" role="tabpanel" aria-labelledby="product-tab">
                         <div class="profile-table">
                             <table>
                                 <tr>
@@ -140,7 +139,6 @@
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
-
                                 @foreach($orders as $order)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
@@ -161,27 +159,78 @@
                         </div>
                     </div>
 
-                    <!-- track order -->
+                    <!-- Accessories order -->
 
-                    <div class="tab-pane fade" id="package" role="tabpanel" aria-labelledby="package-tab">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Ready To Ship</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>yes</p>
-                            </div>
+                    <div class="tab-pane fade" id="accessories" role="tabpanel" aria-labelledby="accessories-tab">
+                        <div class="profile-table">
+                            <table>
+                                <tr>
+                                    <th>SL</th>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total Price</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+
+                                @foreach($accessories as $order)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $order->accessories_name }}</td>
+                                    <td>{{ $order->accessories_type }}</td>
+                                    <td>{{ $order->accessories_price }}</td>
+                                    <td>{{ $order->quantity }}</td>
+                                    <td>{{ $order->total_price }}</td>
+                                    <td>{{ $order->status }}</td>
+
+                                    <td>
+                                        <a href="#">view</a>
+                                    </td>
+                                </tr>
+                                @endforeach
+
+                            </table>
                         </div>
                     </div>
-                    <!-- order cancel message -->
-                    <div class="tab-pane fade" id="message" role="tabpanel" aria-labelledby="message-tab">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>message</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>order canceled</p>
-                            </div>
+                    <!-- Accessories Add To Cart -->
+                    <div class="tab-pane fade" id="cartA" role="tabpanel" aria-labelledby="cartA-tab">
+
+                        <a href="{{ route('accessories.clear.cart') }}" class="btn btn-danger">Clear All Cart</a>
+                        <a href="{{ route('user.accessories.checkout') }}" class="btn btn-success">Checkout</a>
+
+                        <br>
+                        <div class="profile-table">
+                            <table>
+                                <tr>
+                                    <th>SL</th>
+                                    <th>Accessories Name</th>
+                                    <th>Type</th>
+                                    <th> Price</th>
+                                    <th>Quantity</th>
+                                    <th>Sub-Total</th>
+                                    <th>Action</th>
+
+                                </tr>
+                                @if($cartA)
+                                @foreach($cartA as $key=>$cart)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $cart['accessories_name'] }}</td>
+                                    <td>{{ $cart['accessories_type'] }}</td>
+                                    <td>{{ $cart['accessories_price'] }}</td>
+                                    <td>{{ $cart['accessories_quantity'] }}</td>
+                                    <td>{{ (int)$cart['accessories_price'] * (int)$cart['accessories_quantity'] }}</td>
+
+                                    <td>
+                                        <a href="{{ route('accessories.cart.delete',$key) }}" class="btn btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                                @endif
+
+                            </table>
                         </div>
                     </div>
                     <!-- Message Showing -->
@@ -193,7 +242,7 @@
                     <p class="alert alert-success">{{ session()->get('message') }}</p>
                     @endif
 
-                    <!-- Add To Cart -->
+                    <!-- Product Add To Cart -->
                     <div class="tab-pane fade" id="cart" role="tabpanel" aria-labelledby="cart-tab">
 
                         <a href="{{ route('product.clear.cart') }}" class="btn btn-danger">Clear All Cart</a>

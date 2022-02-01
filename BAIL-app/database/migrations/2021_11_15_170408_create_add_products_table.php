@@ -6,11 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateAddProductsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+    
     public function up()
     {
         Schema::create('add_products', function (Blueprint $table) {

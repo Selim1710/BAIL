@@ -1,6 +1,6 @@
 @extends('website.index')
 @section('contents')
-<section class="vh-100" style="background-image: url('https://mdbootstrap.com/img/Photos/new-templates/search-box/img4.jpg');">
+<section class="vh-100" style="background:#c8d6e5;">
     <div class="mask d-flex align-items-center h-100 gradient-custom-3">
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -58,7 +58,7 @@
 </section>
 
 
-<div style="background:#bdc3c7;">
+<div style="background:#c8d6e5;border-bottom:2px solid #d2dae2;">
    <br><br><br><br><br><br><br><br><br><br><br><br><br>
 </div>
 @endsection

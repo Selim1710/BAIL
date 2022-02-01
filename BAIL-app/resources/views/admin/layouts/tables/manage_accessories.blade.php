@@ -44,6 +44,7 @@
                 <th>Type</th>
                 <th>Details</th>
                 <th>Price</th>
+                <th>Current Stock</th>
                 <th>Action</th>
             </tr>
 
@@ -55,12 +56,13 @@
                 <td>{{$accessory->accessories_type}}</td>
                 <td>{{$accessory->accessories_details}}</td>
                 <td>{{$accessory->accessories_price}}</td>
+                <td>0</td>
 
 
                 <td>
-                    <a href="{{ route('admin.view.accessory',$accessory->id) }}" class="btn btn-primary">view</a>
-                    <a href="{{route('accessories.edit',$accessory->id)}}" class="btn btn-success">Edit &rarr;</a>
-                    <a href="{{route('accessories.destroy',$accessory->id)}}" class="btn btn-danger">Delete</a>
+                    <a href="{{ route('admin.view.accessory',$accessory->id) }}" class=" btn-primary">View</a>
+                    <a href="{{route('accessories.edit',$accessory->id)}}" class=" btn-success">Edit</a>
+                    <a href="{{route('accessories.destroy',$accessory->id)}}" class=" btn-danger">Delete</a>
                 </td>
 
 

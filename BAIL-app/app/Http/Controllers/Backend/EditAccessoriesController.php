@@ -15,7 +15,7 @@ class EditAccessoriesController extends Controller
         if ($search != "") {
             $accessories = AddAccessory::where("name", 'LIKE', "%$search%")->get();
         } else {
-            $accessories = AddAccessory::all();
+            $accessories = AddAccessory::with('accessoryStock')->get();
         }
         return view('admin.layouts.tables.manage_accessories', compact('accessories', 'search'));
     }

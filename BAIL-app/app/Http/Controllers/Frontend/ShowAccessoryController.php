@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\AccessoryOrder;
 use App\Models\AddAccessory;
 use App\Models\AddToCart;
 use App\Models\ManageOrder;
@@ -27,9 +28,9 @@ class ShowAccessoryController extends Controller
     {
         $search = $request['search'] ?? "";
         if ($search != "") {
-            $accessory = AddAccessory::where('accessories_model', 'LIKE', "%$search%")->orwhere('name', 'LIKE', "%$search%")->get();
+            $accessory = AddAccessory::where('accessories_type', 'LIKE', "%$search%")->orwhere('name', 'LIKE', "%$search%")->get();
         } else {
-            $accessories = AddAccessory::all();
+            $accessories = AddAccessory::with('accessoryStock')->get();
         }
         $accessory = AddAccessory::findOrFail($id);
         return view('website.layouts.form.accessories_order', compact('accessory', 'search'));
@@ -46,17 +47,20 @@ class ShowAccessoryController extends Controller
 
     public function accessoryOrder(Request $request, $id)
     {
-        ManageOrder::create([
+        AccessoryOrder::create([
             'user_id' => auth()->user()->id,
             'name' => auth()->user()->name,
             'email' => auth()->user()->email,
-            'product_name' => $request->name,
-            'unit_price' => $request->accessories_price,
+
+            'accessories_type' => $request->accessories_type,
+            'accessories_id' => $request->id,
+            'accessories_name' => $request->name,
+            'accessories_price' => $request->accessories_price,
             'quantity' => $request->quantity,
 
             'total_price' => $request['accessories_price'] * $request['quantity'],
         ]);
-        return redirect()->route('user.show.accessories');
+        return redirect()->route('user.show.accessories')->with('message', 'Accessories Ordered Successfully');
     }
 
     public function addToCart($id)
@@ -69,39 +73,78 @@ class ShowAccessoryController extends Controller
             return redirect()->back()->with('error', 'accessories is not availabe into the card');
         }
 
-        $cartExist = session()->get('cart');
+        $cartExist = session()->get('cartA');
         if (!$cartExist) {
             $cartData = [
                 $id => [
-                    'product_id' => $id,
-                    'product_name' => $accessories->name,
-                    'product_price' => $accessories->accessories_price,
-                    'product_quantity' => 1,
+                    'accessories_id' => $id,
+                    'accessories_name' => $accessories->name,
+                    'accessories_type' => $accessories->accessories_type,
+                    'accessories_price' => $accessories->accessories_price,
+                    'accessories_quantity' => 1,
                 ]
             ];
-
-            session()->put('cart', $cartData);
-            return redirect()->back()->with('message', 'accessories added into cart');
+            session()->put('cartA', $cartData);
+            return redirect()->back()->with('message', 'Accessories added into cart');
         }
 
         // case:2
 
         if (!isset($cartExist[$id])) {
             $cartExist[$id] = [
-                'product_id' => $id,
-                'product_name' => $accessories->name,
-                'product_price' => $accessories->accessories_price,
-                'product_quantity' => 1,
+                'accessories_id' => $id,
+                'accessories_name' => $accessories->name,
+                'accessories_type' => $accessories->accessories_type,
+                'accessories_price' => $accessories->accessories_price,
+                'accessories_quantity' => 1,
             ];
 
-            session()->put('cart', $cartExist);
-            return redirect()->back()->with('message', 'Product added on cart');
+            session()->put('cartA', $cartExist);
+            return redirect()->back()->with('message', 'Accessories added on cart');
         }
 
         // case: 3
+        $cartExist[$id]['accessories_quantity'] = $cartExist[$id]['accessories_quantity'] + 1;
+        session()->put('cartA', $cartExist);
+        return redirect()->back()->with('message', 'Same Accessories added into the cart');
+    }
 
-        $cartExist[$id]['product_quantity'] = $cartExist[$id]['product_quantity'] + 1;
-        session()->put('cart', $cartExist);
-        return redirect()->back()->with('message', 'Same Product added into the cart');
+    public function clearCart()
+    {
+        session()->forget('cartA');
+        return redirect()->back()->with('message', 'Cart cleared successfully');
+    }
+
+    public function checkout()
+    {
+        $cartA = session()->get('cartA');
+
+        if ($cartA) {
+            foreach ($cartA as $cart)
+                $order = AccessoryOrder::create([
+                    'user_id' => auth()->user()->id,
+                    'name' => auth()->user()->name,
+                    'email' => auth()->user()->email,
+
+                    'accessories_id' => $cart['accessories_id'],
+                    'accessories_name' => $cart['accessories_name'],
+                    'accessories_price' => $cart['accessories_price'],
+                    'accessories_type' => $cart['accessories_type'],
+                    'accessories_quantity' => $cart['accessories_quantity'],
+                    
+                    'total_price' => (int)$cart['accessories_price'] * (int)$cart['accessories_quantity'],
+                ]);
+            session()->forget('cart');
+            return redirect()->back()->with('message', 'Order place successfully');
+        }
+        return redirect()->back()->with('error', 'No data found into the cart');
+    }
+
+    public function deleteFromCart($id)
+    {
+        $cart = session()->get('cartA');
+        unset($cart[$id]);
+        session()->put('cartA', $cart);
+        return redirect()->back();
     }
 }

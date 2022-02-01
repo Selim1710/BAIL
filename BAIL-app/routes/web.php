@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Backend\AccessoryOrderController;
+use App\Http\Controllers\Backend\AddAccessoryStockController;
 use App\Http\Controllers\Backend\HomeController as AdminController;
 use App\Http\Controllers\Backend\AdminLoginController;
 use App\Http\Controllers\Backend\EditAccessoriesController;
@@ -47,6 +49,10 @@ Route::group(['prefix' => 'website'], function () {
 
         Route::get('/accessory/add/to/cart/{id}', [ShowAccessoryController::class, 'addToCart'])->name('accessory.add.to.cart');
         Route::post('/accessory/place/order/{id}', [ShowAccessoryController::class, 'accessoryOrder'])->name('accessory.place.order');
+        Route::get('/accessory/clear/cart', [ShowAccessoryController::class, 'clearCart'])->name('accessories.clear.cart');
+        Route::get('/user/accessory/checkout',[ShowAccessoryController::class,'checkout'])->name('user.accessories.checkout');
+        Route::get('/user/accessory/delete/from/card/{id}',[ShowAccessoryController::class,'deleteFromCart'])->name('accessories.cart.delete');
+
 
 
         Route::get('/user/product/order/{id}', [ShowProductController::class, 'orderForm'])->name('user.product.order');
@@ -77,6 +83,7 @@ Route::group(['prefix' => 'admin'], function () {
 
         Route::get('/', [AdminController::class, 'home'])->name('home');
 
+        // product 
         Route::get('/product', [EditProductController::class, 'index'])->name('product.index');
         Route::get('/product/create', [EditProductController::class, 'create'])->name('product.create');
         Route::post('/product/store', [EditProductController::class, 'store'])->name('product.store');
@@ -85,11 +92,12 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/product/update/{id}', [EditProductController::class, 'update'])->name('product.update');
         Route::get('/product/delete/{id}', [EditProductController::class, 'destroy'])->name('product.destroy');
 
+        // product order
         Route::get('/order', [ManageOrderController::class, 'index'])->name('order.index');
         Route::get('/confirm/order/{id}', [ManageOrderController::class, 'confirmOrder'])->name('admin.confirm.order');
         Route::get('/remove/order/{id}', [ManageOrderController::class, 'removeOrder'])->name('admin.remove.order');
 
-        //stock
+        //product stock
         Route::get('/stock', [EditStockController::class, 'index'])->name('stock.index');
         Route::get('/stock/create', [EditStockController::class, 'create'])->name('stock.create');
         Route::post('/stock/store', [EditStockController::class, 'store'])->name('stock.store');
@@ -97,6 +105,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/stock/update{id}', [EditStockController::class, 'update'])->name('admin.update.stock');
         Route::get('/stock/remove/{id}', [EditStockController::class, 'remove'])->name('admin.remove.stock');
 
+        // admin add accessories
         Route::get('/accessories', [EditAccessoriesController::class, 'index'])->name('accessories.index');
         Route::get('/accessories/create', [EditAccessoriesController::class, 'create'])->name('accessories.create');
         Route::post('/accessories/store', [EditAccessoriesController::class, 'store'])->name('accessories.store');
@@ -104,6 +113,14 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/accessories/edit/{id}', [EditAccessoriesController::class, 'edit'])->name('accessories.edit');
         Route::post('/accessories/update/{id}', [EditAccessoriesController::class, 'update'])->name('accessories.update');
         Route::get('/accessories/destroy/{id}', [EditAccessoriesController::class, 'destroy'])->name('accessories.destroy');
+
+        // accessories stock
+        Route::get('/accessories/stock', [AddAccessoryStockController::class, 'accessoryStockTable'])->name('accessorires.stock.table');
+        Route::get('/add/accessories/stock', [AddAccessoryStockController::class, 'addAccessoriesStock'])->name('admin.add.stock');
+        Route::post('/store/accessories/stock', [AddAccessoryStockController::class, 'store'])->name('admin.store.stock');
+
+        // accessory order
+        Route::get('/manage/accessories/order', [AccessoryOrderController::class, 'accessoryOrderTable'])->name('admin.manage.accessory.order');
 
 
         Route::get('/customer/list', [ManageCustommerController::class, 'index'])->name('customer.list');

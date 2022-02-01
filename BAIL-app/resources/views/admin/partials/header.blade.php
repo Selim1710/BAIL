@@ -15,9 +15,13 @@
 
                 <div class="sub_menu_1">
                     <ul>
-                        <li><a href="{{route('accessories.index')}}">Accessories</a></li>
+
+                        <li><a href="{{route('accessories.index')}}">Add Accessory</a></li>
+                        <li><a href="{{ route('accessorires.stock.table') }}">Accessory Stock</a></li>
+                        <li><a href="{{ route('admin.manage.accessory.order') }}">Accessory Order</a></li>
                         <li><a href="{{route('customer.list')}}">Customer</a></li>
                         <li><a href="{{route('customer.block.list')}}">BlockList</a></li>
+
                         <li><a href="#">Supplier</a></li>
                         <li><a href="#">Employee</a></li>
                         <li><a href="{{route('admin.logout')}}">Logout</a></li>

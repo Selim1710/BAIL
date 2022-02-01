@@ -20,6 +20,7 @@
     <h1>Accessories Details:</h1>
     <h2>Name: {{ $accessory->name  }}</h2>
     <h2>Price:{{ $accessory->accessories_details }}</h2>
+    <h2>type: {{ $accessory->accessories_type }}</h2>
 
     <br>
     <a href="{{ route('user.accessory.order',$accessory->id )}}" style="padding:1%; background:blue; color:cornsilk; text-decoration:none; border-radius:5px;">Order Now</a>

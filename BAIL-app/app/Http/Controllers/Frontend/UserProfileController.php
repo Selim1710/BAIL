@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\AccessoryOrder;
 use App\Models\ManageOrder;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -13,8 +14,10 @@ class UserProfileController extends Controller
     public function userProfile()
     {
         $carts=session()->get('cart');
+        $cartA=session()->get('cartA');
         $orders=ManageOrder::all();
-        return view('website.pages.user_profile',compact('carts','orders'));
+        $accessories=AccessoryOrder::all();
+        return view('website.pages.user_profile',compact('carts','orders','accessories','cartA'));
     }
     public function editProfile($id){
         $users=User::find($id);

@@ -59,7 +59,7 @@
                 Details: {{ $accessory->accessories_details }}
               </h5>
               <h6>
-                <span>20%</span> Off
+                Type: {{ $accessory->accessories_type }}
               </h6>
               <h5>Price: {{ $accessory->accessories_price }} </h5>
               <a href="{{route('user.accessory.order',$accessory->id)}}" class="btn btn-primary">Order Now</a>
@@ -201,40 +201,6 @@
 <br>
 
 
-
-<!-- Our Branches -->
-
-<br>
-
-<section class="branch_section layout_padding-bottom">
-  <div class="container ">
-    <div class="heading_container heading_center">
-      <h2>
-        Our Branches
-      </h2>
-      <br>
-    </div>
-
-    <div class="card-group">
-      <!-- loop here -->
-      <div class="card col-sm-4">
-        <img src="{{ url('images/show-room-1.jpg') }}" class="card-img-top" alt="Add image Here">
-        <div class="card-body">
-          <h5 class="card-title"> Name</h5>
-          <p class="card-text">Address</p>
-        </div>
-      </div>
-      <!-- end loop -->
-    </div>
-  </div>
-  </div>
-</section>
-
-<br>
-
-
-
-
 <!-- customize section -->
 <section class="customize_section layout_padding">
   <div class="container">
@@ -263,16 +229,16 @@
                 </option>
                 <!-- here value will be id -->
                 <option value="">
-                  2
+                  200
                 </option>
                 <option value="">
-                  3
+                  300
                 </option>
                 <option value="">
-                  4
+                  400
                 </option>
                 <option value="">
-                  5
+                  500
                 </option>
               </select>
             </div>
