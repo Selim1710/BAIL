@@ -12,10 +12,10 @@
               <a class="nav-link" href="{{ route('website.index') }}">Home</a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link" href="{{ route('user.show.product') }}">Product</a>
+              <a class="nav-link" href="{{ route('user.show.product') }}"  role="tab">Product</a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link" href="{{ route('user.show.accessories') }}">Accessories</a>
+              <a class="nav-link" href="{{ route('user.show.accessories') }}"  role="tab">Accessories</a>
             </li>
 
             <!-- product search starts here -->

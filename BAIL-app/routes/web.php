@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\EditProductController;
 use App\Http\Controllers\Backend\EditStockController;
 use App\Http\Controllers\Backend\ManageCustommerController;
 use App\Http\Controllers\Backend\ManageOrderController;
+use App\Http\Controllers\Backend\ReportController;
 use App\Http\Controllers\Frontend\ShowAccessoryController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ShowProductController;
@@ -128,6 +129,9 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/customer/list', [ManageCustommerController::class, 'index'])->name('customer.list');
         Route::get('/remove/customer/{id}', [ManageCustommerController::class, 'remove'])->name('admin.remove.customer');
         Route::get('/view/customer/block/list', [ManageCustommerController::class, 'blockList'])->name('customer.block.list');
+
+
+        Route::get('/print/report', [ReportController::class, 'report'])->name('admin.print.report');
 
 
     });

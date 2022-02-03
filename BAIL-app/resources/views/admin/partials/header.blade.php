@@ -21,6 +21,8 @@
                         <li><a href="{{ route('admin.manage.accessory.order') }}">Accessory Order</a></li>
                         <li><a href="{{route('customer.list')}}">Customer</a></li>
                         <li><a href="{{route('customer.block.list')}}">BlockList</a></li>
+                        <li><a href="{{route('admin.print.report')}}">Report</a></li>
+
 
                         <li><a href="#">Supplier</a></li>
                         <li><a href="#">Employee</a></li>
