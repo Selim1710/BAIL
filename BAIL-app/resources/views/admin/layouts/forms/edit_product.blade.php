@@ -9,9 +9,9 @@
 
       <form action="{{route('product.update', $products->id)}}" method="post" enctype="multipart/form-data">
         @csrf 
-        <h2>Name</h2>
+        <h2>Name <small style="color:blue;">(Unchangeable)</small></h2>
         <div class="input-box">
-          <input type="string" name="name" value="{{$products['name']}}" placeholder="Enter product name" required>
+          <input type="string" name="name" value="{{$products['name']}}" placeholder="Enter product name" readonly required>
         </div>
         <h2>Product Price</h2>
         <div class="input-box">
@@ -25,9 +25,7 @@
         <div class="input-box">
           <textarea type="string" name="product_details"  placeholder="Enter Product Details" required>{{$products['product_details']}}</textarea>
         </div>
-        <div class="input-box">
-          <input type="file" name="image_path" required>
-        </div>
+        
         <div class="input-box button">
           <input type="Submit"value="Update Now">
         </div>

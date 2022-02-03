@@ -15,13 +15,15 @@ class EditAccessoriesController extends Controller
     {
         $search = $request['search'] ?? "";
         if ($search != "") {
-            $accessories = AddAccessory::where("name", 'LIKE', "%$search%")->get();
+            $accessories = AddAccessory::where("name", 'LIKE', "%$search%")->orwhere("accessories_type", 'LIKE', "%$search%")->get();
         } else {
             $accessories = AddAccessory::with('accessoryStock')->get();
-
-            $accessories->total_order=AccessoryOrder::where('status','confirmed')->sum('quantity');
-            $accessories->current_stock=AccessoryStock::all()->sum('total_produce');           
-            $accessories->available=+ $accessories->current_stock-$accessories->total_order;
+            foreach($accessories as $accessory){
+                $accessory->sold=AccessoryOrder::where('status','confirmed')->sum('quantity');
+                $accessory->stock=AccessoryStock::all()->sum('total_produce');           
+                $accessory->available = $accessory->stock - $accessory->sold + $accessory->total_produce;
+            }
+            
         }
         return view('admin.layouts.tables.manage_accessories', compact('accessories', 'search'));
     }
@@ -80,18 +82,12 @@ class EditAccessoriesController extends Controller
     public function update(Request $request, $id)
     {
 
-        $accessories = '';
-        if ($request->hasfile('acc_img')) {
-            $accessory = $request->file('acc_img');
-            $accessories = date('Ymdhms') . '.' . $accessory->getClientOriginalExtension();
-            $accessory->storeAs('/uploads/accessories', $accessories);
-        }
+   
         AddAccessory::where('id', $id)->update([
             'name' => $request->name,
             'accessories_type' => $request->accessories_type,
             'accessories_details' => $request->accessories_details,
             'accessories_price' => $request->accessories_price,
-            'acc_img' => $accessories,
 
         ]);
         return redirect()->route('accessories.index')->with('message', 'Accessories Updated');

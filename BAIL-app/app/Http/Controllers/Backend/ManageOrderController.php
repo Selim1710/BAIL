@@ -9,10 +9,15 @@ use Illuminate\Http\Request;
 class ManageOrderController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $orders = ManageOrder::orderBy('id','DESC')->cursorPaginate(5);
-        return view('admin.layouts.tables.manage_order', compact('orders'));
+        $search = $request['search'] ?? "";
+        if($search!=""){
+            $orders = ManageOrder::where('product_name', 'LIKE',"%$search%")->orwhere('product_type', 'LIKE',"%$search%")->cursorPaginate(5);
+        }else{
+            $orders = ManageOrder::orderBy('id','DESC')->cursorPaginate(5);
+        }
+        return view('admin.layouts.tables.manage_order', compact('orders','search'));
     }
 
     public function confirmOrder($id)

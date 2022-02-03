@@ -33,7 +33,7 @@
 
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form3Example1cg">Current Stock</label>
-                                    <input type="string" name="available" value="{{$accessories->available}}" id="form3Example1cg" class="form-control form-control-lg" readonly required />
+                                    <input type="string" name="available" value="{{$accessory->available}}" id="form3Example1cg" class="form-control form-control-lg" readonly required />
                                 </div>
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form3Example1cg">Quantity</label>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\AccessoryOrder;
 use App\Models\AddAccessory;
 use App\Models\AddProduct;
 use App\Models\ManageOrder;
@@ -14,11 +15,17 @@ class HomeController extends Controller
     public function home(){
 
         $products = AddProduct::all()->count();
-        $accessories = AddAccessory::all()->count();
-        $customers = User::where('role','user')->count();
         $orders = ManageOrder::sum('quantity');
         $arrears = ManageOrder::where('status','confirmed')->sum('total_price');
 
-        return view('admin.layouts.home',compact('customers','orders','products','accessories','arrears'));
+        $accessories = AddAccessory::all()->count();
+        $accessoryOrder = AccessoryOrder::where('status','confirmed')->sum('quantity');
+        $accessoryArrears = AccessoryOrder::where('status','confirmed')->sum('total_price');
+
+        $customers = User::where('role','user')->count();
+
+
+
+        return view('admin.layouts.home',compact('customers','products','orders','accessories','accessoryOrder','accessoryArrears','arrears'));
     }
 }

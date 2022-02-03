@@ -31,14 +31,13 @@ class ShowAccessoryController extends Controller
         if ($search != "") {
             $accessory = AddAccessory::where('accessories_type', 'LIKE', "%$search%")->orwhere('name', 'LIKE', "%$search%")->get();
         } else {
-            $accessories = AddAccessory::with('accessoryStock')->get();
+            $accessory = AddAccessory::findOrFail($id);
 
-            $accessories->total_order = AccessoryOrder::where('status', 'confirmed')->sum('quantity');
-            $accessories->current_stock = AccessoryStock::all()->sum('total_produce');
-            $accessories->available = +$accessories->current_stock - $accessories->total_order;
+            $accessory->sold = AccessoryOrder::where('status', 'confirmed')->sum('quantity');
+            $accessory->stock = AccessoryStock::all()->sum('total_produce');
+            $accessory->available = $accessory->stock - $accessory->sold + $accessory->total_produce;
         }
-        $accessory = AddAccessory::findOrFail($id);
-        return view('website.layouts.form.accessories_order', compact('accessory', 'search', 'accessories'));
+        return view('website.layouts.form.accessories_order', compact('accessory', 'search'));
     }
 
 

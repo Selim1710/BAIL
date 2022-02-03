@@ -15,11 +15,8 @@ class EditProductController extends Controller
     {
         $search = $request['search'] ?? "";
         if ($search != "") {
-            $products = AddProduct::where('name', 'LIKE', "%$search%")->get();
-            foreach ($products as $product) {
-                $product->sold = ManageOrder::where('product_id', $product->id)->sum('quantity');
-                $product->stock = Stock::where('product_id', $product->id)->sum('quantity');
-            }
+            $products = AddProduct::where('name', 'LIKE', "%$search%")->cursorPaginate(5);
+            
         } else {
             $products = AddProduct::orderBy('id','DESC')->cursorPaginate(5);
             foreach ($products as $product) {
@@ -78,9 +75,7 @@ class EditProductController extends Controller
 
     public function edit($id)
     {
-
         $products = AddProduct::findOrFail($id);
-        //->first()
         return view('admin.layouts.forms.edit_product',compact('products'));
     }
 
@@ -88,19 +83,13 @@ class EditProductController extends Controller
     public function update(Request $request, $id)
     {
         //  dd($request->all());
-        $filename = '';
-        if ($request->hasfile('image_path')) {
-            $file = $request->file('image_path');
-            $filename = date('Ymdmhs') . '.' . $file->getClientOriginalExtension();
-            $file->storeAs('/uploads/product', $filename);
-        }
+       
         AddProduct::where('id', $id)
             ->update([
                 'name' => $request->input('name'),
                 'product_price' => $request->input('product_price'),
                 'product_type' => $request->input('product_type'),
                 'product_details' => $request->input('product_details'),
-                'image_path' => $filename,
             ]);
         return redirect()->route('product.index')->with('message','Product Updated');
     }

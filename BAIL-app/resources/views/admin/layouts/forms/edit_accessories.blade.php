@@ -8,9 +8,9 @@
 
       <form action="{{route('accessories.update',$accessories->id)}}" method="post" enctype="multipart/form-data">
         @csrf 
-        <h2>Name</h2>
+        <h2>Name<small style="color:blue">(Unchangeable)</small></h2>
         <div class="input-box">
-          <input type="string" name="name" value="{{$accessories['name']}}" placeholder="Enter Accessories name" required>
+          <input type="string" name="name" value="{{$accessories['name']}}" placeholder="Enter Accessories name" readonly required>
         </div>
         <h2>Accessories Type</h2>
         <div class="input-box">
@@ -24,9 +24,7 @@
         <div class="input-box">
           <textarea type="string"  name="accessories_details" placeholder="Enter Accessories Details:" required>{{$accessories['accessories_details']}}</textarea>
         </div>
-        <div class="input-box">
-          <input type="file" name="acc_img" required>
-        </div>
+        
         <div class="input-box button">
           <input type="Submit"value="Submit Now">
         </div>
