@@ -16,9 +16,8 @@ class EditProductController extends Controller
         $search = $request['search'] ?? "";
         if ($search != "") {
             $products = AddProduct::where('name', 'LIKE', "%$search%")->cursorPaginate(5);
-            
         } else {
-            $products = AddProduct::orderBy('id','DESC')->cursorPaginate(5);
+            $products = AddProduct::orderBy('id', 'DESC')->cursorPaginate(5);
             foreach ($products as $product) {
                 $product->sold = ManageOrder::where('product_id', $product->id)->sum('quantity');
                 $product->stock = Stock::where('product_id', $product->id)->sum('quantity');
@@ -60,9 +59,9 @@ class EditProductController extends Controller
                 'product_details' => $request->input('product_details'),
                 'image_path' => $filename,
             ]);
-            return redirect()->route('product.index')->with('message','Product Added');
+            return redirect()->route('product.index')->with('message', 'Product Added');
         } catch (\Throwable $throw) {
-            return redirect()->route('product.index')->with('error','Product is not Added');
+            return redirect()->route('product.index')->with('error', 'Product is not Added');
         }
     }
 
@@ -76,14 +75,14 @@ class EditProductController extends Controller
     public function edit($id)
     {
         $products = AddProduct::findOrFail($id);
-        return view('admin.layouts.forms.edit_product',compact('products'));
+        return view('admin.layouts.forms.edit_product', compact('products'));
     }
 
 
     public function update(Request $request, $id)
     {
         //  dd($request->all());
-       
+
         AddProduct::where('id', $id)
             ->update([
                 'name' => $request->input('name'),
@@ -91,7 +90,7 @@ class EditProductController extends Controller
                 'product_type' => $request->input('product_type'),
                 'product_details' => $request->input('product_details'),
             ]);
-        return redirect()->route('product.index')->with('message','Product Updated');
+        return redirect()->route('product.index')->with('message', 'Product Updated');
     }
 
 
@@ -99,6 +98,6 @@ class EditProductController extends Controller
     {
         $products = AddProduct::findOrFail($id);
         $products->delete();
-        return redirect()->route('product.index')->with('error','Product Deleted');
+        return redirect()->route('product.index')->with('error', 'Product Deleted');
     }
 }

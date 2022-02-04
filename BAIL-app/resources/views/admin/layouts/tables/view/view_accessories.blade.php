@@ -2,17 +2,23 @@
 
 @section('content')
 
-<h1 class="text-center">See Accessories Details</h1>
+<!-- head -->
+<h1 class="text-center">Change Accessory Image</h1>
 
-<div class="product-details">
-    <div class="product-image">
-    <img src="{{url('/uploads/accessories/'.$accessory->acc_img)}}">
-    </div>
-    <div class="img-details text-center">
-        <h1>Accessory Details:</h1>
-        <h2>Name: {{$accessory->name}}</h2>
-        <h2>Price:{{$accessory->accessories_price}}</h2>
-    </div>
+<br><br>
+<div style="background:grey;padding:1%;width:40%;margin-left:20%;">
+    <!-- form -->
+    <form action="{{ route('change.accessory.image',$accessory->id) }}" method="post" enctype="multipart/form-data">
+        @csrf
+        @method('PUT')
+        <img src="{{url('/uploads/accessories/'.$accessory->acc_img)}}" style="height:250px;width:250px;">
+        <input type="file" name="acc_img" required> <br>
+        <div style="padding:1%;margin-left:55%;">
+            <input type="Submit" value="Submit">
+        </div>
+    </form>
 </div>
+
+<br><br><br>
 
 @endsection

@@ -25,7 +25,6 @@
         <div class="input-box">
           <textarea type="string" name="product_details"  placeholder="Enter Product Details" required>{{$products['product_details']}}</textarea>
         </div>
-        
         <div class="input-box button">
           <input type="Submit"value="Update Now">
         </div>

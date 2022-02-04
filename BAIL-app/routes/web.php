@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\EditStockController;
 use App\Http\Controllers\Backend\ManageCustommerController;
 use App\Http\Controllers\Backend\ManageOrderController;
 use App\Http\Controllers\Backend\ReportController;
+use App\Http\Controllers\Backend\UpdateImageController;
 use App\Http\Controllers\Frontend\ShowAccessoryController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ShowProductController;
@@ -92,6 +93,11 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/product/edit/{id}', [EditProductController::class, 'edit'])->name('product.edit');
         Route::post('/product/update/{id}', [EditProductController::class, 'update'])->name('product.update');
         Route::get('/product/delete/{id}', [EditProductController::class, 'destroy'])->name('product.destroy');
+        
+        // update image
+        Route::PUT('/change/product/image/{id}', [UpdateImageController::class, 'changeImage'])->name('change.product.image');
+        Route::PUT('/change/accessory/image/{id}', [UpdateImageController::class, 'changeaccessoryImage'])->name('change.accessory.image');
+
 
         // product order
         Route::get('/order', [ManageOrderController::class, 'index'])->name('order.index');
