@@ -4,8 +4,14 @@
 
 <!-- A slider will be here -->
 
+<!-- message -->
+@if(session()->has('error'))
+<p class="alert alert-danger">{{ session()->get('error') }}</p>
 
-
+@endif
+@if(session()->has('message'))
+<p class="alert alert-success">{{ session()->get('message') }}</p>
+@endif
 
 
 <!-- just for making the website beautiful -->
@@ -21,7 +27,7 @@
         <br>
         Bangladesh Auto Industries Limited <br> <br>
       </h2>
-      <button class="btn btn-success">See Our Product &rarr;</button>
+      <a href="{{ route('user.show.product') }}" class="btn btn-success">See Our Product &rarr;</a>
     </div>
 
   </div>
@@ -62,7 +68,7 @@
                 Type: {{ $accessory->accessories_type }}
               </h6>
               <h5>Price: {{ $accessory->accessories_price }} </h5>
-              <a href="{{route('user.accessory.order',$accessory->id)}}" class="btn btn-primary">Order Now</a>
+              <a href="{{ route('accessory.add.to.cart',$accessory->id) }}" class="btn btn-primary">Add To Cart</a>
             </div>
           </div>
 
@@ -90,6 +96,7 @@
       <li data-filter=".car">Car</li>
       <li data-filter=".bus">Bus</li>
       <li data-filter=".bike">Bike</li>
+      <li data-filter=".cycle">Cycle</li>
       <li data-filter=".truck">Truck</li>
     </ul>
 
@@ -115,7 +122,7 @@
                 Price: {{ $car->product_price }}
               </h6>
 
-              <a href="{{route('user.product.order',$car->id)}}" class="btn btn-primary">Order Now</a>
+              <a href="{{ route('product.add.to.cart', $car->id) }}" class="btn btn-primary">Add To Cart</a>
             </div>
           </div>
         </div>

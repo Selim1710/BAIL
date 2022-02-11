@@ -112,7 +112,7 @@ class ShowAccessoryController extends Controller
         }
 
         // case: 3
-        $cartExist[$id]['accessories_quantity'] = $cartExist[$id]['accessories_quantity'] + 1;
+        $cartExist[$id]['quantity'] = $cartExist[$id]['quantity'] + 1;
         session()->put('cartA', $cartExist);
         return redirect()->back()->with('message', 'Same Accessories added into the cart');
     }

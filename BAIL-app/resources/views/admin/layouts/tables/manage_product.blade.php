@@ -59,7 +59,7 @@
                 <td>{{$product->product_price}}</td>
                 <td><img src="{{url('/uploads/product/'.$product->image_path)}}" style="width:50px;height:50px" alt=""></td>
                 <td>{{$product->product_type}}</td>
-                <td>{{$product->product_details}}</td>
+                <td style="width: 30%;">{{$product->product_details}}</td>
                 <td>{{$product->total_produce - $product->sold + $product->stock}}</td>
 
 

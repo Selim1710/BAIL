@@ -2,6 +2,15 @@
 
 @section('contents')
 
+<!-- message -->
+@if(session()->has('error'))
+<p class="alert alert-danger">{{ session()->get('error') }}</p>
+
+@endif
+@if(session()->has('message'))
+<p class="alert alert-success">{{ session()->get('message') }}</p>
+@endif
+
 <!-- car section -->
 
 <section class="car_section layout_padding-bottom">
@@ -17,6 +26,7 @@
       <li data-filter=".car">Car</li>
       <li data-filter=".bus">Bus</li>
       <li data-filter=".bike">Bike</li>
+      <li data-filter=".cycle">Cycle</li>
       <li data-filter=".truck">Truck</li>
     </ul>
 
@@ -42,7 +52,7 @@
                 Price: {{ $car->product_price }}
               </h6>
 
-              <a href="{{route('user.product.order',$car->id)}}" class="btn btn-primary">Order Now</a>
+              <a href="{{ route('product.add.to.cart', $car->id) }}" class="btn btn-primary">Add To Cart</a>
             </div>
           </div>
         </div>

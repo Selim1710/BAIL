@@ -38,7 +38,6 @@
                 <td>{{$stock->quantity}}</td>
 
                 <td>
-                    <a href="#" class="btn-primary">View</a>
                     <a href="{{ route('admin.edit.stock',$stock->id) }}" class="btn-success">Edit</a>
                     <a href="{{ route('admin.remove.stock',$stock->id) }}" class="btn-danger">Remove</a>
                 </td>

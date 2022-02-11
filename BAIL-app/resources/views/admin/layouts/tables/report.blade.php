@@ -22,8 +22,10 @@
             <button onclick="printProduct()" class="btn btn-success">Print</button>
         </div>
 
-        <br /><br /> <br>
+        <br /><br /> 
         <div id="divToPrint">
+            <h2 style="margin-left: 20%;">Bangladesh Auto Industries Limited</h2>
+            <br><br>
             <table class="full-width">
                 <tr>
                     <th>User ID</th>
@@ -66,7 +68,6 @@
                 @endforeach
 
             </table>
-            <div class="paginate" style="margin: 6% 0 0 40%;">{{ $orders->links() }}</div>
         </div>
     </div>
 </div>

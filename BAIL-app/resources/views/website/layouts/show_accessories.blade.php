@@ -1,6 +1,15 @@
 @extends('website.index')
 @section('contents')
 
+<!-- message -->
+@if(session()->has('error'))
+<p class="alert alert-danger">{{ session()->get('error') }}</p>
+
+@endif
+@if(session()->has('message'))
+<p class="alert alert-success">{{ session()->get('message') }}</p>
+@endif
+
 <!-- Accessories -->
 <section class="accessories_section layout_padding-bottom">
   <div class="accessories_container">
@@ -31,7 +40,7 @@
                 Type: {{ $accessory->accessories_type }}
               </h6>
               <h5>Price: {{ $accessory->accessories_price }} </h5>
-              <a href="{{route('user.accessory.order',$accessory->id)}}" class="btn btn-primary">Order Now</a>
+              <a href="{{ route('accessory.add.to.cart',$accessory->id) }}" class="btn btn-primary">Add To Cart</a>
             </div>
           </div>
 

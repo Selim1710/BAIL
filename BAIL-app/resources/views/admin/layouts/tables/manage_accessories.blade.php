@@ -54,7 +54,7 @@
                 <td>{{$accessory->name}}</td>
                 <td><img src="{{url('/uploads/accessories/'.$accessory->acc_img)}}" style="width:50px;height:50px" alt=""></td>
                 <td>{{$accessory->accessories_type}}</td>
-                <td>{{$accessory->accessories_details}}</td>
+                <td style="width: 25%;">{{$accessory->accessories_details}}</td>
                 <td>{{$accessory->accessories_price}}</td>
                 <td>{{$accessory->available}}</td>
 

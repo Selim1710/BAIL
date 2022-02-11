@@ -43,17 +43,6 @@
             <br>
             Total Customer
         </div>
-        <div class="col-4 text-center">
-            <h1>0</h1>
-            <br>
-            Total Revenue(Products)
-        </div>
-        <div class="col-4 text-center">
-            <h1>0</h1>
-            <br>
-            Total Revenue(Accessory)
-        </div>
-
         <div class="clearfix"></div>
 
     </div>
